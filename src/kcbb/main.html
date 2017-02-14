@@ -1,0 +1,14 @@
+<div class="main">
+
+    <!---->
+    <slider [slider]="main['slider']"></slider>
+
+    <!---->
+    <nav-bar (activeLink)="activateLink($event)"></nav-bar>
+
+    <!---->
+    <content [content]="main['content']"
+             [activeLink]="main['nav-bar']['active-link']">
+    </content>
+
+</div>

@@ -1,0 +1,37 @@
+<div class="slider layout-row">
+    <div class="slider_wrapper layout-row flex">
+
+        <!-- button-left -->
+        <div class="layout-row left-button" (click)="previousSlide()">
+            <img class="slide-button" src="/dist/svg/ic_keyboard_arrow_left_black_24px.svg"/>
+        </div>
+
+        <!-- individual slides -->
+        <div class="slide"
+             *ngFor="let url of slides; let i = index;"
+             [ngClass]="{
+                 'slide_active': i === active
+             }">
+             <img src="{{ url }}" width="100%" height="auto" />
+        </div>
+
+        <!-- button-right -->
+        <div class="layout-row right-button" (click)="nextSlide()">
+            <img class="slide-button" src="/dist/svg/ic_keyboard_arrow_right_black_24px.svg"/>
+        </div>
+
+        <!-- Pagination -->
+        <div class="slide-pagination layout-row">
+            <div class="layout-row">
+                <div *ngFor="let url of slides; let i = index;"
+                     class="circle-wrapper layout-row" (click)="selectSlide(i)">
+                     <span class="circle" [ngClass]="{
+                               'circle_active': i === active
+                           }">
+                     </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
