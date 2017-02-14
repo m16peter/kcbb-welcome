@@ -18,9 +18,9 @@ export class MainComponent {
         };
         // url-paths to slides...
         this.main['slider'].slides = [
-            '/dist/img/1.jpg',
-            '/dist/img/2.jpg',
-            '/dist/img/3.jpg'
+            'dist/img/1.jpg',
+            'dist/img/2.jpg',
+            'dist/img/3.jpg'
         ];
         // link names
         this.main['nav-bar'] = {
