@@ -18,9 +18,9 @@ export class MainComponent {
         };
         // url-paths to slides...
         this.main['slider'].slides = [
-            'dist/img/1.jpg',
-            'dist/img/2.jpg',
-            'dist/img/3.jpg'
+            '/assets/img/1.jpg',
+            '/assets/img/2.jpg',
+            '/assets/img/3.jpg'
         ];
         // link names
         this.main['nav-bar'] = {
@@ -29,7 +29,7 @@ export class MainComponent {
         // content (title: string & description: html)
         this.main['content'] = [
             {
-                'title': 'Laravel & ng-2',
+                'title': 'Lorem Ipsum',
                 'description': ''
             },
             {

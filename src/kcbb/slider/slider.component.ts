@@ -19,7 +19,7 @@ export class SliderComponent {
     }
 
     ngOnInit() {
-        this.slider['slides'].forEach( url => {
+        this.slider['slides'].forEach(url => {
             this.slides.push(url);
         });
     }

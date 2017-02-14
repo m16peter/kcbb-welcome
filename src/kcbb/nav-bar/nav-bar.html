@@ -1,44 +1,127 @@
 <div class="nav-bar layout-row">
-    <div class="flex"></div>
+    <div class="flex hide-black"></div>
 
     <div class="nav-bar__content layout-row">
 
-        <span class="link link_main link_active">KCBB</span>
-        <span class="link" (click)="activateLink(1)">1</span>
-        <span class="link" (click)="activateLink(2)">2</span>
-        <span class="link" (click)="activateLink(3)">3</span>
-        <span class="link" (click)="activateLink(4)">4</span>
+        <span class="link link_main"
+              (click)="activateLink(0)"
+              [ngClass]="{
+                  'link_active': active === 0
+              }">AC
+        </span>
+        <span class="link"
+              (click)="activateLink(1)"
+              [ngClass]="{
+                  'link_active': active === 1
+              }">Vitajte
+        </span>
+        <span class="link"
+              (click)="activateLink(2)"
+              [ngClass]="{
+                  'link_active': active === 2
+              }">Kto sme
+        </span>
+        <span class="link"
+              (click)="activateLink(3)"
+              [ngClass]="{
+                  'link_active': active === 3
+              }">Kontakt
+        </span>
+        <span class="link"
+              (click)="activateLink(4)"
+              [ngClass]="{
+                  'link_active': active === 4
+              }">Zivot zboru
+        </span>
 
         <div class="flex"></div>
-
         <span class="link link_right">
-            <img src="dist/svg/speaker.svg" />
+            <img src="/assets/svg/speaker.svg" />
             <span>Kázne</span>
         </span>
         <span class="link link_right">
-            <img src="dist/svg/photo-camera.svg" />
+            <img src="/assets/svg/photo-camera.svg" />
             <span>Fotogaléria</span>
         </span>
         <span class="link link_right">
-            <img src="dist/svg/calendar.svg" />
+            <img src="/assets/svg/calendar.svg" />
             <span>Kalendár</span>
         </span>
 
     </div>
-
     <div class="nav-bar__content_sm">
 
         <div class="layout-row">
-            <span class="link link_main link_active">KCBB</span>
+            <span class="link link_main link_inactive"
+                  (click)="activateLink(0)">Apoštolská Cirkev
+            </span>
 
             <div class="flex"></div>
 
-            <span class="link">
-                <img src="dist/svg/ic_menu_black_24px.svg" />
+            <span (click)="toggleMenu()" class="link link_inactive">
+                  <img src="/assets/svg/ic_menu_black_24px.svg" />
+            </span>
+        </div>
+
+        <div class="menu-1" *ngIf="menuIsActive">
+            <div class="layout-row">
+                <div class="layout-center">
+                    <span class="link"
+                      (click)="activateLink(1)"
+                      [ngClass]="{
+                      'link_active': active === 1
+                          }">Vitajte
+                    </span>
+                </div>
+            </div>
+            <div class="layout-row">
+                <div class="layout-center">
+                    <span class="link"
+                          (click)="activateLink(2)"
+                          [ngClass]="{
+                              'link_active': active === 2
+                          }">Kto sme
+                    </span>
+                </div>
+            </div>
+            <div class="layout-row">
+                <div class="layout-center">
+                    <span class="link"
+                          (click)="activateLink(3)"
+                          [ngClass]="{
+                              'link_active': active === 3
+                          }">Kontakt
+                    </span>
+                </div>
+            </div>
+            <div class="layout-row">
+                <div class="layout-center">
+                    <span class="link"
+                          (click)="activateLink(4)"
+                          [ngClass]="{
+                              'link_active': active === 4
+                          }">Zivot zboru
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-2 layout-row" *ngIf="menuIsActive">
+            <span class="link link_right layout-center">
+                <img src="/assets/svg/speaker.svg" />
+                <span>Kázne</span>
+            </span>
+            <span class="link link_right layout-center">
+                <img src="/assets/svg/photo-camera.svg" />
+                <span>Fotogaléria</span>
+            </span>
+            <span class="link link_right layout-center">
+                <img src="/assets/svg/calendar.svg" />
+                <span>Kalendár</span>
             </span>
         </div>
 
     </div>
 
-    <div class="flex"></div>
+    <div class="flex hide-black"></div>
 </div>

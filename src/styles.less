@@ -3,7 +3,6 @@
 // imports
 @import "kcbb/variables";
 
-
 // basic
 html {
     color: @dark;
@@ -28,14 +27,20 @@ html {
         min-width: @xsm;
 
         .content_wrapper {
-            width: @xsm;
+            min-width: @xsm;
         }
         .nav-bar__content {
             display: none;
         }
         .nav-bar__content_sm {
-            width: @xsm;
+            min-width: @xsm;
             display: block;
+        }
+        .title {
+            font-size: 24px;
+        }
+        .description {
+            font-size: 16px;
         }
     }
     .layout-xsm {
@@ -55,6 +60,12 @@ html {
         .nav-bar__content_sm {
             width: @sm;
             display: block;
+        }
+        .title {
+            font-size: 34px;
+        }
+        .description {
+            font-size: 16px;
         }
     }
     .layout-sm {
@@ -77,6 +88,12 @@ html {
         .nav-bar__content_sm {
             display: none;
         }
+        .title {
+            font-size: 44px;
+        }
+        .description {
+            font-size: 18px;
+        }
     }
     .layout-md {
         display: block;
@@ -97,6 +114,12 @@ html {
         }
         .nav-bar__content_sm {
             display: none;
+        }
+        .title {
+            font-size: 64px;
+        }
+        .description {
+            font-size: 20px;
         }
     }
     .layout-lg {
@@ -119,12 +142,20 @@ html {
         .nav-bar__content_sm {
             display: none;
         }
+        .title {
+            font-size: 84px;
+        }
+        .description {
+            font-size: 24px;
+        }
+        .hide-black {
+            background: @white;
+        }
     }
     .layout-xlg {
         display: block;
     }
 }
-// the order is important! (desc)
 @media all and (min-width: (@xlg + 20)) {
     body {
         .width-xlg;
@@ -182,7 +213,13 @@ html {
     flex: 1;
 }
 
+// slow request
 .loader {
     padding: 50px;
     margin: auto;
+}
+
+// design bug fix
+.hide-black {
+    background: @dark;
 }

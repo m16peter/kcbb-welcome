@@ -1,23 +1,23 @@
 <div class="slider layout-row">
     <div class="slider_wrapper layout-row flex">
 
-        <!-- button-left -->
-        <div class="layout-row left-button" (click)="previousSlide()">
-            <img class="slide-button" src="dist/svg/ic_keyboard_arrow_left_black_24px.svg"/>
-        </div>
-
         <!-- individual slides -->
+        <!-- slideInDown -->
         <div class="slide"
              *ngFor="let url of slides; let i = index;"
              [ngClass]="{
-                 'slide_active': i === active
+                 'slide_active animated flipInX': i === active
              }">
              <img src="{{ url }}" width="100%" height="auto" />
         </div>
 
+        <!-- button-left -->
+        <div class="layout-row left-button" (click)="previousSlide()">
+            <img class="slide-button" src="/assets/svg/ic_keyboard_arrow_left_black_24px.svg"/>
+        </div>
         <!-- button-right -->
         <div class="layout-row right-button" (click)="nextSlide()">
-            <img class="slide-button" src="dist/svg/ic_keyboard_arrow_right_black_24px.svg"/>
+            <img class="slide-button" src="/assets/svg/ic_keyboard_arrow_right_black_24px.svg"/>
         </div>
 
         <!-- Pagination -->

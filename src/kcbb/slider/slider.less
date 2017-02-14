@@ -5,15 +5,16 @@
     position: relative;
 
     &_wrapper {
+        position: relative;
         max-width: @xlg;
         min-width: @xsm;
         margin: auto;
     }
     .left-button {
         position: absolute;
-        left: 10px;
-        top: 10px;
-        height: ~"calc(100% - 40px)";
+        left: 0;
+        top: 0;
+        height: ~"calc(100% - 30px)";
 
         img {
             margin: auto;
@@ -21,9 +22,9 @@
     }
     .right-button {
         position: absolute;
-        right: 10px;
-        top: 10px;
-        height: ~"calc(100% - 40px)";
+        right: 0;
+        top: 0;
+        height: ~"calc(100% - 30px)";
 
         img {
             margin: auto;
@@ -52,7 +53,7 @@
             cursor: pointer;
             &:hover {
                 .circle {
-                    background: @light-white;
+                    background: @light-blue;
                 }
             }
         }
@@ -77,7 +78,7 @@
     font-family: sans-serif;
     font-size: 84px;
     width: 100%;
-    margin: 10px;
+    margin: 0;
 
     &_active {
         display: block;
