@@ -18,9 +18,9 @@ export class MainComponent {
         };
         // url-paths to slides...
         this.main['slider'].slides = [
-            'assets/img/1.jpg',
-            'assets/img/2.jpg',
-            'assets/img/3.jpg'
+            '/kcbb-welcome/assets/img/1.jpg',
+            '/kcbb-welcome/assets/img/2.jpg',
+            '/kcbb-welcome/assets/img/3.jpg'
         ];
         // link names
         this.main['nav-bar'] = {
