@@ -12,24 +12,24 @@
         </div>
 
         <!-- button-left -->
-        <div class="layout-row left-button" (click)="previousSlide()">
+        <button class="layout-row left-button" (click)="previousSlide()">
             <img class="slide-button" src="/kcbb-welcome/assets/svg/ic_keyboard_arrow_left_black_24px.svg"/>
-        </div>
+        </button>
         <!-- button-right -->
-        <div class="layout-row right-button" (click)="nextSlide()">
+        <button class="layout-row right-button" (click)="nextSlide()">
             <img class="slide-button" src="/kcbb-welcome/assets/svg/ic_keyboard_arrow_right_black_24px.svg"/>
-        </div>
+        </button>
 
         <!-- Pagination -->
         <div class="slide-pagination layout-row">
             <div class="layout-row">
-                <div *ngFor="let url of slides; let i = index;"
+                <button *ngFor="let url of slides; let i = index;"
                      class="circle-wrapper layout-row" (click)="selectSlide(i)">
                      <span class="circle" [ngClass]="{
                                'circle_active': i === active
                            }">
                      </span>
-                </div>
+                </button>
             </div>
         </div>
 

@@ -3,36 +3,36 @@
 
     <div class="nav-bar__content layout-row">
 
-        <span class="link link_main"
-              (click)="activateLink(0)"
-              [ngClass]="{
-                  'link_active': active === 0
-              }">AC
-        </span>
-        <span class="link"
-              (click)="activateLink(1)"
-              [ngClass]="{
-                  'link_active': active === 1
-              }">Vitajte
-        </span>
-        <span class="link"
-              (click)="activateLink(2)"
-              [ngClass]="{
+        <button class="link link_main"
+                (click)="activateLink(0)"
+                [ngClass]="{
+                    'link_active': active === 0
+                }">AC
+        </button>
+        <button class="link"
+                (click)="activateLink(1)"
+                [ngClass]="{
+                    'link_active': active === 1
+                }">Vitajte
+        </button>
+        <button class="link"
+                (click)="activateLink(2)"
+                [ngClass]="{
                   'link_active': active === 2
-              }">Kto sme
-        </span>
-        <span class="link"
-              (click)="activateLink(3)"
-              [ngClass]="{
-                  'link_active': active === 3
-              }">Kontakt
-        </span>
-        <span class="link"
-              (click)="activateLink(4)"
-              [ngClass]="{
-                  'link_active': active === 4
-              }">Zivot zboru
-        </span>
+                }">Kto sme
+        </button>
+        <button class="link"
+                (click)="activateLink(3)"
+                [ngClass]="{
+                    'link_active': active === 3
+                }">Kontakt
+        </button>
+        <button class="link"
+                (click)="activateLink(4)"
+                [ngClass]="{
+                    'link_active': active === 4
+                }">Zivot zboru
+        </button>
 
         <div class="flex"></div>
         <span class="link link_right">
@@ -52,56 +52,56 @@
     <div class="nav-bar__content_sm">
 
         <div class="layout-row">
-            <span class="link link_main link_inactive"
-                  (click)="activateLink(0)">Apoštolská Cirkev
-            </span>
+            <button class="link link_main link_inactive"
+                    (click)="activateLink(0)">Apoštolská Cirkev
+            </button>
 
             <div class="flex"></div>
 
-            <span (click)="toggleMenu()" class="link link_inactive">
-                  <img src="/kcbb-welcome/assets/svg/ic_menu_black_24px.svg" />
-            </span>
+            <button (click)="toggleMenu()" class="link link_inactive">
+                <img src="/kcbb-welcome/assets/svg/ic_menu_black_24px.svg" />
+            </button>
         </div>
 
         <div class="menu-1" *ngIf="menuIsActive">
             <div class="layout-row">
                 <div class="layout-center">
-                    <span class="link"
-                      (click)="activateLink(1)"
-                      [ngClass]="{
-                      'link_active': active === 1
-                          }">Vitajte
-                    </span>
+                    <button class="link"
+                            (click)="activateLink(1)"
+                            [ngClass]="{
+                                'link_active': active === 1
+                            }">Vitajte
+                    </button>
                 </div>
             </div>
             <div class="layout-row">
                 <div class="layout-center">
-                    <span class="link"
-                          (click)="activateLink(2)"
-                          [ngClass]="{
-                              'link_active': active === 2
-                          }">Kto sme
-                    </span>
+                    <button class="link"
+                            (click)="activateLink(2)"
+                            [ngClass]="{
+                                'link_active': active === 2
+                            }">Kto sme
+                    </button>
                 </div>
             </div>
             <div class="layout-row">
                 <div class="layout-center">
-                    <span class="link"
-                          (click)="activateLink(3)"
-                          [ngClass]="{
-                              'link_active': active === 3
+                    <button class="link"
+                            (click)="activateLink(3)"
+                            [ngClass]="{
+                                'link_active': active === 3
                           }">Kontakt
-                    </span>
+                    </button>
                 </div>
             </div>
             <div class="layout-row">
                 <div class="layout-center">
-                    <span class="link"
-                          (click)="activateLink(4)"
-                          [ngClass]="{
-                              'link_active': active === 4
-                          }">Zivot zboru
-                    </span>
+                    <button class="link"
+                            (click)="activateLink(4)"
+                            [ngClass]="{
+                               'link_active': active === 4
+                            }">Zivot zboru
+                    </button>
                 </div>
             </div>
         </div>
