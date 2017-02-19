@@ -1,5 +1,5 @@
 # compiled output
-/dist
+/docs
 
 # dependencies
 /node_modules
@@ -13,4 +13,4 @@ npm-debug.log
 /typings
 
 # LESS
-/src/**/*.css
+/src/kcbb/**/*.css
