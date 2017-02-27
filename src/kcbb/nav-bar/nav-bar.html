@@ -15,24 +15,6 @@
                     'link_active': active === 1
                 }">Vitajte
         </button>
-        <button class="link"
-                (click)="activateLink(2)"
-                [ngClass]="{
-                  'link_active': active === 2
-                }">Kto sme
-        </button>
-        <button class="link"
-                (click)="activateLink(3)"
-                [ngClass]="{
-                    'link_active': active === 3
-                }">Kontakt
-        </button>
-        <button class="link"
-                (click)="activateLink(4)"
-                [ngClass]="{
-                    'link_active': active === 4
-                }">Zivot zboru
-        </button>
 
         <div class="flex"></div>
         <span class="link link_right">
@@ -59,7 +41,7 @@
             <div class="flex"></div>
 
             <button (click)="toggleMenu()" class="link link_inactive">
-                <img src="/kcbb-welcome/assets/svg/ic_menu_black_24px.svg" />
+                <img src="/kcbb-welcome/assets/svg/menu.svg" />
             </button>
         </div>
 
@@ -71,36 +53,6 @@
                             [ngClass]="{
                                 'link_active': active === 1
                             }">Vitajte
-                    </button>
-                </div>
-            </div>
-            <div class="layout-row">
-                <div class="layout-center">
-                    <button class="link"
-                            (click)="activateLink(2)"
-                            [ngClass]="{
-                                'link_active': active === 2
-                            }">Kto sme
-                    </button>
-                </div>
-            </div>
-            <div class="layout-row">
-                <div class="layout-center">
-                    <button class="link"
-                            (click)="activateLink(3)"
-                            [ngClass]="{
-                                'link_active': active === 3
-                          }">Kontakt
-                    </button>
-                </div>
-            </div>
-            <div class="layout-row">
-                <div class="layout-center">
-                    <button class="link"
-                            (click)="activateLink(4)"
-                            [ngClass]="{
-                               'link_active': active === 4
-                            }">Zivot zboru
                     </button>
                 </div>
             </div>

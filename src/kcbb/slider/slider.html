@@ -1,37 +1,34 @@
 <div class="slider layout-row">
     <div class="slider_wrapper layout-row flex">
 
-        <!-- individual slides -->
-        <!-- slideInDown -->
-        <div class="slide"
+        <!-- Slides -->
+        <img [@animateSlide]="i === active ? animation : 'inactive'"
              *ngFor="let url of slides; let i = index;"
-             [ngClass]="{
-                 'slide_active animated flipInX': i === active
-             }">
-             <img src="{{ url }}" width="100%" height="auto" />
-        </div>
+             class="slide" src="{{ url }}"
+        />
 
-        <!-- button-left -->
-        <button class="layout-row left-button" (click)="previousSlide()">
-            <img class="slide-button" src="/kcbb-welcome/assets/svg/ic_keyboard_arrow_left_black_24px.svg"/>
-        </button>
-        <!-- button-right -->
-        <button class="layout-row right-button" (click)="nextSlide()">
-            <img class="slide-button" src="/kcbb-welcome/assets/svg/ic_keyboard_arrow_right_black_24px.svg"/>
-        </button>
-
-        <!-- Pagination -->
+        <!-- Slider Pagination -->
         <div class="slide-pagination layout-row">
-            <div class="layout-row">
-                <button *ngFor="let url of slides; let i = index;"
-                     class="circle-wrapper layout-row" (click)="selectSlide(i)">
-                     <span class="circle" [ngClass]="{
-                               'circle_active': i === active
-                           }">
-                     </span>
-                </button>
+            <div class="circle-wrapper layout-row">
+                <div *ngFor="let slide of slides; let i = index;"
+                     class="layout-row" (click)="selectSlide(i)">
+                     <div class="circle" [ngClass]="{
+                          'circle_active': i === active
+                          }">
+                     </div>
+                </div>
             </div>
         </div>
+
+        <!-- Slider Buttons -->
+        <img src="/kcbb-welcome/assets/svg/left.svg"
+             class="button button_left"
+             (click)="previousSlide()"
+        />
+        <img src="/kcbb-welcome/assets/svg/right.svg"
+             class="button button_right"
+             (click)="nextSlide()"
+        />
 
     </div>
 </div>
