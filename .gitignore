@@ -1,5 +1,5 @@
 # compiled output
-/docs
+/dist
 
 # dependencies
 /node_modules
