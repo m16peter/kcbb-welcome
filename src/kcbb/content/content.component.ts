@@ -8,7 +8,6 @@ import { Component, Input } from '@angular/core';
 
 export class ContentComponent {
 
-    @Input() content: any;
-    @Input() activeLink: number;
+    @Input() data: any;
 
 }

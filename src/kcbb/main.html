@@ -2,12 +2,11 @@
 
     <slider [slider]="main['slider']"></slider>
 
-    <nav-bar [active]="main['nav-bar']['active-link']"
-             (activeLink)="activateLink($event)">
+    <nav-bar (activate)="activateLink($event)"
+             (clear)="emptyPage()"
+             [navBar]="main['nav-bar']">
     </nav-bar>
 
-    <content [content]="main['content']"
-             [activeLink]="main['nav-bar']['active-link']">
-    </content>
+    <content [data]="main['content'].data"></content>
 
 </div>

@@ -1,10 +1,45 @@
 <div class="content layout-row">
     <div class="flex"></div>
+    <div class="content_wrapper layout-row">
 
-    <div class="content_wrapper">
-        <div class="title">{{ content[activeLink]['title'] }}</div>
-        <div class="description" [innerHTML]="content[activeLink]['description']"></div>
+        <!-- CONTENT -->
+        <div class="content__data" *ngIf="data.active">
+            <div class="content__data_title">{{ data.title }}</div>
+            <div class="content__data_description" [innerHTML]="data.description"></div>
+        </div>
+
+        <!-- SIDE-NAV -->
+        <div class="content__side-nav flex">
+
+            <div class="content__side-nav__item">
+                <div class="layout-row">
+                    <img src="/kcbb-welcome/assets/svg/photo-camera.svg" />
+                </div>
+                <div class="layout-row">
+                    <div class="layout-center">Fotogaléria</div>
+                </div>
+            </div>
+
+            <div class="content__side-nav__item">
+                <div class="layout-row">
+                    <img src="/kcbb-welcome/assets/svg/speaker.svg" />
+                </div>
+                <div class="layout-row">
+                    <div class="layout-center">Kázne</div>
+                </div>
+            </div>
+
+            <div class="content__side-nav__item">
+                <div class="layout-row">
+                    <img src="/kcbb-welcome/assets/svg/calendar.svg" />
+                </div>
+                <div class="layout-row">
+                    <div class="layout-center">Kalendár</div>
+                </div>
+            </div>
+
+        </div>
+
     </div>
-
     <div class="flex"></div>
 </div>

@@ -8,22 +8,16 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 export class NavBarComponent {
 
-    @Input() active: boolean;
-    @Output() activeLink = new EventEmitter();
+    @Input() navBar: any;
+    @Output() activate = new EventEmitter();
+    @Output() clear = new EventEmitter();
 
-    public menuIsActive: boolean = false;
-
-    public activateLink(link: string): void {
-        this.activeLink.emit(link);
-        this.hideMenu();
+    public activateLink(id: string): void {
+        this.activate.emit(id);
     }
 
-    public toggleMenu(): void {
-        this.menuIsActive = !this.menuIsActive;
-    }
-
-    public hideMenu(): void {
-        this.menuIsActive = false;
+    public emptyPage(): void {
+        this.clear.emit();
     }
 
 }

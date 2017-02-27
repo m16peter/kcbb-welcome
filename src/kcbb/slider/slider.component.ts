@@ -7,7 +7,7 @@ import { Component, Input, trigger, state, style, transition, animate, keyframes
     animations: [
         trigger('animateSlide', [
             /* STATES */
-            state('slide-down, slide-left, slide-right', style({zIndex: 50})),
+            state('slide-down, slide-left, slide-right, none', style({zIndex: 50})),
             state('inactive', style({zIndex: 0})),
             /* STYLES */
             transition('* => slide-down', [
@@ -49,7 +49,7 @@ export class SliderComponent {
     constructor() {
         this.slides = [];
         this.active = 0;
-        this.animation = 'slide-down';
+        this.animation = 'none';
     }
 
     ngOnInit() {

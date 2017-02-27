@@ -3,75 +3,15 @@
 
     <div class="nav-bar__content layout-row">
 
-        <button class="link link_main"
-                (click)="activateLink(0)"
-                [ngClass]="{
-                    'link_active': active === 0
-                }">AC
+        <!-- LOGO -->
+        <button class="link link_main" (click)="emptyPage()">{{ navBar.logo }}</button>
+        <!-- LINKS -->
+        <button *ngFor="let id of navBar.pageIDs"
+                (click)="activateLink(id)"
+                class="link" [ngClass]="{
+                    'link_active': navBar.active === id
+                }">{{ id }}
         </button>
-        <button class="link"
-                (click)="activateLink(1)"
-                [ngClass]="{
-                    'link_active': active === 1
-                }">Vitajte
-        </button>
-
-        <div class="flex"></div>
-        <span class="link link_right">
-            <img src="/kcbb-welcome/assets/svg/speaker.svg" />
-            <span>Kázne</span>
-        </span>
-        <span class="link link_right">
-            <img src="/kcbb-welcome/assets/svg/photo-camera.svg" />
-            <span>Fotogaléria</span>
-        </span>
-        <span class="link link_right">
-            <img src="/kcbb-welcome/assets/svg/calendar.svg" />
-            <span>Kalendár</span>
-        </span>
-
-    </div>
-    <div class="nav-bar__content_sm">
-
-        <div class="layout-row">
-            <button class="link link_main link_inactive"
-                    (click)="activateLink(0)">Apoštolská Cirkev
-            </button>
-
-            <div class="flex"></div>
-
-            <button (click)="toggleMenu()" class="link link_inactive">
-                <img src="/kcbb-welcome/assets/svg/menu.svg" />
-            </button>
-        </div>
-
-        <div class="menu-1" *ngIf="menuIsActive">
-            <div class="layout-row">
-                <div class="layout-center">
-                    <button class="link"
-                            (click)="activateLink(1)"
-                            [ngClass]="{
-                                'link_active': active === 1
-                            }">Vitajte
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="menu-2 layout-row" *ngIf="menuIsActive">
-            <span class="link link_right layout-center">
-                <img src="/kcbb-welcome/assets/svg/speaker.svg" />
-                <span>Kázne</span>
-            </span>
-            <span class="link link_right layout-center">
-                <img src="/kcbb-welcome/assets/svg/photo-camera.svg" />
-                <span>Fotogaléria</span>
-            </span>
-            <span class="link link_right layout-center">
-                <img src="/kcbb-welcome/assets/svg/calendar.svg" />
-                <span>Kalendár</span>
-            </span>
-        </div>
 
     </div>
 
