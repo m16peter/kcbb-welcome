@@ -8,7 +8,7 @@ import { Component, Input, trigger, state, style, transition, animate, keyframes
         trigger('animateSlide', [
             /* STATES */
             state('slide-down, slide-left, slide-right, none', style({zIndex: 50})),
-            state('inactive', style({zIndex: 0})),
+            state('inactive', style({zIndex: 0, display: "none"})),
             /* STYLES */
             transition('* => slide-down', [
                 animate(400, keyframes([
@@ -32,7 +32,11 @@ import { Component, Input, trigger, state, style, transition, animate, keyframes
                 ]))
             ]),
             transition('inactive <=> *', [
-                style({zIndex: 100}), animate(400)
+                style({
+                    zIndex: 100,
+                    display: "block",
+                    position: "absolute"
+                }), animate(400)
             ])
         ])
     ]
