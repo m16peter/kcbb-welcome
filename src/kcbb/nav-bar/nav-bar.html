@@ -1,19 +1,32 @@
 <div class="nav-bar layout-row">
+
+    <!-- spacer -->
     <div class="flex hide-black"></div>
 
-    <div class="nav-bar__content layout-row">
+    <!-- content -->
+    <div class="nav-bar_wrapper layout-row show-sm" [ngClass]="{'menu_active': active}">
 
         <!-- LOGO -->
-        <button class="link link_main" (click)="emptyPage()">{{ navBar.logo }}</button>
+        <div class="link link_main layout-row" (click)="activateLink(navBar.logo)">
+            <div class="layout-center">{{ navBar.logo }}</div>
+        </div>
+
         <!-- LINKS -->
-        <button *ngFor="let id of navBar.pageIDs"
-                (click)="activateLink(id)"
-                class="link" [ngClass]="{
-                    'link_active': navBar.active === id
-                }">{{ id }}
-        </button>
+        <div class="nav-bar_sm__menu" *ngFor="let id of navBar.pageIDs">
+            <div class="link layout-row" (click)="activateLink(id)"
+                 [ngClass]="{'link_active': navBar.active === id}">
+                <div class="layout-center" >{{ id }}</div>
+            </div>
+        </div>
+
+        <!-- Menu -->
+        <div (click)="toggleMenu()">
+            <div class="nav-bar_menu"></div>
+        </div>
 
     </div>
 
+    <!-- spacer -->
     <div class="flex hide-black"></div>
+
 </div>

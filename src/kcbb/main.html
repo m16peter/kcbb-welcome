@@ -1,9 +1,10 @@
 <div class="main">
 
-    <slider [slider]="main['slider']"></slider>
+    <!-- BASIC SLIDER -->
+    <slider [slides]="main['slider'].slides"></slider>
 
+    <!-- SIMPLE NAVIGATION -->
     <nav-bar (activate)="activateLink($event)"
-             (clear)="emptyPage()"
              [navBar]="main['nav-bar']">
     </nav-bar>
 

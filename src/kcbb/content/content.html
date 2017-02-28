@@ -4,36 +4,52 @@
 
         <!-- CONTENT -->
         <div class="content__data" *ngIf="data.active">
-            <div class="content__data_title">{{ data.title }}</div>
+            <h1 class="content__data_title">{{ data.title }}</h1>
             <div class="content__data_description" [innerHTML]="data.description"></div>
         </div>
 
         <!-- SIDE-NAV -->
-        <div class="content__side-nav flex">
+        <div class="content__side-nav flex hide-sm">
 
-            <div class="content__side-nav__item">
+            <!-- Fotogaléria -->
+            <div class="item">
                 <div class="layout-row">
-                    <img src="/kcbb-welcome/assets/svg/photo-camera.svg" />
+                    <div class="item_block" *ngIf="!data.active"></div>
+                    <div class="item_block"></div>
+                    <div class="item_block" *ngIf="!data.active"></div>
                 </div>
-                <div class="layout-row">
+                <div class="item_txt layout-row">
+                    <!--<img src="/kcbb-welcome/assets/svg/photo-camera.svg" />-->
                     <div class="layout-center">Fotogaléria</div>
                 </div>
             </div>
 
-            <div class="content__side-nav__item">
+            <div class="hr"></div>
+
+            <!-- Kázne -->
+            <div class="item">
                 <div class="layout-row">
-                    <img src="/kcbb-welcome/assets/svg/speaker.svg" />
+                    <div class="item_block" *ngIf="!data.active"></div>
+                    <div class="item_block"></div>
+                    <div class="item_block" *ngIf="!data.active"></div>
                 </div>
-                <div class="layout-row">
+                <div class="item_txt layout-row">
+                    <!--<img src="/kcbb-welcome/assets/svg/speaker.svg" />-->
                     <div class="layout-center">Kázne</div>
                 </div>
             </div>
 
-            <div class="content__side-nav__item">
+            <div class="hr"></div>
+
+            <!-- Kalendár -->
+            <div class="item">
                 <div class="layout-row">
-                    <img src="/kcbb-welcome/assets/svg/calendar.svg" />
+                    <div class="item_block" *ngIf="!data.active"></div>
+                    <div class="item_block"></div>
+                    <div class="item_block" *ngIf="!data.active"></div>
                 </div>
-                <div class="layout-row">
+                <div class="item_txt layout-row">
+                    <!--<img src="/kcbb-welcome/assets/svg/calendar.svg" />-->
                     <div class="layout-center">Kalendár</div>
                 </div>
             </div>

@@ -8,7 +8,8 @@ html {
     color: @dark;
     background-color: @white;
     font-family: 'Raleway', sans-serif;
-    font-weight: 100;
+    font-weight: 500;
+    font-size: 14px;
     width: 100%;
 
     body {
@@ -16,9 +17,13 @@ html {
         margin: 0;
 
         app {
-            overflow-x: scroll;
+            overflow-x: auto;
         }
     }
+}
+h1 {
+    font-weight: 800;
+    font-size: 40px;
 }
 
 // responsive width
@@ -26,22 +31,11 @@ html {
     app {
         min-width: @xsm;
 
-        .slider_wrapper,
-        .content_wrapper {
-            min-width: @xsm;
+        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
+            width: @xsm;
         }
-        .nav-bar__content {
-            display: none;
-        }
-        .nav-bar__content_sm {
-            min-width: @xsm;
-            display: block;
-        }
-        .title {
-            font-size: 24px;
-        }
-        .description {
-            font-size: 16px;
+        .show-sm {
+            .nav-bar_sm;
         }
     }
     .layout-xsm {
@@ -52,22 +46,11 @@ html {
     app {
         min-width: @sm;
 
-        .slider_wrapper,
-        .content_wrapper {
+        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
             width: @sm;
         }
-        .nav-bar__content {
-            display: none;
-        }
-        .nav-bar__content_sm {
-            width: @sm;
-            display: block;
-        }
-        .title {
-            font-size: 34px;
-        }
-        .description {
-            font-size: 16px;
+        .show-sm {
+            .nav-bar_sm;
         }
     }
     .layout-sm {
@@ -78,29 +61,8 @@ html {
     app {
         min-width: @md;
 
-        .slider_wrapper {
+        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
             width: @md;
-        }
-        .content_wrapper {
-            width: @sm;
-        }
-        .side-nav {
-            width: (@md - @sm);
-        }
-        .nav-bar__content {
-            width: @md;
-            .link {
-                margin: 0;
-            }
-        }
-        .nav-bar__content_sm {
-            display: none;
-        }
-        .title {
-            font-size: 44px;
-        }
-        .description {
-            font-size: 18px;
         }
     }
     .layout-md {
@@ -111,29 +73,8 @@ html {
     app {
         min-width: @lg;
 
-        .slider_wrapper {
+        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
             width: @lg;
-        }
-        .content_wrapper {
-            width: @sm;
-        }
-        .side-nav {
-            width: (@lg - @sm);
-        }
-        .nav-bar__content {
-            width: @lg;
-            .link {
-                margin: 0 5px;
-            }
-        }
-        .nav-bar__content_sm {
-            display: none;
-        }
-        .title {
-            font-size: 64px;
-        }
-        .description {
-            font-size: 20px;
         }
     }
     .layout-lg {
@@ -144,29 +85,8 @@ html {
     app {
         min-width: @xlg;
 
-        .slider_wrapper {
+        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
             width: @xlg;
-        }
-        .content_wrapper {
-            width: @sm;
-        }
-        .side-nav {
-            width: (@xlg - @sm);
-        }
-        .nav-bar__content {
-            width: @xlg;
-            .link {
-                margin: 0 5px;
-            }
-        }
-        .nav-bar__content_sm {
-            display: none;
-        }
-        .title {
-            font-size: 84px;
-        }
-        .description {
-            font-size: 24px;
         }
         .hide-black {
             background: @white;
@@ -233,7 +153,7 @@ html {
     flex: 1;
 }
 
-// for slow internet
+// loader for slow internet
 .loader {
     margin: auto;
 }
@@ -242,15 +162,20 @@ html {
 .hide-black {
     background: @dark;
 }
-button {
-    border: 0;
-    padding: 0;
-    background: transparent;
-    outline: none;
-}
-button:active {
-    outline: none;
-}
-button::-moz-focus-inner {
-    border: 0;
+.nav-bar_sm {
+    display: block;
+    padding-bottom: 50px;
+
+    .nav-bar_menu {
+        display: block;
+    }
+    .nav-bar_sm__menu {
+        .link {
+            margin: auto;
+            &::after {
+                height: 1px;
+                visibility: visible;
+            }
+        }
+    }
 }

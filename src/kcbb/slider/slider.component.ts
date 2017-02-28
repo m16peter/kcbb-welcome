@@ -40,37 +40,30 @@ import { Component, Input, trigger, state, style, transition, animate, keyframes
 
 export class SliderComponent {
 
-    @Input() slider: any;
+    @Input() slides: any;
 
-    public slides: any;
-    public active: number;
-    public animation: any;
+    public slide: any;
 
     constructor() {
-        this.slides = [];
-        this.active = 0;
-        this.animation = 'none';
-    }
-
-    ngOnInit() {
-        this.slider['slides'].forEach(url => {
-            this.slides.push(url);
-        });
+        this.slide = {
+            'active': 0,
+            'animation': 'none'
+        };
     }
 
     public previousSlide(): void {
-        this.animation = 'slide-left';
-        this.active = this.active > 0 ? this.active - 1 : this.slides.length - 1;
+        this.slide.animation = 'slide-left';
+        this.slide.active = this.slide.active > 0 ? this.slide.active - 1 : this.slides.length - 1;
     }
 
     public nextSlide(): void {
-        this.animation = 'slide-right';
-        this.active = this.active < this.slides.length - 1 ? this.active + 1 : 0;
+        this.slide.animation = 'slide-right';
+        this.slide.active = this.slide.active < this.slides.length - 1 ? this.slide.active + 1 : 0;
     }
 
     public selectSlide(index: number): void {
-        this.animation = 'slide-down';
-        this.active = index;
+        this.slide.animation = 'slide-down';
+        this.slide.active = index;
     }
 
 }

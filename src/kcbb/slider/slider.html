@@ -2,7 +2,7 @@
     <div class="slider_wrapper layout-row flex">
 
         <!-- Slides -->
-        <img [@animateSlide]="i === active ? animation : 'inactive'"
+        <img [@animateSlide]="i === slide.active ? slide.animation : 'inactive'"
              *ngFor="let url of slides; let i = index;"
              class="slide" src="{{ url }}"
         />
@@ -10,10 +10,10 @@
         <!-- Slider Pagination -->
         <div class="slide-pagination layout-row">
             <div class="circle-wrapper layout-row">
-                <div *ngFor="let slide of slides; let i = index;"
+                <div *ngFor="let url of slides; let i = index;"
                      class="layout-row" (click)="selectSlide(i)">
                      <div class="circle" [ngClass]="{
-                          'circle_active': i === active
+                          'circle_active': i === slide.active
                           }">
                      </div>
                 </div>

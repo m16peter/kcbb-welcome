@@ -10,14 +10,15 @@ export class NavBarComponent {
 
     @Input() navBar: any;
     @Output() activate = new EventEmitter();
-    @Output() clear = new EventEmitter();
+
+    public active: boolean = false;
 
     public activateLink(id: string): void {
         this.activate.emit(id);
     }
 
-    public emptyPage(): void {
-        this.clear.emit();
+    public toggleMenu(): void {
+        this.active = !this.active;
     }
 
 }
