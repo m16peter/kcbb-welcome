@@ -12,23 +12,23 @@ import { Component, Input, trigger, state, style, transition, animate, keyframes
             /* STYLES */
             transition('* => slide-down', [
                 animate(400, keyframes([
-                    style({zIndex: 100, opacity: 0.5, transform: 'translateY(-100%)'}),
-                    style({zIndex: 100, opacity: 0.7, transform: 'translateY(-20%)'}),
-                    style({zIndex: 100, opacity: 1, transform: 'translateY(0)'})
+                    style({zIndex: 100, transform: 'translateY(-100%)'}),
+                    style({zIndex: 100, transform: 'translateY(-20%)'}),
+                    style({zIndex: 100, transform: 'translateY(0)'})
                 ]))
             ]),
             transition('* => slide-left', [
                 animate(400, keyframes([
-                    style({zIndex: 100, opacity: 0.5, transform: 'translateX(100%)'}),
-                    style({zIndex: 100, opacity: 0.7, transform: 'translateX(20%)'}),
-                    style({zIndex: 100, opacity: 1, transform: 'translateX(0)'})
+                    style({zIndex: 100, transform: 'translateX(100%)'}),
+                    style({zIndex: 100, transform: 'translateX(20%)'}),
+                    style({zIndex: 100, transform: 'translateX(0)'})
                 ]))
             ]),
             transition('* => slide-right', [
                 animate(400, keyframes([
-                    style({zIndex: 100, opacity: 0.5, transform: 'translateX(-100%)'}),
-                    style({zIndex: 100, opacity: 0.7, transform: 'translateX(-20%)'}),
-                    style({zIndex: 100, opacity: 1, transform: 'translateX(0)'})
+                    style({zIndex: 100, transform: 'translateX(-100%)'}),
+                    style({zIndex: 100, transform: 'translateX(-20%)'}),
+                    style({zIndex: 100, transform: 'translateX(0)'})
                 ]))
             ]),
             transition('inactive <=> *', [

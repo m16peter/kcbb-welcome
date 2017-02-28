@@ -22,12 +22,14 @@ export class MainComponent {
                 'active': '',
                 'logo': '',
                 'pageIDs': ['']
-            }, "content": {
+            },
+            "content": {
                 'pages': {},
                 'data': {
                     'title': '',
                     'description': '',
-                    'active': false
+                    'active': false,
+                    'loading': false
                 }
             }
         };
@@ -89,6 +91,8 @@ export class MainComponent {
 
     // simulation of getting content
     private loadContent(id: string): void {
+        // show loader...
+        this.main['content'].data['loading'] = true;
 
         // DB request simulation
         if (id === 'O nas') {
@@ -104,6 +108,7 @@ export class MainComponent {
                 // .then()
                 this.main['content'].data['title'] = this.main['content'].pages[id].title;
                 this.main['content'].data['description'] = this.main['content'].pages[id].description;
+                this.main['content'].data['loading'] = false;
 
                 console.log('Loading content ended...');
             }, 1000);
@@ -120,6 +125,7 @@ export class MainComponent {
                 // .then()
                 this.main['content'].data['title'] = this.main['content'].pages[id].title;
                 this.main['content'].data['description'] = this.main['content'].pages[id].description;
+                this.main['content'].data['loading'] = false;
 
                 console.log('Loading content ended...');
             }, 1000);
@@ -130,9 +136,8 @@ export class MainComponent {
     // access a 'page content'
     public activateLink(id: string): void {
         // init
-        if (id === this.main['nav-bar'].logo) {
-            this.emptyPage();
-        } else {
+        this.emptyPage();
+        if (id !== this.main['nav-bar'].logo) {
             // if it wasn't yet loaded
             if (!this.main['content'].pages[id].loaded) {
                 // async call
