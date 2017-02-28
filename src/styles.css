@@ -26,12 +26,34 @@ h1 {
 .width-xsm app .content_wrapper {
   width: 320px;
 }
+.width-xsm app .slider_wrapper .content__data,
+.width-xsm app .nav-bar_wrapper .content__data,
+.width-xsm app .content_wrapper .content__data {
+  width: 320px;
+  margin: 0;
+}
+.width-xsm app .slider_wrapper .content__data_description,
+.width-xsm app .nav-bar_wrapper .content__data_description,
+.width-xsm app .content_wrapper .content__data_description {
+  padding: 0;
+}
+.width-xsm app .slider_wrapper .content__side-nav .item,
+.width-xsm app .nav-bar_wrapper .content__side-nav .item,
+.width-xsm app .content_wrapper .content__side-nav .item {
+  margin: 50px 0;
+}
+.width-xsm app .hide_xsm {
+  display: none;
+}
 .width-xsm app .show-sm {
   display: block;
-  padding-bottom: 50px;
 }
 .width-xsm app .show-sm .nav-bar_menu {
   display: block;
+  margin: 0;
+}
+.width-xsm app .show-sm .link_main {
+  margin: 0;
 }
 .width-xsm app .show-sm .nav-bar_sm__menu .link {
   margin: auto;
@@ -40,7 +62,9 @@ h1 {
   height: 1px;
   visibility: visible;
 }
-.width-xsm .layout-xsm {
+.width-xsm .layout-xsm,
+.width-xsm .layout-block_sm,
+.width-xsm .hide_md-xlg {
   display: block;
 }
 .width-sm app {
@@ -51,9 +75,19 @@ h1 {
 .width-sm app .content_wrapper {
   width: 768px;
 }
+.width-sm app .slider_wrapper .content__data,
+.width-sm app .nav-bar_wrapper .content__data,
+.width-sm app .content_wrapper .content__data {
+  margin: 0 50px;
+  width: 668px;
+}
+.width-sm app .slider_wrapper .content__data_description,
+.width-sm app .nav-bar_wrapper .content__data_description,
+.width-sm app .content_wrapper .content__data_description {
+  padding: 0;
+}
 .width-sm app .show-sm {
   display: block;
-  padding-bottom: 50px;
 }
 .width-sm app .show-sm .nav-bar_menu {
   display: block;
@@ -65,7 +99,9 @@ h1 {
   height: 1px;
   visibility: visible;
 }
-.width-sm .layout-sm {
+.width-sm .layout-sm,
+.width-sm .layout-block_sm,
+.width-sm .hide_md-xlg {
   display: block;
 }
 .width-md app {
@@ -155,9 +191,19 @@ h1 {
   body app .content_wrapper {
     width: 768px;
   }
+  body app .slider_wrapper .content__data,
+  body app .nav-bar_wrapper .content__data,
+  body app .content_wrapper .content__data {
+    margin: 0 50px;
+    width: 668px;
+  }
+  body app .slider_wrapper .content__data_description,
+  body app .nav-bar_wrapper .content__data_description,
+  body app .content_wrapper .content__data_description {
+    padding: 0;
+  }
   body app .show-sm {
     display: block;
-    padding-bottom: 50px;
   }
   body app .show-sm .nav-bar_menu {
     display: block;
@@ -169,7 +215,9 @@ h1 {
     height: 1px;
     visibility: visible;
   }
-  body .layout-sm {
+  body .layout-sm,
+  body .layout-block_sm,
+  body .hide_md-xlg {
     display: block;
   }
 }
@@ -182,12 +230,34 @@ h1 {
   body app .content_wrapper {
     width: 320px;
   }
+  body app .slider_wrapper .content__data,
+  body app .nav-bar_wrapper .content__data,
+  body app .content_wrapper .content__data {
+    width: 320px;
+    margin: 0;
+  }
+  body app .slider_wrapper .content__data_description,
+  body app .nav-bar_wrapper .content__data_description,
+  body app .content_wrapper .content__data_description {
+    padding: 0;
+  }
+  body app .slider_wrapper .content__side-nav .item,
+  body app .nav-bar_wrapper .content__side-nav .item,
+  body app .content_wrapper .content__side-nav .item {
+    margin: 50px 0;
+  }
+  body app .hide_xsm {
+    display: none;
+  }
   body app .show-sm {
     display: block;
-    padding-bottom: 50px;
   }
   body app .show-sm .nav-bar_menu {
     display: block;
+    margin: 0;
+  }
+  body app .show-sm .link_main {
+    margin: 0;
   }
   body app .show-sm .nav-bar_sm__menu .link {
     margin: auto;
@@ -196,7 +266,9 @@ h1 {
     height: 1px;
     visibility: visible;
   }
-  body .layout-xsm {
+  body .layout-xsm,
+  body .layout-block_sm,
+  body .hide_md-xlg {
     display: block;
   }
 }
@@ -235,7 +307,6 @@ h1 {
 }
 .nav-bar_sm {
   display: block;
-  padding-bottom: 50px;
 }
 .nav-bar_sm .nav-bar_menu {
   display: block;
@@ -246,4 +317,24 @@ h1 {
 .nav-bar_sm .nav-bar_sm__menu .link::after {
   height: 1px;
   visibility: visible;
+}
+.nav-bar_xsm {
+  display: block;
+}
+.nav-bar_xsm .nav-bar_menu {
+  display: block;
+  margin: 0;
+}
+.nav-bar_xsm .link_main {
+  margin: 0;
+}
+.nav-bar_xsm .nav-bar_sm__menu .link {
+  margin: auto;
+}
+.nav-bar_xsm .nav-bar_sm__menu .link::after {
+  height: 1px;
+  visibility: visible;
+}
+.hide_md-xlg {
+  display: none;
 }

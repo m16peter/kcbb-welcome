@@ -7,6 +7,11 @@
     &_wrapper {
         position: relative;
         background: @dark;
+
+        &_active {
+            padding-bottom: 50px;
+            transition: padding-bottom 100ms ease;
+        }
     }
     &_menu {
         display: none;
@@ -14,16 +19,10 @@
         right: 0;
         top: 0;
         cursor: pointer;
-        background: url("/kcbb-welcome/assets/svg/menu.svg") no-repeat;
-        margin: 10px;
+        padding: 15px 5px;
         width: 30px;
         height: 30px;
-    }
-    .menu_active {
-        .nav-bar_sm__menu {
-            display: none;
-        //    make animation...
-        }
+        margin-right: 50px;
     }
 }
 

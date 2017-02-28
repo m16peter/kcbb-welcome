@@ -4,7 +4,7 @@
     <div class="flex hide-black"></div>
 
     <!-- content -->
-    <div class="nav-bar_wrapper layout-row show-sm" [ngClass]="{'menu_active': active}">
+    <div class="nav-bar_wrapper layout-row show-sm" [ngClass]="{'nav-bar_wrapper_active': menu.active}">
 
         <!-- LOGO -->
         <div class="link link_main layout-row" (click)="activateLink(navBar.logo)">
@@ -12,7 +12,7 @@
         </div>
 
         <!-- LINKS -->
-        <div class="nav-bar_sm__menu" *ngFor="let id of navBar.pageIDs">
+        <div class="nav-bar_sm__menu" *ngFor="let id of navBar.pageIDs" [@animateMenu]="menu.animate">
             <div class="link layout-row" (click)="activateLink(id)"
                  [ngClass]="{'link_active': navBar.active === id}">
                 <div class="layout-center" >{{ id }}</div>
@@ -20,9 +20,10 @@
         </div>
 
         <!-- Menu -->
-        <div (click)="toggleMenu()">
-            <div class="nav-bar_menu"></div>
-        </div>
+        <img src="/kcbb-welcome/assets/svg/menu.svg"
+             class="nav-bar_menu"
+             (click)="toggleMenu()"
+        />
 
     </div>
 

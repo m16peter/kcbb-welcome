@@ -1,6 +1,6 @@
 <div class="content layout-row">
     <div class="flex"></div>
-    <div class="content_wrapper layout-row">
+    <div class="content_wrapper layout-row layout-block_sm">
 
         <!-- CONTENT -->
         <div class="content__data" *ngIf="data.active">
@@ -9,47 +9,46 @@
         </div>
 
         <!-- SIDE-NAV -->
-        <div class="content__side-nav flex hide-sm">
+        <div class="content__side-nav flex">
+
+            <div class="hr hide_md-xlg layout-block_sm" *ngIf="data.active"></div>
 
             <!-- Fotogaléria -->
             <div class="item">
                 <div class="layout-row">
-                    <div class="item_block" *ngIf="!data.active"></div>
+                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
                     <div class="item_block"></div>
-                    <div class="item_block" *ngIf="!data.active"></div>
+                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
                 </div>
                 <div class="item_txt layout-row">
-                    <!--<img src="/kcbb-welcome/assets/svg/photo-camera.svg" />-->
                     <div class="layout-center">Fotogaléria</div>
                 </div>
             </div>
 
-            <div class="hr"></div>
+            <div class="hr" *ngIf="!data.active"></div>
 
             <!-- Kázne -->
             <div class="item">
                 <div class="layout-row">
-                    <div class="item_block" *ngIf="!data.active"></div>
+                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
                     <div class="item_block"></div>
-                    <div class="item_block" *ngIf="!data.active"></div>
+                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
                 </div>
                 <div class="item_txt layout-row">
-                    <!--<img src="/kcbb-welcome/assets/svg/speaker.svg" />-->
                     <div class="layout-center">Kázne</div>
                 </div>
             </div>
 
-            <div class="hr"></div>
+            <div class="hr" *ngIf="!data.active"></div>
 
             <!-- Kalendár -->
             <div class="item">
                 <div class="layout-row">
-                    <div class="item_block" *ngIf="!data.active"></div>
+                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
                     <div class="item_block"></div>
-                    <div class="item_block" *ngIf="!data.active"></div>
+                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
                 </div>
                 <div class="item_txt layout-row">
-                    <!--<img src="/kcbb-welcome/assets/svg/calendar.svg" />-->
                     <div class="layout-center">Kalendár</div>
                 </div>
             </div>
