@@ -3,7 +3,6 @@
 
         <!-- Slides -->
         <img [@animateSlide]="i === slide.active ? slide.animation : 'inactive'"
-             #div (window:resize)="onResize(div.getBoundingClientRect())"
              (@animateSlide.start)="animationStarted($event)"
              (@animateSlide.done)="animationDone($event)"
              *ngFor="let url of slides; let i = index;"

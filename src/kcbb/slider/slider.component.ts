@@ -1,9 +1,4 @@
 import { Component, Input, trigger, state, style, transition, animate, keyframes } from '@angular/core';
-import { Directive, ElementRef, HostBinding, Renderer } from '@angular/core';
-
-@Directive({
-    selector: '[workItemResize]'
-})
 
 @Component({
     selector: 'slider',
@@ -117,22 +112,14 @@ import { Directive, ElementRef, HostBinding, Renderer } from '@angular/core';
     ]
 })
 
-export class SliderComponent implements ngAfterViewInit {
-
-
-    private el: HTMLElement;
-    private renderer: Renderer;
+export class SliderComponent {
 
     @Input() slides: any;
 
     public slide: any;
     private hack: any;
 
-    constructor(el: ElementRef, renderer: Renderer) {
-
-        this.el = el.nativeElement;
-        this.renderer = renderer;
-
+    constructor() {
         this.slide = {
             'active': 0,
             'animation': 'active'
@@ -142,16 +129,6 @@ export class SliderComponent implements ngAfterViewInit {
             'animation': 'active',
             'BTNsEnabled': true
         };
-    }
-
-    onResize() {
-        this.resizeWorks();
-    }
-
-    @HostBinding('style.height.px') elHeight:number;
-
-    private resizeWorks(): void {
-        this.elHeight = this.el.nativeElement.width;
     }
 
     // control the animation
