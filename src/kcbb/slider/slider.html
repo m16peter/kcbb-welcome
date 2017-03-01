@@ -1,8 +1,10 @@
 <div class="slider layout-row">
-    <div class="slider_wrapper layout-row flex">
+    <div class="slider_wrapper flex">
 
         <!-- Slides -->
         <img [@animateSlide]="i === slide.active ? slide.animation : 'inactive'"
+             (@animateSlide.start)="animationStarted($event)"
+             (@animateSlide.done)="animationDone($event)"
              *ngFor="let url of slides; let i = index;"
              class="slide" src="{{ url }}"
         />

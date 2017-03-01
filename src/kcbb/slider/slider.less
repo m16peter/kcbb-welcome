@@ -8,24 +8,14 @@
         max-width: @xlg;
         min-width: @xsm;
         margin: auto;
-        overflow-x: hidden;
+        height: 500px;
 
         .slide {
+            position: absolute;
+            width: 100%;
             height: auto;
-            width: auto;
-            margin-left: 50%;
-            transform: translateX(-50%);
+            overflow-x: hidden;
         }
-        //&::after {
-        //    content: '';
-        //    position: absolute;
-        //    left: 0;
-        //    top: 0;
-        //    height: 100%;
-        //    width: 100%;
-        //    background-color: @white;
-        //    z-index: 0;
-        //}
     }
     .button {
         position: absolute;
@@ -80,3 +70,9 @@
         }
     }
 }
+
+// http://stackoverflow.com/questions/39084250/how-to-get-width-of-dom-element-in-angular2
+/* Center over-sized images
+margin-left: 50%;
+transform: translateX(-50%);
+*/

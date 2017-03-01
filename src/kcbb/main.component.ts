@@ -9,6 +9,7 @@ import { Component } from '@angular/core';
 export class MainComponent {
 
     public main: any;
+    public requestDelay: number = 0;
 
     constructor() {
         console.log('App started...');
@@ -42,7 +43,7 @@ export class MainComponent {
     private loadNavigation(): void {
 
         setTimeout(()=> {
-            console.log('Loading nav-bar started... (1000ms delay)');
+            console.log('Loading nav-bar started...');
 
             /* Request for: brand-name, page-ids */
             this.main['nav-bar'].logo = 'Apoštolská Cirkev';
@@ -55,7 +56,7 @@ export class MainComponent {
             this.loadSlides();
 
             console.log('Loading nav-bar ended...');
-        }, 1000);
+        }, this.requestDelay);
 
     }
 
@@ -76,7 +77,7 @@ export class MainComponent {
     private loadSlides() {
 
         setTimeout(()=> {
-            console.log('Loading slides started... (1000ms delay)');
+            console.log('Loading slides started...');
 
             let slider = [];
             for (let i = 1; i < 4; i++) {
@@ -85,7 +86,7 @@ export class MainComponent {
             this.main['slider'].slides = slider;
 
             console.log('Loading slides ended...');
-        }, 1000);
+        }, this.requestDelay);
 
     }
 
@@ -98,7 +99,7 @@ export class MainComponent {
         if (id === 'O nas') {
             // request example: ("select * from `content` where `content_id` = 'O nas'")
             setTimeout(()=> {
-                console.log('Loading content started... (1000ms delay)');
+                console.log('Loading content started...');
 
                 // DB request
                 this.main['content'].pages[id].title = 'Kto sme';
@@ -111,11 +112,11 @@ export class MainComponent {
                 this.main['content'].data['loading'] = false;
 
                 console.log('Loading content ended...');
-            }, 1000);
+            }, this.requestDelay);
         } else if (id === 'Kontakt') {
             // request example: ("select * from `content` where `content_id` = 'Kontakt'")
             setTimeout(()=> {
-                console.log('Loading content started... (1000ms delay)');
+                console.log('Loading content started...');
 
                 // DB request
                 this.main['content'].pages[id].title = 'Čomu veríme';
@@ -128,7 +129,7 @@ export class MainComponent {
                 this.main['content'].data['loading'] = false;
 
                 console.log('Loading content ended...');
-            }, 1000);
+            }, this.requestDelay);
         }
 
     }
