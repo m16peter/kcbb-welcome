@@ -31,7 +31,13 @@ h1 {
     app {
         min-width: @xsm;
 
-        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
+        .slider {
+            display: none;
+        }
+        .nav-bar_wrapper {
+            width: @xsm;
+        }
+        .content_wrapper {
             width: @xsm;
             .content {
                 &__data {
@@ -63,8 +69,10 @@ h1 {
 .width-sm {
     app {
         min-width: @sm;
-
-        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
+        .slider {
+            display: none;
+        }
+        .nav-bar_wrapper, .content_wrapper {
             width: @sm;
             .content__data {
                 margin: 0 50px;
@@ -86,7 +94,7 @@ h1 {
     app {
         min-width: @md;
 
-        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
+        .nav-bar_wrapper, .content_wrapper {
             width: @md;
         }
     }
@@ -98,7 +106,7 @@ h1 {
     app {
         min-width: @lg;
 
-        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
+        .nav-bar_wrapper, .content_wrapper {
             width: @lg;
         }
     }
@@ -110,7 +118,7 @@ h1 {
     app {
         min-width: @xlg;
 
-        .slider_wrapper, .nav-bar_wrapper, .content_wrapper {
+        .nav-bar_wrapper, .content_wrapper {
             width: @xlg;
         }
         .hide-black {

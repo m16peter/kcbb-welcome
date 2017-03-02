@@ -80,7 +80,7 @@ export class MainComponent {
             console.log('Loading slides started...');
 
             let slider = [];
-            for (let i = 1; i < 4; i++) {
+            for (let i = 1; i < 5; i++) {
                 slider.push('/kcbb-welcome/assets/img/' + i + '.jpg');
             }
             this.main['slider'].slides = slider;
