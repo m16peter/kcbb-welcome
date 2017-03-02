@@ -35,7 +35,7 @@ h1 {
   margin: 0;
 }
 .width-xsm app .content_wrapper .content__data_description {
-  padding: 0;
+  padding: 10px;
 }
 .width-xsm app .content_wrapper .content__side-nav .item {
   margin: 50px 0;
@@ -82,7 +82,7 @@ h1 {
 }
 .width-sm app .nav-bar_wrapper .content__data_description,
 .width-sm app .content_wrapper .content__data_description {
-  padding: 0;
+  padding: 10px;
 }
 .width-sm app .show-sm {
   display: block;
@@ -192,7 +192,7 @@ h1 {
   }
   body app .nav-bar_wrapper .content__data_description,
   body app .content_wrapper .content__data_description {
-    padding: 0;
+    padding: 10px;
   }
   body app .show-sm {
     display: block;
@@ -231,7 +231,7 @@ h1 {
     margin: 0;
   }
   body app .content_wrapper .content__data_description {
-    padding: 0;
+    padding: 10px;
   }
   body app .content_wrapper .content__side-nav .item {
     margin: 50px 0;
