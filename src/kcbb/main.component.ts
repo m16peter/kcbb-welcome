@@ -3,13 +3,13 @@ import { Component } from '@angular/core';
 @Component({
     selector: 'main',
     templateUrl: './main.html',
-    styleUrls: ['./main.css']
+    styleUrls: ['./main.less']
 })
 
 export class MainComponent {
 
     public main: any;
-    public requestDelay: number = 0;
+    public requestDelay: number = 300;
 
     constructor() {
         console.log('App started...');
@@ -80,8 +80,8 @@ export class MainComponent {
             console.log('Loading slides started...');
 
             let slider = [];
-            for (let i = 1; i < 5; i++) {
-                slider.push('/kcbb-welcome/assets/img/' + i + '.jpg');
+            for (let i = 1; i < 4; i++) {
+                slider.push('assets/img/' + i + '.jpg');
             }
             this.main['slider'].slides = slider;
 

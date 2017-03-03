@@ -3,7 +3,7 @@ import { Component, Input, Output, EventEmitter, trigger, state, style, transiti
 @Component({
     selector: 'nav-bar',
     templateUrl: './nav-bar.html',
-    styleUrls: ['./nav-bar.css'],
+    styleUrls: ['./nav-bar.less'],
     animations: [
         trigger('animateMenu', [
             /* STATES */

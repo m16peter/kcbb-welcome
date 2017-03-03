@@ -3,7 +3,7 @@ import { Component, Input, trigger, state, style, transition, animate, keyframes
 @Component({
     selector: 'slider',
     templateUrl: './slider.html',
-    styleUrls: ['./slider.css'],
+    styleUrls: ['./slider.less'],
     animations: [
         trigger('animateSlide', [
             state('down, previous, next, active',
