@@ -21,8 +21,8 @@ h1 {
 .width-xsm welcome-app {
   min-width: 320px;
 }
-.width-xsm welcome-app .slider_wrapper .slide {
-  height: 0;
+.width-xsm welcome-app .slider_wrapper {
+  height: 0!important;
 }
 .width-xsm welcome-app .nav-bar_wrapper,
 .width-xsm welcome-app .footer_wrapper {
@@ -68,9 +68,6 @@ h1 {
 }
 .width-sm welcome-app {
   min-width: 768px;
-}
-.width-sm welcome-app .slider_wrapper .slide {
-  height: 0;
 }
 .width-sm welcome-app .nav-bar_wrapper,
 .width-sm welcome-app .content_wrapper,
@@ -188,9 +185,6 @@ h1 {
   body welcome-app {
     min-width: 768px;
   }
-  body welcome-app .slider_wrapper .slide {
-    height: 0;
-  }
   body welcome-app .nav-bar_wrapper,
   body welcome-app .content_wrapper,
   body welcome-app .footer_wrapper {
@@ -230,8 +224,8 @@ h1 {
   body welcome-app {
     min-width: 320px;
   }
-  body welcome-app .slider_wrapper .slide {
-    height: 0;
+  body welcome-app .slider_wrapper {
+    height: 0!important;
   }
   body welcome-app .nav-bar_wrapper,
   body welcome-app .footer_wrapper {
