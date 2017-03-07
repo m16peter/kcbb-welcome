@@ -1,0 +1,87 @@
+.slider {
+  position: relative;
+  overflow: hidden;
+}
+.slider_wrapper {
+  margin: 0 auto;
+  position: relative;
+  max-width: 1920px;
+  transition: height 200ms ease;
+  height: 0;
+}
+.slider_wrapper .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+.slider-buttons {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 70px;
+  height: 100%;
+  z-index: 100;
+}
+.slider-buttons_wrapper {
+  margin: auto;
+}
+.slider-buttons_wrapper .btn-wrapper {
+  margin: 40px 0;
+}
+.slider-buttons_wrapper .btn-wrapper .btn {
+  transform: rotate(45deg);
+  background: #eeeeee;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.slider-buttons_wrapper .btn-wrapper .btn:hover {
+  -webkit-box-shadow: 10px 10px 40px -10px rgba(0, 0, 0, 0.9);
+  -moz-box-shadow: 10px 10px 40px -10px rgba(0, 0, 0, 0.9);
+  box-shadow: 10px 10px 40px -10px rgba(0, 0, 0, 0.9);
+}
+.slider-buttons_wrapper .btn-wrapper .btn img {
+  top: 8.285px;
+  left: 8.285px;
+  width: 40px;
+  height: 40px;
+  transform: rotate(-45deg);
+}
+.slider-pagination {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  z-index: 100;
+}
+.slider-pagination .circle-wrapper {
+  margin: auto;
+}
+.slider-pagination .circle-wrapper > div {
+  padding: 10px 5px;
+  cursor: pointer;
+  z-index: 100;
+}
+.slider-pagination .circle-wrapper > div:hover .circle {
+  background: #333333;
+}
+.slider-pagination .circle {
+  margin: 0 5px;
+  position: relative;
+  width: 5px;
+  height: 5px;
+  background: transparent;
+  border-radius: 50%;
+  border: 2px solid #333333;
+}
+.slider-pagination .circle_active {
+  background: #333333;
+}

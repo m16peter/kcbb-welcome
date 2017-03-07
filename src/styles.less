@@ -1,0 +1,245 @@
+/* GLOBAL STYLES */
+
+// imports
+@import "assets/css/variables";
+
+// basic
+html {
+    color: @dark;
+    background-color: @white;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    width: 100%;
+
+    body {
+        width: 100%;
+        margin: 0;
+
+        welcome-app {
+            overflow-x: auto;
+        }
+    }
+}
+h1 {
+    font-weight: 800;
+    font-size: 40px;
+}
+
+// responsive width
+.width-xsm {
+    welcome-app {
+        min-width: @xsm;
+
+        .slider_wrapper {
+            .slide {
+                height: 0;
+            }
+        }
+        .nav-bar_wrapper, .footer_wrapper {
+            width: @xsm;
+        }
+        .content_wrapper {
+            width: @xsm;
+            .content {
+                &__data {
+                    width: @xsm;
+                    margin: 0;
+
+                    &_description {
+                        padding: 10px;
+                    }
+                }
+                &__side-nav {
+                    .item {
+                        margin: 50px 0;
+                    }
+                }
+            }
+        }
+        .hide_xsm {
+            display: none;
+        }
+        .show-sm {
+            .nav-bar_xsm;
+        }
+    }
+    .layout-xsm, .layout-block_sm, .hide_md-xlg {
+        display: block;
+    }
+}
+.width-sm {
+    welcome-app {
+        min-width: @sm;
+        .slider_wrapper {
+            .slide {
+                height: 0;
+            }
+        }
+        .nav-bar_wrapper, .content_wrapper, .footer_wrapper {
+            width: @sm;
+
+            .content__data {
+                margin: 0 50px;
+                width: (@sm - 100);
+
+                &_description {
+                    padding: 10px;
+                }
+            }
+        }
+        .show-sm {
+            .nav-bar_sm;
+        }
+    }
+    .layout-sm, .layout-block_sm, .hide_md-xlg {
+        display: block;
+    }
+}
+.width-md {
+    welcome-app {
+        min-width: @md;
+
+        .nav-bar_wrapper, .content_wrapper, .footer_wrapper {
+            width: @md;
+        }
+    }
+    .layout-md {
+        display: block;
+    }
+}
+.width-lg {
+    welcome-app {
+        min-width: @lg;
+
+        .nav-bar_wrapper, .content_wrapper, .footer_wrapper {
+            width: @lg;
+        }
+    }
+    .layout-lg {
+        display: block;
+    }
+}
+.width-xlg {
+    welcome-app {
+        min-width: @xlg;
+
+        .nav-bar_wrapper, .content_wrapper, .footer_wrapper {
+            width: @xlg;
+        }
+        .hide-black {
+            background: @white;
+        }
+    }
+    .layout-xlg {
+        display: block;
+    }
+}
+@media all and (min-width: (@xlg + 20)) {
+    body {
+        .width-xlg;
+    }
+}
+@media all and (max-width: (@xlg + 20)) {
+    body {
+        .width-lg;
+    }
+}
+@media all and (max-width: (@lg + 20)) {
+    body {
+        .width-md;
+    }
+}
+@media all and (max-width: (@md + 20)) {
+    body {
+        .width-sm;
+    }
+}
+@media all and (max-width: (@sm + 20)) {
+    body {
+        .width-xsm;
+    }
+}
+
+// layouts
+.layout {
+    &-row {
+        display: flex;
+    }
+    &-w-center {
+        margin: 0 auto;
+    }
+    &-center {
+        margin: auto;
+    }
+    &-xsm {
+        display: none;
+    }
+    &-sm {
+        display: none;
+    }
+    &-md {
+        display: none;
+    }
+    &-lg {
+        display: none;
+    }
+    &-xlg {
+        display: none;
+    }
+}
+.flex {
+    flex: 1;
+}
+
+// loader for slow internet
+.loader {
+    margin: auto;
+}
+
+// design bug fix
+.hide-black {
+    background: @dark;
+}
+.nav-bar_sm {
+    display: block;
+
+    .nav-bar_menu {
+        display: block;
+    }
+    .nav-bar_sm__menu {
+        .link {
+            margin: auto;
+            &::after {
+                height: 1px;
+                visibility: visible;
+            }
+        }
+    }
+}
+.nav-bar_xsm {
+    display: block;
+
+    .nav-bar_menu {
+        display: block;
+        margin: 0;
+    }
+    .link_main {
+        margin: 0;
+    }
+    .nav-bar_sm__menu {
+        .link {
+            margin: auto;
+            &::after {
+                height: 1px;
+                visibility: visible;
+            }
+        }
+    }
+}
+.hide_md-xlg {
+    display: none;
+}
+.hide {
+    display: none;
+}

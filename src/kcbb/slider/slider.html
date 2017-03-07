@@ -1,0 +1,42 @@
+<div class="slider layout-row" (window:resize)="updateHeight($event)">
+    <div class="slider_wrapper flex" #wrapper>
+
+        <!-- Slides -->
+        <img [@animateSlide]="i === slider.active ? slider.animation : 'inactive'"
+             (@animateSlide.start)="animationStarted($event)"
+             (@animateSlide.done)="animationDone($event)"
+             *ngFor="let slide of slider.slides; let i = index;"
+             class="slide" src="{{ slide['url'] }}" #image
+        />
+
+        <div *ngIf="slider.slides.length !== 1">
+
+            <!-- Slider Pagination -->
+            <div class="slider-pagination layout-row">
+                <div class="circle-wrapper">
+                    <div *ngFor="let slide of slider.slides; let i = index;" class="layout-row" (click)="selectSlide(i)">
+                        <div class="circle" [ngClass]="{'circle_active': i === slider.active}"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slider Buttons -->
+            <div class="slider-buttons layout-row">
+                <div class="slider-buttons_wrapper">
+                    <div class="btn-wrapper">
+                        <div class="btn" (click)="previousSlide()">
+                            <img src="assets/svg/up.svg"/>
+                        </div>
+                    </div>
+                    <div class="btn-wrapper">
+                        <div class="btn" (click)="nextSlide()">
+                            <img src="assets/svg/down.svg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
