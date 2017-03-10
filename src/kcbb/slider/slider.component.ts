@@ -209,13 +209,15 @@ export class SliderComponent {
         this.hack = {
             'active': 0,
             'animation': 'active',
-            'BTNsEnabled': true,
-            'timeout': 50
+            'BTNsEnabled': true
         };
     }
 
     ngAfterViewInit() {
-        this.updateHeight();
+        setTimeout(()=> {
+            console.log('loaded slider!');
+            this.updateHeight();
+        }, 500);
     }
 
     // control the animation
@@ -279,13 +281,12 @@ export class SliderComponent {
         }
     }
 
+    // auto-resize slider
     private updateHeight(): void {
-        setTimeout(()=>{
-            let h = this.images._results[this.slider.active].nativeElement.offsetHeight + "px";
-            this.wrapper.nativeElement.style.height = h;
-            console.log('height-update:', h);
-            this.hack.timeout = 0;
-        }, this.hack.timeout);
+        let i = this.slider.active;
+        let h = this.images._results[i].nativeElement.offsetHeight;
+        this.wrapper.nativeElement.style.height = h + "px";
+        // console.log('height-update:', h, this.images._results);
     }
 
 }

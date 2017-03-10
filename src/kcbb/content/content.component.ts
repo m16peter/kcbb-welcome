@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
     selector: 'content',
@@ -9,5 +9,18 @@ import { Component, Input } from '@angular/core';
 export class ContentComponent {
 
     @Input() data: any;
+    @Output() open = new EventEmitter();
+
+    private emitOpen(): void {
+        this.open.emit();
+    }
+
+    public openImage(x): void {
+        this.emitOpen();
+    }
+
+    public openEvent(x, y, z): void {
+        this.emitOpen();
+    }
 
 }

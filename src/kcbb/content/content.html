@@ -1,4 +1,4 @@
-<!-- TODO: refactor html -->
+<!-- TODO: refactor html (content & side-nav) -->
 
 <div class="content layout-row">
     <div class="flex"></div>
@@ -17,44 +17,60 @@
         <div class="content__side-nav flex">
 
             <div class="hr hide_md-xlg layout-block_sm" *ngIf="data.active"></div>
-
-            <!-- Fotogaléria -->
+            <!-- Images -->
             <div class="item">
-                <div class="layout-row">
-                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
-                    <div class="item_block"></div>
-                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
-                </div>
                 <div class="item_txt layout-row">
-                    <div class="layout-center">Fotogaléria</div>
+                    <div class="layout-center">Photos</div>
+                </div>
+                <div class="layout-row">
+                    <div class="item_block image" (click)="openImage('/assets/img/3.jpg')"></div>
+                    <div class="item_block image hide_xsm" *ngIf="!data.active" (click)="openImage('/assets/img/3.jpg')"></div>
+                    <div class="item_block image hide_xsm" *ngIf="!data.active" (click)="openImage('/assets/img/3.jpg')"></div>
                 </div>
             </div>
 
             <div class="hr" *ngIf="!data.active"></div>
-
-            <!-- Kázne -->
+            <!-- Events -->
             <div class="item">
-                <div class="layout-row">
-                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
-                    <div class="item_block"></div>
-                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
-                </div>
                 <div class="item_txt layout-row">
-                    <div class="layout-center">Kázne</div>
+                    <div class="layout-center">Events</div>
                 </div>
-            </div>
-
-            <div class="hr" *ngIf="!data.active"></div>
-
-            <!-- Kalendár -->
-            <div class="item">
-                <div class="layout-row">
-                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
-                    <div class="item_block"></div>
-                    <div class="item_block hide_xsm" *ngIf="!data.active"></div>
-                </div>
-                <div class="item_txt layout-row">
-                    <div class="layout-center">Kalendár</div>
+                <div class="layout-row" style="font-family: 'Raleway', sans-serif">
+                    <div class="item_block event" (click)="openEvent('17.03.2017', '09:30', '11:30')">
+                        <div class="layout-row" style="height: 50px">
+                            <div style="font-size: 18px; font-weight: 600; margin: auto auto 0 auto">18:00 - 20:00</div>
+                        </div>
+                        <div class="layout-row" style="height: 100px; width: 200px">
+                            <div style="margin: auto; font-size: 70px">14</div>
+                        </div>
+                        <div class="layout-row" style="height: 50px; width: 200px;">
+                            <div style="margin: 0 auto; font-size: 24px; text-transform: uppercase; font-weight: 600;">Skupinky</div>
+                        </div>
+                    </div>
+                    <div class="item_block hide_xsm event" (click)="openEvent('17.03.2017', '09:30', '11:30')" *ngIf="!data.active">
+                        <div class="layout-row" style="height: 150px; width: 200px">
+                            <div style="margin: auto 0 auto auto; font-size: 50px">17</div>
+                            <div style="margin: auto auto auto 10px">
+                                <div style="font-size: 16px; font-weight: 600;">Marec 2017</div>
+                                <div style="font-size: 16px; font-weight: 600;">17:00 - 18:00</div>
+                            </div>
+                        </div>
+                        <div class="layout-row" style="height: 50px; width: 200px;">
+                            <div style="margin: 0 auto; font-size: 24px; text-transform: uppercase; font-weight: 600;">Modlitby</div>
+                        </div>
+                    </div>
+                    <div class="item_block hide_xsm event" (click)="openEvent('17.03.2017', '09:30', '11:30')" *ngIf="!data.active">
+                        <div class="layout-row" style="height: 150px; width: 200px">
+                            <div style="margin: auto 0 auto auto; font-size: 50px">19</div>
+                            <div style="margin: auto auto auto 20px">
+                                <div style="font-size: 17px; font-weight: 600;">09:30</div>
+                                <div style="font-size: 17px; font-weight: 600;">11:30</div>
+                            </div>
+                        </div>
+                        <div class="layout-row" style="height: 50px; width: 200px;">
+                            <div style="margin: 0 auto; font-size: 24px; text-transform: uppercase; font-weight: 600;">Bohoslužby</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 

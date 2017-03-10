@@ -36,7 +36,6 @@
         margin: 10px auto;
         border-radius: 2px;
         cursor: pointer;
-        border: 1px solid #ccc;
         transition: box-shadow 100ms ease;
 
         &:hover {
@@ -44,6 +43,19 @@
             -moz-box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.7);
             box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.7);
         }
+    }
+    .image {
+        background-image: url("/assets/img/3.jpg");
+        background-size: 200px 200px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        transition: all 100ms ease-in-out;
+        &:hover {
+            background-size: 250px 250px;
+        }
+    }
+    .event {
+        border: 1px solid #ccc;
     }
 }
 

@@ -35,6 +35,9 @@ export class MainComponent {
                     'active': false,
                     'loading': false
                 }
+            },
+            'popup': {
+                'active': false
             }
         };
     }
@@ -114,20 +117,6 @@ export class MainComponent {
 
     private loadSlides(data: any): void {
 
-        data = [
-            {
-                "path_to_img": "assets/img/1.jpg"
-            },
-            {
-                "path_to_img": "assets/img/2.jpg"
-            },
-            {
-                "path_to_img": "assets/img/3.jpg"
-            },
-            {
-                "path_to_img": "assets/img/4.jpg"
-            }
-        ];
         this.main['slider'] = new Slider(data);
         console.log('Slider:', this.main['slider']);
 
@@ -173,6 +162,14 @@ export class MainComponent {
             this.main['nav-bar'].active = this.main['nav-bar'].logo;
         }
 
+    }
+
+    public closePopup(): void {
+        this.main['popup'].active = false;
+    }
+
+    public openPopup(): void {
+        this.main['popup'].active = true;
     }
 
 }

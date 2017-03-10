@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HttpService {
 
-    private baseUrl: string = 'http://localhost:8000';
+    private baseURI: string = 'http://kcbb.creoweb.sk';
     private callback = '?callback=JSONP_CALLBACK';
 
     constructor (private jsonp: Jsonp) {}
@@ -14,7 +14,7 @@ export class HttpService {
     // GET
     get(url: string) {
 
-        url = this.baseUrl + url + this.callback;
+        url = this.baseURI + url + this.callback;
         console.log('GET:', url);
 
         return this.jsonp.get(url).map(res => res.json());

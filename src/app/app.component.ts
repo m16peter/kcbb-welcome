@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
     template: `<main class="layout-row"></main>`
 })
 
-export class AppComponent { }
+export class AppComponent {}

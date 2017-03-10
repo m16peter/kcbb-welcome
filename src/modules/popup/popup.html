@@ -1,0 +1,35 @@
+<div class="popup layout-row">
+
+    <div class="popup_wrapper layout-center">
+
+        <div class="btn_wrapper">
+            <div class="btn">
+                <img src="assets/svg/close.svg" (click)="emitClose()"/>
+            </div>
+        </div>
+
+        <img src="assets/img/3.jpg" width="100%" height="auto" />
+
+        <!--&lt;!&ndash; Image &ndash;&gt;-->
+        <!--<div *ngIf="item.type === 'image'">-->
+            <!--<img src="{{ item.url }}" width="100%" height="auto" />-->
+        <!--</div>-->
+
+        <!--&lt;!&ndash; Event &ndash;&gt;-->
+        <!--<div *ngIf="item.type === 'event'">-->
+            <!--<div class="layout-row">-->
+                <!--<div>-->
+                    <!--<h1>{{ item.day | date:"dd" }}</h1>-->
+                <!--</div>-->
+                <!--<div>-->
+                    <!--<h5>{{ item.month | date:"MMMM" }} '{{ item.year | date:"yy" }}</h5>-->
+                    <!--<h5>{{ item.start | date:"hh:mm" }} - {{ item.end | date:"hh:mm" }}</h5>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+    </div>
+
+    <div class="backdrop" (click)="emitClose()"></div>
+
+</div>
