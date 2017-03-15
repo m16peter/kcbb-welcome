@@ -1,0 +1,66 @@
+@import "../../assets/css/variables";
+
+h1 {
+    margin: 20px 0;
+}
+
+h3 {
+    margin: 10px 0;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.show-more {
+    font-size: 16px;
+    font-weight: 500;
+    color: #777;
+}
+
+.right-side {
+    text-align: right;
+}
+
+.item {
+    position: relative;
+    margin: 50px 0;
+    height: 300px;
+
+    &_txt {
+        padding: 0 100px;
+        margin: 10px auto;
+        font-family: 'Raleway', sans-serif;
+        height: 80px;
+        font-size: 30px;
+        font-weight: 800;
+        color: @dark;
+    }
+    &_event {
+        width: 200px;
+        height: 200px;
+        margin: 30px 100px;
+        border-radius: 2px;
+        cursor: pointer;
+        transition: box-shadow 100ms ease;
+        border: 1px solid #ccc;
+
+        &:hover {
+            -webkit-box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.7);
+            -moz-box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.7);
+            box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.7);
+        }
+    }
+    .image {
+        background-image: url("/assets/img/3.jpg");
+        background-size: 200px 200px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        transition: all 100ms ease-in-out;
+        &:hover {
+            background-size: 250px 250px;
+        }
+    }
+}
+
+.hr {
+    border-bottom: 1px dashed #ccc;
+}

@@ -1,20 +1,21 @@
-// basic
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
-// init
+
 import { AppComponent } from './app.component';
-// services
-import { HttpService } from '../modules/http/http.service';
-// project
+
+// kcbb
 import { MainComponent } from '../kcbb/main.component';
 import { SliderComponent } from '../kcbb/slider/slider.component';
 import { NavBarComponent } from '../kcbb/nav-bar/nav-bar.component';
+import { HomeComponent } from '../kcbb/home/home.component';
 import { ContentComponent } from '../kcbb/content/content.component';
 import { FooterComponent } from '../kcbb/footer/footer.component';
-// general
+
+// modules
 import { PopupComponent } from '../modules/popup/popup.component';
+import { HttpService } from '../modules/http/http.service';
 
 @NgModule({
     declarations: [
@@ -22,6 +23,7 @@ import { PopupComponent } from '../modules/popup/popup.component';
         MainComponent,
         SliderComponent,
         NavBarComponent,
+        HomeComponent,
         ContentComponent,
         FooterComponent,
         PopupComponent

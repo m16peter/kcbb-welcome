@@ -8,9 +8,11 @@
              [navBar]="main['nav-bar']">
     </nav-bar>
 
-    <content [data]="main['content'].data"
-             (open)="openPopup()">
-    </content>
+    <home *ngIf="!main['content'].data.active" 
+          (open)="openPopup()">
+    </home>
+    
+    <content [data]="main['content'].data"></content>
 
     <footer></footer>
 
