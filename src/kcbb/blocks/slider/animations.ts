@@ -4,39 +4,39 @@ export const sliderAnimations: AnimationEntryMetadata =
     trigger('animateSlide', [
         state('down, previous, next, active',
             style({
-                visibility: "visible"
+                visibility: 'visible'
             })
         ),
         state('inactive',
             style({
-                visibility: "hidden"
+                visibility: 'hidden'
             })
         ),
         // active -> inactive
         transition('down => inactive', [
             animate(300, keyframes([
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(0.5, 0.5)',
                     zIndex: 50
                 })
@@ -45,27 +45,27 @@ export const sliderAnimations: AnimationEntryMetadata =
         transition('previous => inactive', [
             animate(300, keyframes([
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(-10%, -20%, 0) scale(0.8, 0.8)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(-35%, -60%, 0) scale(0.4, 0.4)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(-50%, -100%, 0) scale(0, 0)',
                     zIndex: 100
                 })
@@ -74,27 +74,27 @@ export const sliderAnimations: AnimationEntryMetadata =
         transition('next => inactive', [
             animate(300, keyframes([
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(0.5, 0.5)',
                     zIndex: 50
                 })
@@ -104,27 +104,27 @@ export const sliderAnimations: AnimationEntryMetadata =
         transition('inactive => down', [
             animate(300, keyframes([
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, -100%, 0) scale(0, 0)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, -60%, 0) scale(0.4, 0.4)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, -20%, 0) scale(0.8, 0.8)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 100
                 })
@@ -133,27 +133,27 @@ export const sliderAnimations: AnimationEntryMetadata =
         transition('inactive => previous', [
             animate(300, keyframes([
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(0.5, 0.5)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 50
                 })
@@ -162,27 +162,27 @@ export const sliderAnimations: AnimationEntryMetadata =
         transition('inactive => next', [
             animate(300, keyframes([
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(-50%, -100%, 0) scale(0, 0)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(-35%, -60%, 0) scale(0.4, 0.4)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(-10%, -20%, 0) scale(0.8, 0.8)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 100
                 }),
                 style({
-                    visibility: "visible",
+                    visibility: 'visible',
                     transform: 'translate3d(0, 0, 0) scale(1, 1)',
                     zIndex: 100
                 })

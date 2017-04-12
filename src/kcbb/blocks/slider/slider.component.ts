@@ -12,9 +12,6 @@ export class SliderComponent {
 
     @Input() slider: any;
 
-    // @HostBinding('style.display')   display = 'block';
-    // @HostBinding('style.position')  position = 'absolute';
-
     @ViewChild('wrapper') wrapper;
     @ViewChildren('image') images;
 
@@ -96,6 +93,8 @@ export class SliderComponent {
 
     // auto-resize slider
     private updateHeight(): void {
+        console.log(this.wrapper);
+
         let i = this.slider.active;
         let h = this.images._results[i].nativeElement.offsetHeight;
         this.wrapper.nativeElement.style.height = h + "px";

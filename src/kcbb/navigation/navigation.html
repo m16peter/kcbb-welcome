@@ -1,10 +1,10 @@
-<div class="nav-bar layout-row">
+<div class="navigation layout-row">
 
     <!-- spacer -->
     <div class="flex hide-black"></div>
 
     <!-- content -->
-    <div class="nav-bar_wrapper layout-row show-sm" [ngClass]="{'nav-bar_wrapper_active': menu.active}">
+    <div class="navigation_wrapper layout-row show-sm" [ngClass]="{'navigation_wrapper_active': menu.active}">
 
         <!-- LOGO -->
         <div class="link link_main layout-row"
@@ -13,7 +13,7 @@
         </div>
 
         <!-- LINKS -->
-        <div class="nav-bar_sm__menu" *ngFor="let links of navBar.pageIDs" [@animateMenu]="menu.animate">
+        <div class="navigation_sm__menu" *ngFor="let links of navBar.pageIDs" [@animateMenu]="menu.animate">
             <div class="link layout-row"
                  (click)="activateLink(links.link)"
                  [ngClass]="{'link_active': navBar.active === links.link}">
@@ -22,7 +22,7 @@
         </div>
 
         <!-- Menu -->
-        <img src="assets/svg/menu.svg" class="nav-bar_menu" (click)="toggleMenu()"/>
+        <img src="assets/svg/menu.svg" class="navigation_menu" (click)="toggleMenu()"/>
 
     </div>
 

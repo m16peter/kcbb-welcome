@@ -4,8 +4,7 @@ export class Slide {
 
     constructor(obj: any) {
 
-        // DB config
-        const db_url = 'path_to_img';
+        const db_url = 'path_to_img'; // DB: table_name
 
         try {
 
@@ -13,7 +12,7 @@ export class Slide {
 
         } catch (e) {
 
-            console.log(e.message);
+            // console.log(e.message);
             this.url = '#';
 
         }
@@ -24,7 +23,7 @@ export class Slide {
 
 export class Slider {
 
-    public slides: any;
+    public slides: Slide[];
     public active: number = 0;
     public animation: string = 'active';
 
@@ -34,15 +33,15 @@ export class Slider {
 
         try {
 
-            data.forEach((obj)=> {
+            data.forEach((obj) => {
                 this.slides.push(new Slide(obj));
             });
 
         } catch (e) {
 
-            console.log(e.message);
-            this.slides = [];
-            this.active = -1;
+            // console.log(e.message);
+            this.slides = []; // no images
+            this.active = -1; // inactive
 
         }
 

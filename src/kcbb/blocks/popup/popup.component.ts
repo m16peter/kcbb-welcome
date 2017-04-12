@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-    selector: 'popup',
+    selector: 'app-popup',
     templateUrl: './popup.html',
     styleUrls: ['./popup.less']
 })

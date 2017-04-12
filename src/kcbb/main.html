@@ -1,23 +1,40 @@
 <div class="main">
 
+    <!-- Slider (optional) -->
+    <!--
     <slider *ngIf="main['slider'].active !== -1"
             [slider]="main['slider']">
     </slider>
+    -->
 
+    <!-- Navigation -->
+    <nav>
+        <a [routerLink]="['/dashboard']">Dashboard</a>
+        <a [routerLink]="['/crisis-center/1', { foo: 'foo' }]">Dragon Crisis</a>
+        <a [routerLink]="['/crisis-center/2']">Shark Crisis</a>
+    </nav>
+    <!--
     <nav-bar (activate)="activateLink($event)"
              [navBar]="main['nav-bar']">
     </nav-bar>
+    -->
 
-    <home *ngIf="!main['content'].data.active" 
-          (open)="openPopup()">
-    </home>
-    
-    <content [data]="main['content'].data"></content>
+    <!-- Content (router) -->
+    <router-outlet></router-outlet>
 
-    <footer></footer>
+    <!--<home *ngIf="!main['content'].data.active" -->
+          <!--(open)="openPopup()">-->
+    <!--</home>-->
+    <!--<content [data]="main['content'].data"></content>-->
+
+
 
 </div>
 
-<popup *ngIf="main['popup'].active"
-       (close)="closePopup()">
-</popup>
+<!-- Extras -->
+<!--
+    <footer></footer>
+    <popup *ngIf="main['popup'].active"
+           (close)="closePopup()">
+    </popup>
+-->

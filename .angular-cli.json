@@ -1,43 +1,41 @@
 {
-  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "project": {
-    "name": "welcome-app"
-  },
-  "apps": [
-    {
-      "root": "src",
-      "outDir": "dist",
-      "assets": [
-        "assets",
-        "favicon.ico"
-      ],
-      "index": "index.html",
-      "main": "main.ts",
-      "polyfills": "polyfills.ts",
-      "test": "test.ts",
-      "tsconfig": "tsconfig.app.json",
-      "testTsconfig": "tsconfig.spec.json",
-      "prefix": "app",
-      "styles": [
-        "styles.less"
-      ],
-      "scripts": [],
-      "environmentSource": "environments/environment.ts",
-      "environments": {
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
-      }
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "project": {
+        "name": "kcbb"
+    },
+    "apps": [
+        {
+            "root": "src",
+            "outDir": "docs",
+            "assets": [
+                "assets",
+                "favicon.ico"
+            ],
+            "index": "index.html",
+            "main": "main.ts",
+            "polyfills": "polyfills.ts",
+            "tsconfig": "tsconfig.app.json",
+            "prefix": "app",
+            "styles": [
+                "styles.css"
+            ],
+            "scripts": [],
+            "environmentSource": "environments/environment.ts",
+            "environments": {
+                "dev": "environments/environment.ts",
+                "prod": "environments/environment.prod.ts"
+            }
+        }
+    ],
+    "e2e": {},
+    "lint": [
+        {
+            "project": "src/tsconfig.app.json"
+        }
+    ],
+    "test": {},
+    "defaults": {
+        "styleExt": "less",
+        "component": {}
     }
-  ],
-  "e2e": {},
-  "lint": [
-    {
-      "project": "src/tsconfig.app.json"
-    }
-  ],
-  "test": {},
-  "defaults": {
-    "styleExt": "less",
-    "component": {}
-  }
 }

@@ -4,37 +4,29 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-
-// kcbb
 import { MainComponent } from '../kcbb/main.component';
-import { SliderComponent } from '../kcbb/slider/slider.component';
-import { NavBarComponent } from '../kcbb/nav-bar/nav-bar.component';
-import { HomeComponent } from '../kcbb/home/home.component';
-import { ContentComponent } from '../kcbb/content/content.component';
-import { FooterComponent } from '../kcbb/footer/footer.component';
-
-// modules
-import { PopupComponent } from '../modules/popup/popup.component';
-import { HttpService } from '../modules/http/http.service';
+import { AppRoutingModule, routedComponents } from './app.routing';
+import { HttpService } from '../kcbb/http.service';
+import { SliderComponent } from '../kcbb/blocks/slider/slider.component';
+import { NavigationComponent } from '../kcbb/navigation/navigation.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         MainComponent,
         SliderComponent,
-        NavBarComponent,
-        HomeComponent,
-        ContentComponent,
-        FooterComponent,
-        PopupComponent
+        NavigationComponent,
+        routedComponents
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpModule,
+        AppRoutingModule,
         JsonpModule
     ],
-    providers: [HttpService],
-    bootstrap: [AppComponent]
+    providers: [ HttpService ],
+    bootstrap: [ AppComponent ]
 })
+
 export class AppModule { }
