@@ -1,98 +1,96 @@
 <div class="dashboard">
 
-    <!-- ITEM -->
-    <div class="item layout-row">
-    <div class="layout-center layout-row">
-        <div class="item_txt">
-            <h1>BOHOSLUŽBY</h1>
-            <h3>Medzi naše najpravidelnejšie stretnutia patria nedeľné zhromaždenia zboru.</h3>
-            <div class="show-more">čítať viac...</div>
+    <div *ngIf="!loading">
+
+        <div class="item layout-row">
+            <div class="layout-center layout-row">
+                <div class="item_txt">
+                    <h1>{{ dashboard[0].title }}</h1>
+                    <h3>{{ dashboard[0].description }}</h3>
+                    <div class="show-more">čítať viac...</div>
+                </div>
+
+                <div class="flex"></div>
+                
+                <div class="item_event">
+                    <div class="item_event_interval">
+                        <span>{{ dashboard[0].event.interval }}</span>
+                    </div>
+                    <div class="item_event_day background-white">
+                        <span>{{ dashboard[0].event.day }}</span>
+                    </div>
+                    <div class="item_event_month background-white">
+                        <span>{{ dashboard[0].event.month }}</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="flex"></div>
-        
-        <div class="item_event">
-            <div class="layout-row" style="height: 50px;background: #F05565;color:#fff">
-                <div style="font-size: 18px; font-weight: 600; margin: auto auto 0 auto;padding: 10px;">18:00 - 20:00</div>
+        <div class="item layout-row background-white">
+            <div class="layout-center layout-row">
+                <div class="item_event">
+                    <div class="item_event_interval">
+                        <span>{{ dashboard[0].event.interval }}</span>
+                    </div>
+                    <div class="item_event_day background-white">
+                        <span>{{ dashboard[0].event.day }}</span>
+                    </div>
+                    <div class="item_event_month background-white">
+                        <span>{{ dashboard[0].event.month }}</span>
+                    </div>
+                </div>
+
+                <div class="flex"></div>
+
+                <div class="item_txt right-side">
+                    <h1>{{ dashboard[1].title }}</h1>
+                    <h3>{{ dashboard[1].description }}</h3>
+                </div>
             </div>
-            <div class="layout-row" style="height: 100px; width: 200px;background: #EFEBDE;">
-                <div style="margin: auto; font-size: 70px;color:#333;border-bottom: 3px solid #D5D0BB;">2</div>
+        </div>
+
+        <div class="item layout-row">
+            <div class="layout-center layout-row">
+                <div class="item_txt">
+                    <h1>{{ dashboard[2].title }}</h1>
+                    <h3>{{ dashboard[2].description }}</h3>
+                </div>
+
+                <div class="flex"></div>
+               
+                <div class="item_event">
+                    <div class="item_event_interval">
+                        <span>{{ dashboard[0].event.interval }}</span>
+                    </div>
+                    <div class="item_event_day background-white">
+                        <span>{{ dashboard[0].event.day }}</span>
+                    </div>
+                    <div class="item_event_month background-white">
+                        <span>{{ dashboard[0].event.month }}</span>
+                    </div>
+                </div>
             </div>
-            <div class="layout-row" style="height: 50px; width: 200px;background: #EFEBDE;border-radius: 0px 0px 20px 20px;">
-                <div style="margin: 0 auto; font-size: 24px; text-transform: uppercase; font-weight: 600;color:#333;">Apríl</div>
+        </div>
+
+        <div class="item layout-row background-white">
+            <div class="flex"></div>
+            
+            <div class="item_txt">
+                <h1>besiedka</h1>
+                <h3>(do 12 rokov)</h3>
             </div>
+
+            <div class="item_txt">
+                <h1>dorast</h1>
+                <h3>(od 12 – 16 rokov)</h3>
+            </div>
+
+            <div class="item_txt">
+                <h1>mládež</h1>
+                <h3>(od 16 rokov)</h3>
+            </div>
+
+            <div class="flex"></div>
         </div>
     </div>
-    </div>
-
-    <!-- ITEM -->
-    <div class="item layout-row" style="background:#fff; color:#333;">
-    <div class="layout-center layout-row">
-        <div class="item_event">
-            <div class="layout-row" style="height: 50px;background: #F05565;color:#fff">
-                <div style="font-size: 18px; font-weight: 600; margin: auto auto 0 auto;padding: 10px;">18:00 - 20:00</div>
-            </div>
-            <div class="layout-row" style="height: 100px; width: 200px;background: #EFEBDE;">
-                <div style="margin: auto; font-size: 70px;color:#333;border-bottom: 3px solid #D5D0BB;">28</div>
-            </div>
-            <div class="layout-row" style="height: 50px; width: 200px;background: #EFEBDE;border-radius: 0px 0px 20px 20px;">
-                <div style="margin: 0 auto; font-size: 24px; text-transform: uppercase; font-weight: 600;color:#333;">Marec</div>
-            </div>
-        </div>
-
-        <div class="flex"></div>
-
-        <div class="item_txt right-side" style="color:#333">
-            <h1>DOMÁCE SKUPINKY</h1>
-            <h3>Pravidelne sa schádzame na skupinke každý Utorok od 18:00 do 20:00. Domáca skupinka je otvorená pre všetky vekové kategórie. Pre viac informácií nás prosím kontaktuje cez kontaktné informácie.</h3>
-        </div>
-    </div>
-    </div>
-
-    <!-- ITEM -->
-    <div class="item layout-row">
-    <div class="layout-center layout-row">
-        <div class="item_txt">
-            <h1>MODLITBY</h1>
-            <h3>„Bedlite a modlite sa, aby ste neupadli do pokušenia. Duch je síce ochotný, ale telo slabé.“ Evanjelium podľa Matúša 26,41</h3>
-        </div>
-
-        <div class="flex"></div>
-
-        <div class="item_event">
-            <div class="layout-row" style="height: 50px;background: #F05565;color:#fff">
-                <div style="font-size: 18px; font-weight: 600; margin: auto auto 0 auto;padding: 10px;">18:00 - 20:00</div>
-            </div>
-            <div class="layout-row" style="height: 100px; width: 200px;background: #EFEBDE;">
-                <div style="margin: auto; font-size: 70px;color:#333;border-bottom: 3px solid #D5D0BB;">31</div>
-            </div>
-            <div class="layout-row" style="height: 50px; width: 200px;background: #EFEBDE;border-radius: 0px 0px 20px 20px;">
-                <div style="margin: 0 auto; font-size: 24px; text-transform: uppercase; font-weight: 600;color:#333;">Marec</div>
-            </div>
-        </div>
-    </div>
-    </div>
-
-    <!-- ITEM -->
-    <div class="item layout-row" style="background:#fff;">
-        <div class="flex"></div>
-        
-        <div class="item_txt">
-            <h1>besiedka</h1>
-            <h3>(do 12 rokov)</h3>
-        </div>
-
-        <div class="item_txt">
-            <h1>dorast</h1>
-            <h3>(od 12 – 16 rokov)</h3>
-        </div>
-
-        <div class="item_txt">
-            <h1>mládež</h1>
-            <h3>(od 16 rokov)</h3>
-        </div>
-
-        <div class="flex"></div>
-    </div>
-
 </div>
