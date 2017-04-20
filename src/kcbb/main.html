@@ -6,13 +6,15 @@
     </app-slider>
 
     <!-- Navigation -->
-    <nav>
+    <nav class="layout-row">
+    <div class="layout-center layout-row">
         <a [routerLink]="[ main.navigation.dashboard.id ]">
             <span>{{ main.navigation.dashboard.title }}</span>
         </a>
         <a *ngFor="let link of main.navigation.articles" [routerLink]="[ link.id ]">
             <span>{{ link.title }}</span>
         </a>
+    </div>
     </nav>
     <!-- Content -->
     <router-outlet></router-outlet>
