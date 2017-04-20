@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "filename": "1.jpg",
+            "width": 1920,
+            "height": 500
+        },
+        {
+            "filename": "2.jpg",
+            "width": 1915,
+            "height": 500
+        },
+        {
+            "filename": "3.jpg",
+            "width": 800,
+            "height": 600
+        },
+        {
+            "filename": "4.jpg",
+            "width": 1920,
+            "height": 500
+        }
+    ]
+}

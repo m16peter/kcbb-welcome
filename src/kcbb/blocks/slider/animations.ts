@@ -1,4 +1,5 @@
-import { AnimationEntryMetadata, trigger, state, style, transition, animate, keyframes } from '@angular/core';
+import { AnimationEntryMetadata } from '@angular/core';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 export const sliderAnimations: AnimationEntryMetadata =
     trigger('animateSlide', [

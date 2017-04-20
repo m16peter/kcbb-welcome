@@ -1,15 +1,16 @@
-<div class="slider layout-row" (window:resize)="updateHeight($event)">
-    <div class="slider_wrapper flex" #wrapper>
+<div class="slider layout-row" #wrapper>
+    <div class="slider_wrapper flex" *ngIf="slider.active !== -1">
 
         <!-- Slides -->
         <img [@animateSlide]="i === slider.active ? slider.animation : 'inactive'"
              (@animateSlide.start)="animationStarted($event)"
              (@animateSlide.done)="animationDone($event)"
              *ngFor="let slide of slider.slides; let i = index;"
-             class="slide" src="{{ slide['url'] }}" #image
+             src="{{ slidesUrl( slide.filename ) }}" class="slide"
+             width="{{ w() }}" height="{{ h(slide.width, slide.height, i === slider.active) }}"
         />
 
-        <div *ngIf="slider.slides.length !== 1">
+        <div *ngIf="slider.slides.length >= 1">
 
             <!-- Slider Pagination -->
             <div class="slider-pagination layout-row">
@@ -25,12 +26,12 @@
                 <div class="slider-buttons_wrapper">
                     <div class="btn-wrapper">
                         <div class="btn" (click)="previousSlide()">
-                            <img src="assets/svg/up.svg"/>
+                            <img src="{{ svgUrl( 'up.svg' ) }}"/>
                         </div>
                     </div>
                     <div class="btn-wrapper">
                         <div class="btn" (click)="nextSlide()">
-                            <img src="assets/svg/down.svg"/>
+                            <img src="{{ svgUrl( 'down.svg' ) }}"/>
                         </div>
                     </div>
                 </div>

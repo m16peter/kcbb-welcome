@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { HttpService } from '../../services/http/http.service';
+import { Article } from './article.model';
 
 @Component({
     selector: 'app-article',
@@ -9,26 +11,31 @@ import { ActivatedRoute, Params } from '@angular/router';
 
 export class ArticleComponent implements OnInit {
 
-    public data: any;
+    public article: any;
+    public loading: boolean;
 
-    constructor(private route: ActivatedRoute) {
-
-        this.data = {
-            'loading': true,
-            'title': '',
-            'description': ''
-        };
-
-    }
+    constructor(private route: ActivatedRoute, private httpService: HttpService) {}
 
     ngOnInit(): void {
 
-        console.log( this.route.params['value'] ); // ['article-id']
-        // this.route.params.forEach((params: Params) => {
-        //
-        //     (params['article-id'] !== undefined) ? console.log('params', params['article-id']) : console.log('no params');
-        //
-        // });
+        this.route.params.subscribe(params => {
+
+            this.loading = true;
+            this.get( this.route.params['value']['article-id'] );
+
+        });
+
+    }
+
+    private get(id: string): void {
+
+        this.httpService
+            .get( '/article/' + id )
+            .subscribe(data => {
+                    this.article = new Article(data);
+                    this.loading = false;
+                }, error => {}
+            );
 
     }
 

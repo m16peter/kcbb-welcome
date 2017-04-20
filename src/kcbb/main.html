@@ -1,40 +1,25 @@
-<div class="main">
+<div class="main" #container>
 
-    <!-- Slider (optional) -->
-    <!--
-    <slider *ngIf="main['slider'].active !== -1"
-            [slider]="main['slider']">
-    </slider>
-    -->
+    <!-- Slider -->
+    <app-slider [width]="main.browser.width"
+                [height]="main.browser.height">
+    </app-slider>
 
     <!-- Navigation -->
     <nav>
-        <a [routerLink]="['/dashboard']">Dashboard</a>
-        <a [routerLink]="['/crisis-center/1', { foo: 'foo' }]">Dragon Crisis</a>
-        <a [routerLink]="['/crisis-center/2']">Shark Crisis</a>
+        <a [routerLink]="[ main.navigation.dashboard.id ]">
+            <span>{{ main.navigation.dashboard.title }}</span>
+        </a>
+        <a *ngFor="let link of main.navigation.articles" [routerLink]="[ link.id ]">
+            <span>{{ link.title }}</span>
+        </a>
     </nav>
-    <!--
-    <nav-bar (activate)="activateLink($event)"
-             [navBar]="main['nav-bar']">
-    </nav-bar>
-    -->
-
-    <!-- Content (router) -->
+    <!-- Content -->
     <router-outlet></router-outlet>
-
-    <!--<home *ngIf="!main['content'].data.active" -->
-          <!--(open)="openPopup()">-->
-    <!--</home>-->
-    <!--<content [data]="main['content'].data"></content>-->
-
-
 
 </div>
 
-<!-- Extras -->
-<!--
-    <footer></footer>
-    <popup *ngIf="main['popup'].active"
+<!-- Popup -->
+<app-popup *ngIf="main.popup.active"
            (close)="closePopup()">
-    </popup>
--->
+</app-popup>

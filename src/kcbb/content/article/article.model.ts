@@ -1,26 +1,42 @@
-export class Article {
+export class Articles {
 
-    public title: string;
-    public content: string;
+    public links: any = [];
 
     constructor(data: any) {
 
         // DB config
+        const db_id = 'article_id';
         const db_title = 'article_title';
-        const db_content = 'article_content';
 
         try {
 
-            // try collecting the data
-            this.title = data[0][db_title];
-            this.content = data[0][db_content];
+            data.forEach(article => {
+                this.links.push({
+                    'id': 'article/' + article[db_id],
+                    'title':  article[db_title]
+                });
+            });
 
         } catch (e) {
-
-            // console.log(e.message);
-            this.title = this.content = '';
-
+            this.links = [];
         }
+
+    }
+
+}
+
+export class Article {
+
+    public content: string = '';
+
+    constructor(data: any) {
+
+        // DB config
+        const db_content = 'article_content';
+
+        try {
+            this.content = data[db_content];
+        } catch (e) {}
 
     }
 

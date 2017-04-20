@@ -1,8 +1,10 @@
-import { Component, Input, ElementRef, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { sliderAnimations } from './animations';
+import { Slider } from './slides.model';
+import { HttpService } from '../../services/http/http.service';
 
 @Component({
-    selector: 'slider',
+    selector: 'app-slider',
     templateUrl: './slider.html',
     styleUrls: ['./slider.less'],
     animations: [ sliderAnimations ]
@@ -10,24 +12,40 @@ import { sliderAnimations } from './animations';
 
 export class SliderComponent {
 
-    @Input() slider: any;
+    @Input() width;
+    @Input() height;
 
     @ViewChild('wrapper') wrapper;
-    @ViewChildren('image') images;
 
+    public slider: any;
     public hack: any;
 
-    constructor() {
+    constructor(private httpService: HttpService) {
+
         this.hack = {
             'active': 0,
             'animation': 'active',
             'BTNsEnabled': true
         };
+
+        this.slider = {
+            'active': -1
+        };
+
+        this.get();
+
     }
 
-    ngAfterViewInit() {
-        // TODO: need a fix...
-        this.updateHeight();
+    // init slider data
+    private get(): void {
+
+        this.httpService
+            .get('/slides')
+            .subscribe(data => {
+                    this.slider = new Slider(data)
+                }, error => {}
+            );
+
     }
 
     // control the animation
@@ -40,7 +58,8 @@ export class SliderComponent {
         }
 
     }
-    public animationDone(ev: any, el: ElementRef): void {
+    // , el: ElementRef
+    public animationDone(ev: any): void {
         // console.log(ev.fromState, '->', ev.toState, ev.totalTime + 'ms');
 
         // inactive -> 'animation' -> active
@@ -54,7 +73,6 @@ export class SliderComponent {
         if (ev.toState === 'active') {
             // console.log('slider BTNs -> enabled');
             this.hack.BTNsEnabled = true;
-            this.updateHeight();
         }
 
     }
@@ -91,14 +109,39 @@ export class SliderComponent {
         }
     }
 
-    // auto-resize slider
-    private updateHeight(): void {
-        console.log(this.wrapper);
+    public w(): number {
+        return this.width;
+    }
 
-        let i = this.slider.active;
-        let h = this.images._results[i].nativeElement.offsetHeight;
-        this.wrapper.nativeElement.style.height = h + "px";
-        // console.log('height-update:', h, this.images._results);
+    public h(sizeX: number, sizeY: number, active: boolean): number {
+        // Example:
+        // img: 1920x500
+        // browser w: 1366
+
+        // 1920px ... ... ... 100%
+        // 500px  ... ... ... X %
+        // => X = (500 * 100) / 1920 =~ 26
+        const percentage = Math.floor((sizeY * 100) / sizeX);
+
+        // 1366px ... ... ... 100%
+        // Y px   ... ... ... 26%
+        // => Y = (1366 * 26) / 100 =~ 355
+        const size = Math.floor((this.width * percentage) / 100);
+
+        if (active) {
+            this.height = size;
+            this.wrapper.nativeElement.children[0].style.height = size + "px";
+        }
+
+        return size;
+    }
+
+    // paths
+    public svgUrl(filename: string): string {
+        return 'assets/svg/' + filename;
+    }
+    public slidesUrl(filename: string): string {
+        return 'assets/slides/' + filename;
     }
 
 }

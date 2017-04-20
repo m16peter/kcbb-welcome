@@ -1,5 +1,3 @@
-@import "../../assets/css/variables";
-
 .slider {
     position: relative;
     overflow: hidden;
@@ -7,21 +5,16 @@
     &_wrapper {
         margin: 0 auto;
         position: relative;
-        max-width: @xlg;
+        max-width: 1920px;
         transition: height 300ms ease;
         -webkit-transition-delay: 200ms;
         transition-delay: 200ms;
-        height: 0;
+        height: 0; // js
 
         .slide {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-            height: auto;
-            margin: auto;
         }
     }
 }
@@ -42,7 +35,7 @@
 
             .btn {
                 transform: rotate(45deg);
-                background: @white;
+                background: #fff;
                 width: 40px;
                 height: 40px;
                 border: 1px solid #ccc;
@@ -82,7 +75,7 @@
             z-index: 100;
             &:hover {
                 .circle {
-                    background: @dark;
+                    background: #333;
                 }
             }
         }
@@ -94,10 +87,18 @@
         height: 5px;
         background: transparent;
         border-radius: 50%;
-        border: 2px solid @dark;
+        border: 2px solid #333;
 
         &_active {
-            background: @dark;
+            background: #333;
         }
     }
+}
+
+.layout-row {
+    display: flex;
+}
+
+.flex {
+    flex: 1;
 }

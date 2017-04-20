@@ -1,11 +1,6 @@
-import { Component, AfterViewInit } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { HttpService } from './http.service';
-
-import { Navigation } from '../kcbb/navigation/navigation.model';
-import { Slider } from '../kcbb/blocks/slider/slides.model';
-import { Article } from '../kcbb/content/article/article.model';
+import { Component, HostListener, ViewChild, OnInit } from '@angular/core';
+import { HttpService } from './services/http/http.service';
+import { Articles } from './content/article/article.model';
 
 @Component({
     selector: 'app-main',
@@ -13,128 +8,67 @@ import { Article } from '../kcbb/content/article/article.model';
     styleUrls: ['./main.less']
 })
 
-export class MainComponent implements AfterViewInit {
+export class MainComponent implements OnInit {
 
     public main: any;
 
-    constructor(private httpService: HttpService, private router: Router) {
+    @ViewChild('container') container;
+
+    @HostListener('window:resize', ['$event']) onResize() {
+        this.resize();
+    }
+
+    constructor(private httpService: HttpService) {
 
         this.main = {
-            'slider': {
-                'slides': [],
-                'active': -1,
-                'animation': ''
-            },
-            'navigation': [],
-            'content': {
-                'dashboard': {},
-                'articles': [],
-                'loading': true
+            'navigation': {
+                'dashboard': {
+                    'id': '/dashboard',
+                    'title': 'KC BB'
+                },
+                'articles': []
             },
             'popup': {
                 'active': false
+            },
+            'browser': {
+                'width': 0,
+                'height': 0,
+                'supported': true
             }
         };
 
+        // init navigation
+        this.init();
+
     }
 
-    // init slider & navigation
-    ngAfterViewInit(): void {
-        this.get('/slider/images', 'slides');
-        this.get('/links', 'navigation');
+     ngOnInit() {
+        this.resize();
     }
 
-    private get(url: string, callback: string, params: any = {}): void {
+    private resize(): void {
+        this.main.browser['width'] = this.container.nativeElement.offsetParent.offsetWidth;
+    }
+
+    private init(): void {
 
         this.httpService
-            .get(url)
-                .subscribe(data => {
-                    this.switchCallback(data, callback, params);
-                }, error => {
-                    this.switchCallback([], callback, params);
-                }
+            .get('/articles')
+            .subscribe(data => {
+                    const articles = new Articles(data);
+                    this.main.navigation.articles = articles.links;
+                }, error => {}
             );
 
     }
 
-    private switchCallback(data, callback, params) {
-        switch (callback) {
-            case 'navigation': {
-                this.loadNavigation(data);
-                break;
-            }
-            case 'slides': {
-                this.loadSlides(data);
-                break;
-            }
-            case 'content': {
-                this.loadContent(data, params);
-                break;
-            }
-            default: {
-                break;
-            }
-        }
-    }
-
-    private loadNavigation(data: any): void {
-
-        const navigation: Navigation = new Navigation(data);
-        this.main.navigation = navigation.links;
-
-        this.main.navigation.forEach((id) => {
-
-            // TODO: init based on type ('dashboard', 'article')
-            this.main.content.pages[id.link] = {
-                'title': '',
-                'description': '',
-                'loaded': false
-            };
-
-        });
-
-    }
-
-    private loadSlides(data: any): void {
-        this.main['slider'] = new Slider(data);
-    }
-
-    private loadContent(data: any, id: string): void {
-
-        // TODO: load based on type ('dashboard', 'article')
-        const article = new Article(data);
-
-        this.main['content'].pages[id].title = article.title;
-        this.main['content'].pages[id].description = article.content;
-
-        // hide loader
-        this.main['content'].pages[id].loaded = true;
-        this.main.content.loading = false;
-
-    }
-
-    public activateLink(id: string): void {
-
-        // TODO: based on type
-        if (this.main.content.pages[id].loaded) {
-
-            this.router.navigate([id, this.main['content'].pages[id]]);
-
-        } else {
-
-            this.main.content.loading = true;
-            this.get('/article/' + id, 'content', id);
-
-        }
-
-    }
-
     public closePopup(): void {
-        this.main['popup'].active = false;
+        this.main.popup.active = false;
     }
 
     public openPopup(): void {
-        this.main['popup'].active = true;
+        this.main.popup.active = true;
     }
 
 }

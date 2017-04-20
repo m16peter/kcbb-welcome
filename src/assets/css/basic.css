@@ -64,6 +64,9 @@ app-welcome {
     display: flex;
     overflow-x: auto;
 }
+app-main {
+    width: 100%;
+}
 h1 {
     font-weight: 800;
     font-size: 40px;

@@ -1,6 +1,42 @@
-@import "../assets/css/variables";
-
-.main, slider, nav-bar, content {
+.main {
+    background: #fff;
     position: relative;
     width: 100%;
+    overflow: hidden;
+}
+
+nav {
+    background: #fff;
+    height: 50px;
+    display: flex;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 100px;
+
+    a {
+        position: relative;
+        color: #000;
+        text-decoration: none;
+        margin: 0 5px;
+        display: flex;
+
+        &:hover {
+            &::after {
+                visibility: visible;
+            }
+        }
+        &::after {
+            visibility: hidden;
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 1px;
+            height: 2px;
+            width: 100%;
+            background: #333;
+        }
+        span {
+            margin: auto 5px;
+        }
+    }
 }
