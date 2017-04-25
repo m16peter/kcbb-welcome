@@ -23,18 +23,23 @@
 
             <!-- Slider Buttons -->
             <div class="slider-buttons layout-row">
-                <div class="slider-buttons_wrapper">
-                    <div class="btn-wrapper">
-                        <div class="btn" (click)="previousSlide()">
-                            <img src="{{ svgUrl( 'up.svg' ) }}"/>
-                        </div>
-                    </div>
-                    <div class="btn-wrapper">
-                        <div class="btn" (click)="nextSlide()">
-                            <img src="{{ svgUrl( 'down.svg' ) }}"/>
-                        </div>
+
+                <!-- Previous Slide -->
+                <div class="btn-wrapper_previous">
+                    <div class="btn" (click)="previousSlide()">
+                        <img src="{{ svgUrl( 'up.svg' ) }}"/>
                     </div>
                 </div>
+
+                <div class="flex"></div>
+
+                <!-- Next Slide -->
+                <div class="btn-wrapper_next">
+                    <div class="btn" (click)="nextSlide()">
+                        <img src="{{ svgUrl( 'down.svg' ) }}"/>
+                    </div>
+                </div>
+
             </div>
 
         </div>

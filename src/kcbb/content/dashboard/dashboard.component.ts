@@ -21,7 +21,7 @@ export class DashboardComponent {
         this.httpService
             .get( '/dashboard' )
             .subscribe(data => {
-                    console.log( data );
+                    // console.log( data );
                     this.dashboard = data;
                     this.loading = false;
                 }, error => {}

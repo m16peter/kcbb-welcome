@@ -110,10 +110,11 @@ export class SliderComponent {
     }
 
     public w(): number {
-        return this.width;
+        return this.width - 60;
     }
 
     public h(sizeX: number, sizeY: number, active: boolean): number {
+
         // Example:
         // img: 1920x500
         // browser w: 1366
@@ -126,7 +127,7 @@ export class SliderComponent {
         // 1366px ... ... ... 100%
         // Y px   ... ... ... 26%
         // => Y = (1366 * 26) / 100 =~ 355
-        const size = Math.floor((this.width * percentage) / 100);
+        const size = Math.floor(((this.width - 60) * percentage) / 100);
 
         if (active) {
             this.height = size;
