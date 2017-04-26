@@ -9,92 +9,53 @@
         -webkit-transition-delay: 200ms;
         transition-delay: 200ms;
         height: 0; // js
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
     }
-}
-
-.slider-buttons {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    z-index: 100;
-
-    &_wrapper {
-        margin: auto;
-
-        .btn-wrapper {
-
-            &_previous {
-                margin-left: 10px;                
-            }
-            &_next {
-                margin-right: 10px;
-            }
-            .btn {
-                transform: rotate(45deg);
-                background: #fff;
-                width: 40px;
-                height: 40px;
-                border: 1px solid #ccc;
-                border-radius: 2px;
-                cursor: pointer;
-
-                &:hover {
-                    -webkit-box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.9);
-                    -moz-box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.9);
-                    box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.9);
-                }
-                img {
-                    top: 8.285px;
-                    left: 8.285px;
-                    width: 40px;
-                    height: 40px;
-                    transform: rotate(-45deg);
-                }
-            }
-        }
+    &__slide {
+        position: absolute;
+        top: 0;
+        left: 0;
     }
-}
+    &__navigation {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        z-index: 100;
 
-.slider-pagination {
-    position: absolute;
-    left: -20px;
-    top: 0;
-    width: 40px;
-    height: 100%;
-    z-index: 100;
-
-    .circle-wrapper {
-        margin: auto;
-        > div {
-            padding: 10px 5px;
+        &__btn {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: #FFF;
+            border: 1px solid #CCC;
+            border-radius: 2px;
             cursor: pointer;
-            z-index: 100;
-            &:hover {
-                .circle {
-                    background: #333;
-                }
-            }
-        }
-    }
-    .circle {
-        margin: 0 5px;
-        position: relative;
-        width: 5px;
-        height: 5px;
-        background: transparent;
-        border-radius: 50%;
-        border: 2px solid #333;
 
-        &_active {
-            background: #333;
+            &:hover {
+                -webkit-box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.9);
+                -moz-box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.9);
+                box-shadow: 10px 10px 40px -10px rgba(0,0,0,0.9);
+            }
+
+        }
+        &__pagination {
+            position: relative;
+            margin: auto;
+
+            &_circle {
+                position: relative;
+                width: 5px;
+                height: 5px;
+                margin: 0 5px;
+                background: transparent;
+                border-radius: 50%;
+                border: 2px solid #333;
+            }
+            .active {
+                background: #333;
+            }
         }
     }
 }

@@ -130,6 +130,7 @@ export class SliderComponent {
         const size = Math.floor(((this.width - 60) * percentage) / 100);
 
         if (active) {
+            // console.log( size );
             this.height = size;
             this.wrapper.nativeElement.children[0].style.height = size + "px";
         }
@@ -137,12 +138,9 @@ export class SliderComponent {
         return size;
     }
 
-    // paths
-    public svgUrl(filename: string): string {
-        return 'assets/svg/' + filename;
-    }
-    public slidesUrl(filename: string): string {
-        return 'assets/slides/' + filename;
+    // Url to Images
+    public url(filename: string): string {
+        return 'assets/img/' + filename;
     }
 
 }
