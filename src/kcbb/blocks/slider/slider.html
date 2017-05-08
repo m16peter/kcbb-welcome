@@ -1,34 +1,38 @@
 <!-- Slider -->
-<div class="slider layout-row" #wrapper>
-    <div class="slider_wrapper flex" *ngIf="slider.active !== -1">
+<div class="slider" #wrapper>
+    <div class="slider_wrapper" *ngIf="slider.active !== -1">
 
         <!-- Slides -->
         <img [@animateSlide]="i === slider.active ? slider.animation : 'inactive'"
              (@animateSlide.start)="animationStarted($event)"
              (@animateSlide.done)="animationDone($event)"
              *ngFor="let slide of slider.slides; let i = index;"
-             src="{{ url( slide.filename ) }}" class="slider__slide"
-             width="{{ w() }}" height="{{ h(slide.width, slide.height, i === slider.active) }}"
+             src="{{ src( slide.src ) }}" class="slider__slide"
+             width="{{ width }}" height="{{ h(slide.width, slide.height, i === slider.active) }}"
         />
 
         <!-- Slider Navigation -->
         <div class="slider__navigation layout-row" *ngIf="slider.slides.length >= 1">
-            
+
             <!-- Previous -->
             <div class="slider__navigation__btn" (click)="previousSlide()">
-                <img src="{{ url( 'previous.svg' ) }}"/>
+                <div class="round_btn">
+                    <img src="{{ src('img/left.svg') }}" />
+                </div>
             </div>
-            
+
             <!-- Pagination -->
             <div class="slider__navigation__pagination layout-row">
                 <div *ngFor="let slide of slider.slides; let i = index;" class="layout-row" (click)="selectSlide(i)">
                     <div class="slider__navigation__pagination_circle" [ngClass]="{'active': i === slider.active}"></div>
                 </div>
             </div>
-            
+
             <!-- Next -->
             <div class="slider__navigation__btn" (click)="nextSlide()">
-                <img src="{{ url( 'next.svg' ) }}"/>
+                <div class="round_btn">
+                    <img src="{{ src('img/right.svg') }}" />
+                </div>
             </div>
 
         </div>

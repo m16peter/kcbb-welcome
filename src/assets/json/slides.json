@@ -1,15 +1,15 @@
 {
     "data": [
         {
-            "filename": "4.jpg",
+            "src": "img/4.jpg",
             "width": 1920,
             "height": 500
         },
         {
-            "filename": "2.jpg",
+            "src": "img/2.jpg",
             "width": 1915,
             "height": 500
         }
-        
+
     ]
 }

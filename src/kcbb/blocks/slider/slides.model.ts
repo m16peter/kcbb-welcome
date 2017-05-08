@@ -7,7 +7,7 @@ export class Slider {
     constructor(data: any) {
 
         // DB config
-        const db_name = 'filename';
+        const db_path = 'src';
         const db_w = 'width';
         const db_h = 'height';
 
@@ -17,7 +17,7 @@ export class Slider {
 
                 data.forEach((slide) => {
                     this.slides.push({
-                        'filename': slide[db_name],
+                        'src': slide[db_path],
                         'width': slide[db_w],
                         'height': slide[db_h]
                     });
