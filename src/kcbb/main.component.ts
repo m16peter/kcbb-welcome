@@ -1,4 +1,6 @@
 import { Component, HostListener, ViewChild, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { HttpService } from './services/http/http.service';
 import { Articles } from './content/article/article.model';
 
@@ -18,7 +20,7 @@ export class MainComponent implements OnInit {
         this.resize();
     }
 
-    constructor(private httpService: HttpService) {
+    constructor(private router: Router, private httpService: HttpService) {
 
         this.main = {
             'navigation': {
@@ -63,12 +65,8 @@ export class MainComponent implements OnInit {
 
     }
 
-    public closePopup(): void {
-        this.main.popup.active = false;
-    }
-
-    public openPopup(): void {
-        this.main.popup.active = true;
+    public nagivate(id: string) {
+        this.router.navigate([id]);
     }
 
 }

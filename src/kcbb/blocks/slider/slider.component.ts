@@ -20,12 +20,14 @@ export class SliderComponent {
     public slider: any;
     public hack: any;
 
+    private isSetInterval: boolean = true;
+
     constructor(private httpService: HttpService) {
 
         this.hack = {
             'active': 0,
             'animation': 'active',
-            'BTNsEnabled': true
+            'BTNsEnabled': true,
         };
 
         this.slider = {
@@ -36,13 +38,17 @@ export class SliderComponent {
 
     }
 
-    // init slider data
     private get(): void {
 
         this.httpService
             .get('/slides')
             .subscribe(data => {
-                    this.slider = new Slider(data)
+                    this.slider = new Slider(data);
+
+                    this.hack.interval = setInterval(() => {
+                        this.changeSlide('next', this.slider.active < this.slider.slides.length - 1 ? this.slider.active + 1 : 0);
+                    }, 5000);
+
             });
 
     }
@@ -75,17 +81,33 @@ export class SliderComponent {
     }
 
     public previousSlide(): void {
+
+        this.isSetInterval = false;
         this.changeSlide('previous', this.slider.active > 0 ? this.slider.active - 1 : this.slider.slides.length - 1);
+
     }
     public nextSlide(): void {
+
+        this.isSetInterval = false;
         this.changeSlide('next', this.slider.active < this.slider.slides.length - 1 ? this.slider.active + 1 : 0);
+
     }
     public selectSlide(index: number): void {
+
+        this.isSetInterval = false;
+
         if (this.slider.active !== index) {
             this.changeSlide('down', index);
         }
+
     }
+
     private changeSlide(animation: string, activeIndex: number): void {
+
+        if (!this.isSetInterval) {
+            clearInterval(this.hack.interval);
+        }
+
         if (this.hack.BTNsEnabled) {
 
             // disable button
@@ -101,6 +123,7 @@ export class SliderComponent {
             this.slider.animation = animation;
             this.hack.animation = animation;
         }
+
     }
 
     public h(sizeX: number, sizeY: number, active: boolean): number {
@@ -130,7 +153,9 @@ export class SliderComponent {
 
     // Url to Images
     public src(filename: string): string {
+
         return 'assets/' + filename;
+
     }
 
 }

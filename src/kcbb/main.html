@@ -6,22 +6,21 @@
     </app-slider>
 
     <!-- Navigation -->
-    <nav class="layout-row">
-    <div class="layout-center layout-row">
-        <a [routerLink]="[ main.navigation.dashboard.id ]">
-            <span>{{ main.navigation.dashboard.title }}</span>
-        </a>
-        <a *ngFor="let link of main.navigation.articles" [routerLink]="[ link.id ]">
-            <span>{{ link.title }}</span>
-        </a>
+    <div class="navigation layout-row">
+        <div class="layout-center layout-row">
+            <div class="navigation__link" (click)="nagivate(main.navigation.dashboard.id)">
+                <span>{{ main.navigation.dashboard.title }}</span>
+            </div>
+            <div class="navigation__link" *ngFor="let link of main.navigation.articles" (click)="nagivate(link.id)">
+                <span>{{ link.title }}</span>
+            </div>
+        </div>
     </div>
-    </nav>
+
     <!-- Content -->
     <router-outlet></router-outlet>
 
 </div>
 
 <!-- Popup -->
-<app-popup *ngIf="main.popup.active"
-           (close)="closePopup()">
-</app-popup>
+<app-popup *ngIf="main.popup.active"></app-popup>

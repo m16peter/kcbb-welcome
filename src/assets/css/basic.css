@@ -49,6 +49,7 @@ table {
 }
 
 html {
+    display: flex;
     color: #eee;
     background-color: #fff;
     font-family: 'Raleway', sans-serif;
@@ -67,10 +68,12 @@ app-welcome {
 app-main {
     width: 100%;
 }
-h1 {
-    font-weight: 800;
-    font-size: 40px;
-}
 .uil-ring-css {
     margin: auto;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 800;
+    padding: 20px 0;
 }
