@@ -1,0 +1,24 @@
+{
+    "data": [
+        {
+            "type": "dashboard",
+            "title": "KC BB",
+            "id": "dashboard"
+        },
+        {
+            "type": "article",
+            "title": "O Nas",
+            "id": "o-nas"
+        },
+        {
+            "type": "article",
+            "title": "Comu Verime",
+            "id": "comu-verime"
+        },
+        {
+            "type": "article",
+            "title": "Kontakt",
+            "id": "kontakt"
+        }
+    ]
+}

@@ -34,8 +34,7 @@ export class ArticleComponent implements OnInit {
             .subscribe(data => {
                     this.article = new Article(data);
                     this.loading = false;
-                }, error => {}
-            );
+            });
 
     }
 

@@ -8,12 +8,19 @@
     <!-- Navigation -->
     <div class="navigation layout-row">
         <div class="layout-center layout-row">
-            <div class="navigation__link" (click)="nagivate(main.navigation.dashboard.id)">
-                <span>{{ main.navigation.dashboard.title }}</span>
+
+            <!-- Dashboard -->
+            <div class="navigation__link" (click)="nagivate(navigation.dashboard.id)">
+                <span>{{ navigation.dashboard.title }}</span>
             </div>
-            <div class="navigation__link" *ngFor="let link of main.navigation.articles" (click)="nagivate(link.id)">
-                <span>{{ link.title }}</span>
+
+            <!-- Articles -->
+            <div *ngIf="navigation.articles.length > 0" class="layout-row">
+                <div class="navigation__link" *ngFor="let link of navigation.articles" (click)="nagivate(link.id)">
+                    <span>{{ link.title }}</span>
+                </div>
             </div>
+
         </div>
     </div>
 
@@ -23,4 +30,4 @@
 </div>
 
 <!-- Popup -->
-<app-popup *ngIf="main.popup.active"></app-popup>
+<app-popup *ngIf="popup.active"></app-popup>

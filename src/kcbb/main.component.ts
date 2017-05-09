@@ -2,7 +2,6 @@ import { Component, HostListener, ViewChild, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { HttpService } from './services/http/http.service';
-import { Articles } from './content/article/article.model';
 
 @Component({
     selector: 'app-main',
@@ -13,6 +12,8 @@ import { Articles } from './content/article/article.model';
 export class MainComponent implements OnInit {
 
     public main: any;
+    public navigation: any;
+    public popup: any;
 
     @ViewChild('container') container;
 
@@ -23,16 +24,6 @@ export class MainComponent implements OnInit {
     constructor(private router: Router, private httpService: HttpService) {
 
         this.main = {
-            'navigation': {
-                'dashboard': {
-                    'id': '/dashboard',
-                    'title': 'KC BB'
-                },
-                'articles': []
-            },
-            'popup': {
-                'active': false
-            },
             'browser': {
                 'width': 0,
                 'height': 0,
@@ -40,8 +31,35 @@ export class MainComponent implements OnInit {
             }
         };
 
+        this.navigation = {
+            'dashboard': {},
+            'articles': []
+        };
+
+        this.popup = {
+            'active': false
+        };
+
         // init navigation
-        this.init();
+        this.httpService
+            .get('/navigation')
+            .subscribe(data => {
+                data.forEach((link) => {
+
+                    if (link.type === "dashboard") {
+                        this.navigation.dashboard = {
+                            'title': link.title,
+                            'id': link.id,
+                        };
+                    } else {
+                        this.navigation.articles.push({
+                            'title':  link.title,
+                            'id': 'article/' + link.id
+                        });
+                    }
+
+                });
+            });
 
     }
 
@@ -51,18 +69,6 @@ export class MainComponent implements OnInit {
 
     private resize(): void {
         this.main.browser['width'] = this.container.nativeElement.offsetParent.offsetWidth;
-    }
-
-    private init(): void {
-
-        this.httpService
-            .get('/articles')
-            .subscribe(data => {
-                    const articles = new Articles(data);
-                    this.main.navigation.articles = articles.links;
-                }, error => {}
-            );
-
     }
 
     public nagivate(id: string) {
