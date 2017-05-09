@@ -18,23 +18,18 @@ export class ArticleComponent implements OnInit {
 
     ngOnInit(): void {
 
-        this.route.params.subscribe(params => {
+        this.route.params.subscribe(() => {
 
             this.loading = true;
-            this.get( this.route.params['value']['article-id'] );
 
-        });
-
-    }
-
-    private get(id: string): void {
-
-        this.httpService
-            .get( '/article/' + id )
-            .subscribe(data => {
+            this.httpService
+                .get( '/article/' + this.route.params['value']['article-id'] )
+                .subscribe(data => {
                     this.article = new Article(data);
                     this.loading = false;
-            });
+                });
+
+        });
 
     }
 

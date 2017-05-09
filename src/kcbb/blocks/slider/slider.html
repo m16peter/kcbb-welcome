@@ -3,13 +3,14 @@
     <div class="slider_wrapper" *ngIf="slider.active !== -1">
 
         <!-- Slides -->
-        <img [@animateSlide]="i === slider.active ? slider.animation : 'inactive'"
-             (@animateSlide.start)="animationStarted($event)"
-             (@animateSlide.done)="animationDone($event)"
-             *ngFor="let slide of slider.slides; let i = index;"
-             src="{{ src( slide.src ) }}" class="slider__slide"
-             width="{{ width }}" height="{{ h(slide.width, slide.height, i === slider.active) }}"
-        />
+        <a href="{{ slide.redirect }}" target="_blank" *ngFor="let slide of slider.slides; let i = index;">
+            <img [@animateSlide]="i === slider.active ? slider.animation : 'inactive'"
+                 (@animateSlide.start)="animationStarted($event)"
+                 (@animateSlide.done)="animationDone($event)"
+                 src="{{ path + slide.src }}" class="slider__slide"
+                 width="{{ width }}" height="{{ h(slide.width, slide.height, i === slider.active) }}"
+            />
+        </a>
 
         <!-- Slider Navigation -->
         <div class="slider__navigation layout-row" *ngIf="slider.slides.length >= 1">
@@ -17,7 +18,7 @@
             <!-- Previous -->
             <div class="slider__navigation__btn" (click)="previousSlide()">
                 <div class="round_btn">
-                    <img src="{{ src('img/left.svg') }}" />
+                    <img src="{{ path + 'img/left.svg' }}" />
                 </div>
             </div>
 
@@ -31,7 +32,7 @@
             <!-- Next -->
             <div class="slider__navigation__btn" (click)="nextSlide()">
                 <div class="round_btn">
-                    <img src="{{ src('img/right.svg') }}" />
+                    <img src="{{ path + 'img/right.svg' }}" />
                 </div>
             </div>
 

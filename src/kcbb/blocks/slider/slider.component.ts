@@ -1,4 +1,5 @@
 import { Component, ViewChild, Input } from '@angular/core';
+
 import { sliderAnimations } from './animations';
 import { Slider } from './slides.model';
 import { HttpService } from '../../services/http/http.service';
@@ -12,6 +13,7 @@ import { HttpService } from '../../services/http/http.service';
 
 export class SliderComponent {
 
+    @Input() path;
     @Input() width;
     @Input() height;
 
@@ -34,21 +36,10 @@ export class SliderComponent {
             'active': -1
         };
 
-        this.get();
-
-    }
-
-    private get(): void {
-
         this.httpService
             .get('/slides')
             .subscribe(data => {
-                    this.slider = new Slider(data);
-
-                    this.hack.interval = setInterval(() => {
-                        this.changeSlide('next', this.slider.active < this.slider.slides.length - 1 ? this.slider.active + 1 : 0);
-                    }, 5000);
-
+                this.slider = new Slider(data)
             });
 
     }
@@ -149,13 +140,6 @@ export class SliderComponent {
         }
 
         return size;
-    }
-
-    // Url to Images
-    public src(filename: string): string {
-
-        return 'assets/' + filename;
-
     }
 
 }

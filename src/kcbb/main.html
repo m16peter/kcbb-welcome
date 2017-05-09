@@ -1,31 +1,23 @@
 <div class="main" #container>
 
     <!-- Slider -->
-    <app-slider [width]="main.browser.width"
-                [height]="main.browser.height">
+    <app-slider [path]="browser['path']"
+                [width]="browser['width']"
+                [height]="browser['slider-height']">
     </app-slider>
 
     <!-- Navigation -->
-    <div class="navigation layout-row">
-        <div class="layout-center layout-row">
-
-            <!-- Dashboard -->
-            <div class="navigation__link" (click)="nagivate(navigation.dashboard.id)">
-                <span>{{ navigation.dashboard.title }}</span>
-            </div>
-
-            <!-- Articles -->
-            <div *ngIf="navigation.articles.length > 0" class="layout-row">
-                <div class="navigation__link" *ngFor="let link of navigation.articles" (click)="nagivate(link.id)">
-                    <span>{{ link.title }}</span>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <app-navigation [path]="browser['path']"
+                    [showMenu]="browser['show-menu']"
+                    (navigate)="navigateMenu($event)"
+                    (toggle)="toggleMenu()">
+    </app-navigation>
 
     <!-- Content -->
     <router-outlet></router-outlet>
+
+    <!-- Footer -->
+    <app-contact></app-contact>
 
 </div>
 

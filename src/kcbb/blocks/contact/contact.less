@@ -1,0 +1,40 @@
+.contact {
+    border-top: 1px dashed #333;
+    overflow: hidden;
+    width: 100%;
+    max-height: 200px;
+    background: #eee;
+    color: #333;
+    padding: 50px 0;
+
+    > div {
+        display: flex;
+    }
+    .flex {
+        margin: auto 50px;
+    }
+    b {
+        font-weight: 600;
+    }
+
+    a {
+        text-decoration: none;
+        color: #333;
+    }
+}
+
+@media all and (max-width: 1024px) {
+
+    .contact {
+        max-height: 600px;
+        display: flex;
+
+        > div {
+            display: block;
+            margin: 0 auto;
+        }
+        .flex {
+            min-height: 50px;
+        }
+    }
+}

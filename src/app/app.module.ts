@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { MainComponent } from '../kcbb/main.component';
 import { AppRoutingModule, routedComponents } from './app.routing';
 import { SliderComponent } from '../kcbb/blocks/slider/slider.component';
+import { NavigationComponent } from '../kcbb/blocks/navigation/navigation.component';
+import { ContactComponent } from '../kcbb/blocks/contact/contact.component';
 import { PopupComponent } from '../kcbb/blocks/popup/popup.component';
 import { HttpService } from '../kcbb/services/http/http.service';
 
@@ -16,6 +18,8 @@ import { HttpService } from '../kcbb/services/http/http.service';
         AppComponent,
         MainComponent,
         SliderComponent,
+        NavigationComponent,
+        ContactComponent,
         PopupComponent,
         routedComponents
     ],

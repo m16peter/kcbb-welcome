@@ -39,11 +39,19 @@ h3 {
         max-width: 640px;
         margin: 0 100px;
     }
+    &_block {
+        font-family: 'Raleway', sans-serif;
+        min-height: 80px;
+        font-size: 30px;
+        font-weight: 800;
+        color: #333;
+        max-width: 640px;
+        margin: auto 100px;
+    }
     &_event {
         width: 200px;
         height: 200px;
         margin: 30px 100px;
-        border-radius: 2px;
         cursor: pointer;
         transition: box-shadow 100ms ease;
         border: none;
@@ -57,7 +65,7 @@ h3 {
             background: #F05565;
             color:#fff;
             display: flex;
-            
+
             span {
                 font-size: 18px;
                 font-weight: 600;
@@ -71,7 +79,7 @@ h3 {
             display: flex;
 
             span {
-                margin: auto; 
+                margin: auto;
                 font-size: 70px;
                 color:#333;
                 border-bottom: 3px solid #D5D0BB;
@@ -108,4 +116,35 @@ h3 {
 }
 .background-gray {
     background-color: #eee;
+}
+
+@media all and (max-width: 1024px) {
+
+    .item_event {
+        display: none;
+    }
+    .item {
+        display: block;
+        .flex {
+            flex: 0;
+        }
+        &_txt {
+            text-align: center;
+        }
+        &_block {
+            text-align: center;
+            margin-top: 20px;
+
+            h1 {
+                margin-right: 20px;
+                display: inline;
+                padding: 0;
+            }
+            h3 {
+                color: #888;
+                display: inline;
+                padding: 0;
+            }
+        }
+    }
 }

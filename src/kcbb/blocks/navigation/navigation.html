@@ -1,0 +1,25 @@
+<div class="navigation layout-row">
+    <div class="layout-center layout-row" *ngIf="!navigation.loading">
+
+        <div class="navigation__link menu" (click)="toggleMenu()">
+            <img src="{{ path + 'img/menu.svg' }}" />
+        </div>
+
+        <!-- Dashboard -->
+        <div class="navigation__link" (click)="nagivateMenu(navigation.dashboard.id)" *ngIf="showMenu">
+            <span>{{ navigation.dashboard.title }}</span>
+        </div>
+
+        <!-- Articles -->
+        <div *ngIf="navigation.articles.length > 0 && showMenu" class="layout-row">
+            <div class="navigation__link" *ngFor="let link of navigation.articles" (click)="nagivateMenu(link.id)">
+                <span>{{ link.title }}</span>
+            </div>
+        </div>
+
+        <div class="navigation__link" *ngIf="showMenu">
+            <a href="http://rozpis.kcbb.sk/" target="_blank">Rozpis</a>
+        </div>
+
+    </div>
+</div>

@@ -1,5 +1,7 @@
 <div class="dashboard">
 
+    <div *ngIf="loading" class='uil-ring-css loader' style='transform:scale(1);'><div></div></div>
+
     <div *ngIf="!loading">
 
         <div class="item layout-row">
@@ -75,17 +77,17 @@
         <div class="item layout-row background-white">
             <div class="flex"></div>
 
-            <div class="item_txt">
+            <div class="item_block">
                 <h1>besiedka</h1>
                 <h3>(do 12 rokov)</h3>
             </div>
 
-            <div class="item_txt">
+            <div class="item_block">
                 <h1>dorast</h1>
                 <h3>(od 12 – 16 rokov)</h3>
             </div>
 
-            <div class="item_txt">
+            <div class="item_block">
                 <h1>mládež</h1>
                 <h3>(od 16 rokov)</h3>
             </div>

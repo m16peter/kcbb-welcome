@@ -13,19 +13,14 @@ export class DashboardComponent {
     public dashboard: any = [];
 
     constructor(private httpService: HttpService) {
-        this.get();
-    }
-
-    private get(): void {
 
         this.httpService
-            .get( '/dashboard' )
+            .get('/dashboard')
             .subscribe(data => {
-                    // console.log( data );
-                    this.dashboard = data;
-                    this.loading = false;
-                }, error => {}
-            );
+                this.dashboard = data;
+                this.loading = false;
+            });
 
     }
+
 }

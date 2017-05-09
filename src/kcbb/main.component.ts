@@ -1,7 +1,5 @@
-import { Component, HostListener, ViewChild, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { HttpService } from './services/http/http.service';
 
 @Component({
     selector: 'app-main',
@@ -11,8 +9,7 @@ import { HttpService } from './services/http/http.service';
 
 export class MainComponent implements OnInit {
 
-    public main: any;
-    public navigation: any;
+    public browser: any;
     public popup: any;
 
     @ViewChild('container') container;
@@ -21,58 +18,60 @@ export class MainComponent implements OnInit {
         this.resize();
     }
 
-    constructor(private router: Router, private httpService: HttpService) {
+    constructor(private router: Router) {
 
-        this.main = {
-            'browser': {
-                'width': 0,
-                'height': 0,
-                'supported': true
-            }
-        };
-
-        this.navigation = {
-            'dashboard': {},
-            'articles': []
+        this.browser = {
+            'slider-height': 0,
+            'width': 0,
+            'path': 'kcbb-welcome/assets/', // gh-pages: 'kcbb-welcome/'
+            'show-menu': true
         };
 
         this.popup = {
             'active': false
         };
 
-        // init navigation
-        this.httpService
-            .get('/navigation')
-            .subscribe(data => {
-                data.forEach((link) => {
-
-                    if (link.type === "dashboard") {
-                        this.navigation.dashboard = {
-                            'title': link.title,
-                            'id': link.id,
-                        };
-                    } else {
-                        this.navigation.articles.push({
-                            'title':  link.title,
-                            'id': 'article/' + link.id
-                        });
-                    }
-
-                });
-            });
-
     }
 
-     ngOnInit() {
+    ngOnInit() {
         this.resize();
     }
 
+    /**
+     * Handles resize event
+     */
     private resize(): void {
-        this.main.browser['width'] = this.container.nativeElement.offsetParent.offsetWidth;
+
+        this.browser['width'] = this.container.nativeElement.offsetParent.offsetWidth;
+        this.closeMenuOnSmallDevice();
+
     }
 
-    public nagivate(id: string) {
+    /**
+     * Navigation
+     */
+
+    public navigateMenu(id: string): void {
+
+        this.closeMenuOnSmallDevice();
         this.router.navigate([id]);
+
+    }
+
+    public toggleMenu(): void {
+        this.browser['show-menu'] ? this.closeMenu() : this.openMenu();
+    }
+
+    private openMenu(): void {
+        this.browser['show-menu'] = true;
+    }
+
+    private closeMenu(): void {
+        this.browser['show-menu'] = false;
+    }
+
+    private closeMenuOnSmallDevice(): void {
+        this.browser['show-menu'] = (this.browser['width'] > 1024);
     }
 
 }

@@ -10,6 +10,7 @@ export class Slider {
         const db_path = 'src';
         const db_w = 'width';
         const db_h = 'height';
+        const db_redirect = 'redirect';
 
         try {
 
@@ -19,11 +20,15 @@ export class Slider {
                     this.slides.push({
                         'src': slide[db_path],
                         'width': slide[db_w],
-                        'height': slide[db_h]
+                        'height': slide[db_h],
+                        'redirect': slide[db_redirect]
                     });
                 });
 
-                this.active = 0;
+                // random
+                const random = Math.floor((Math.random() * (data.length)));
+
+                this.active = random; // 0
                 this.animation = 'active';
 
             } else {
