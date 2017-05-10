@@ -22,8 +22,6 @@ export class SliderComponent {
     public slider: any;
     public hack: any;
 
-    private isSetInterval: boolean = true;
-
     constructor(private httpService: HttpService) {
 
         this.hack = {
@@ -53,6 +51,7 @@ export class SliderComponent {
         }
 
     }
+
     public animationDone(ev: any): void {
         // console.log(ev.fromState, '->', ev.toState, ev.totalTime + 'ms');
 
@@ -73,19 +72,17 @@ export class SliderComponent {
 
     public previousSlide(): void {
 
-        this.isSetInterval = false;
         this.changeSlide('previous', this.slider.active > 0 ? this.slider.active - 1 : this.slider.slides.length - 1);
 
     }
+
     public nextSlide(): void {
 
-        this.isSetInterval = false;
         this.changeSlide('next', this.slider.active < this.slider.slides.length - 1 ? this.slider.active + 1 : 0);
 
     }
-    public selectSlide(index: number): void {
 
-        this.isSetInterval = false;
+    public selectSlide(index: number): void {
 
         if (this.slider.active !== index) {
             this.changeSlide('down', index);
@@ -94,10 +91,6 @@ export class SliderComponent {
     }
 
     private changeSlide(animation: string, activeIndex: number): void {
-
-        if (!this.isSetInterval) {
-            clearInterval(this.hack.interval);
-        }
 
         if (this.hack.BTNsEnabled) {
 

@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
         this.browser = {
             'slider-height': 0,
             'width': 0,
-            'path': 'kcbb-welcome/assets/', // gh-pages: 'kcbb-welcome/'
+            'path': 'kcbb-welcome/assets/',
             'show-menu': true
         };
 
