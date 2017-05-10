@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { HttpService } from '../../services/http/http.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { HttpService } from '../../services/http/http.service';
     styleUrls: ['./navigation.less']
 })
 
-export class NavigationComponent implements OnInit {
+export class NavigationComponent {
 
     public navigation: any;
 
@@ -43,12 +43,11 @@ export class NavigationComponent implements OnInit {
                     }
 
                 });
+
+                this.navigation.loading = false;
+
             });
 
-    }
-
-    ngOnInit() {
-        this.navigation.loading = false;
     }
 
     public nagivateMenu(id: string): void {
