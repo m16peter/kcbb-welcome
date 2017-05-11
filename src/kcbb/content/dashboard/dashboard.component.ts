@@ -11,6 +11,7 @@ export class DashboardComponent {
 
     public loading: boolean = true;
     public dashboard: any = [];
+    public isShowMore: boolean = false;
 
     constructor(private httpService: HttpService) {
 
@@ -21,6 +22,10 @@ export class DashboardComponent {
                 this.loading = false;
             });
 
+    }
+
+    public showMore(): void {
+        this.isShowMore = true;
     }
 
 }

@@ -1,0 +1,33 @@
+{
+    "data": [
+        {
+            "type": "dashboard",
+            "title": "KC BB"
+        },
+        {
+            "type": "article",
+            "title": "O Nas",
+            "id": "o-nas"
+        },
+        {
+            "type": "article",
+            "title": "Čomu veríme",
+            "id": "comu-verime"
+        },
+        {
+            "type": "article",
+            "title": "Ústava",
+            "id": "ustava-acs"
+        },
+        {
+            "type": "redirect",
+            "title": "Rozpis",
+            "url": "http://rozpis.kcbb.sk/"
+        },
+        {
+            "type": "redirect",
+            "title": "Detský Tábor",
+            "url": "http://impact.kcbb.sk/tabor/conquer-the-day-2017"
+        }
+    ]
+}

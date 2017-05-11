@@ -1,0 +1,32 @@
+{
+    "data": [
+        [
+            {
+                "txt": "Apostolska Cirkev - BB",
+                "url": "http://www.acsr.sk/"
+            },
+            {
+                "txt": "ac-bb@stonline.sk",
+                "url": "mailto:ac-bb@stonline.sk"
+            }
+        ], [
+            {
+                "txt": "+421 484 124 504",
+                "url": ""
+            },
+            {
+                "txt": "Okruzna 2",
+                "url": "https://goo.gl/maps/e29pAntYAyB2"
+            }
+        ], [], [
+            {
+                "txt": "Pastor Rene H. Mondzo",
+                "url": "https://www.facebook.com/rmondzo"
+            },
+            {
+                "txt": "rmondzo@stonline.sk",
+                "url": "mailto:rmondzo@stonline.sk"
+            }
+        ]
+    ]
+}

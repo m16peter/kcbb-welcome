@@ -1,4 +1,4 @@
-<div class="main" #container>
+<div class="main" #main>
 
     <!-- Slider -->
     <app-slider [path]="browser['path']"
@@ -19,7 +19,7 @@
     <!-- Footer -->
     <app-contact></app-contact>
 
-</div>
+    <!-- Popup -->
+    <app-popup *ngIf="popup.active"></app-popup>
 
-<!-- Popup -->
-<app-popup *ngIf="popup.active"></app-popup>
+</div>

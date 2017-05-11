@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HttpService {
 
-    private baseURI: string = 'kcbb-welcome/assets/json'; // 'kcbb-welcome/'
+    private baseURI: string = 'kcbb-welcome/assets/admin/config'; // 'kcbb-welcome/'
 
     constructor (private http: Http) {}
 

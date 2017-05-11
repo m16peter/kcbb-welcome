@@ -12,7 +12,7 @@ export class MainComponent implements OnInit {
     public browser: any;
     public popup: any;
 
-    @ViewChild('container') container;
+    @ViewChild('main') main;
 
     @HostListener('window:resize', ['$event']) onResize() {
         this.resize();
@@ -42,7 +42,7 @@ export class MainComponent implements OnInit {
      */
     private resize(): void {
 
-        this.browser['width'] = this.container.nativeElement.offsetParent.offsetWidth;
+        this.browser['width'] = this.main.nativeElement.clientWidth;
         this.closeMenuOnSmallDevice();
 
     }

@@ -2,14 +2,18 @@
 
     <div *ngIf="loading" class='uil-ring-css loader' style='transform:scale(1);'><div></div></div>
 
-    <div *ngIf="!loading">
+    <div class="dashboard__content" *ngIf="!loading">
 
         <div class="item layout-row">
             <div class="layout-center layout-row">
                 <div class="item_txt">
                     <h1>{{ dashboard[0].title }}</h1>
                     <h3>{{ dashboard[0].description }}</h3>
-                    <div class="show-more">čítať viac...</div>
+                    <div class="show-more" (click)="showMore()" *ngIf="!isShowMore">čítať viac...</div>
+                    <div class="show-more_txt" *ngIf="isShowMore">
+                        <p>Ak sa pýtame, prečo sa má cirkev schádzať, odpoveď nachádzame v knihe Skutkoch apoštolských 2,42, kde čítame, že novovzniknutá cirkev v 1. storočí sa neustále venovala „učeniu apoštolov, bratskému spoločenstvu, lámaniu chleba a modlitbám.“ Naším cieľom je pokračovať v tejto biblickej tradícií ako Božej vôle, ktorá pre dnešnú cirkev zostáva nezmenená, a to (aj) formou pravidelných nedeľných stretnutí. Obsahom nedeľných bohoslužieb sú už spomenuté prvky ako: vyučovanie Božieho Slova, spoločenstvo bratov a sestier, lámanie chleba (Večera Pánova) a modlitba (aj formou piesní).</p>
+                        <p>Budeme sa tešiť, ak medzi nás zavítate aj Vy.</p>
+                    </div>
                 </div>
 
                 <div class="flex"></div>
@@ -78,21 +82,22 @@
             <div class="flex"></div>
 
             <div class="item_block">
-                <h1>besiedka</h1>
+                <h1>Besiedka</h1>
                 <h3>(do 12 rokov)</h3>
             </div>
 
             <div class="item_block">
-                <h1>dorast</h1>
+                <h1>Dorast</h1>
                 <h3>(od 12 – 16 rokov)</h3>
             </div>
 
             <div class="item_block">
-                <h1>mládež</h1>
-                <h3>(od 16 rokov)</h3>
+                <a href="https://www.facebook.com/pages/Mladez-Ac-BB/217735368239945?ref=br_tf" target="_blank"><h1>Mládež</h1></a>
+                <h3>Každý Štvrtok o 19:00</h3>
             </div>
 
             <div class="flex"></div>
         </div>
     </div>
+
 </div>

@@ -22,6 +22,7 @@ export class NavigationComponent {
         this.navigation = {
             'dashboard': {},
             'articles': [],
+            'redirects': [],
             'loading': true
         };
 
@@ -31,15 +32,30 @@ export class NavigationComponent {
                 data.forEach((link) => {
 
                     if (link.type === "dashboard") {
+
                         this.navigation.dashboard = {
                             'title': link.title,
-                            'id': link.id,
+                            'id': "dashboard"
                         };
-                    } else {
+
+                    }
+
+                    if (link.type === "article") {
+
                         this.navigation.articles.push({
                             'title':  link.title,
                             'id': 'article/' + link.id
                         });
+
+                    }
+
+                    if (link.type === "redirect") {
+
+                        this.navigation.redirects.push({
+                            'title':  link.title,
+                            'url': link.url
+                        });
+
                     }
 
                 });

@@ -11,14 +11,17 @@
         </div>
 
         <!-- Articles -->
-        <div *ngIf="navigation.articles.length > 0 && showMenu" class="layout-row">
+        <div *ngIf="showMenu" class="layout-row">
             <div class="navigation__link" *ngFor="let link of navigation.articles" (click)="nagivateMenu(link.id)">
                 <span>{{ link.title }}</span>
             </div>
         </div>
 
-        <div class="navigation__link" *ngIf="showMenu">
-            <a href="http://rozpis.kcbb.sk/" target="_blank">Rozpis</a>
+        <!-- Redirects -->
+        <div *ngIf="showMenu" class="layout-row">
+            <a class="navigation__link" href="{{ link.url }}" target="_blank"  *ngFor="let link of navigation.redirects">
+                <span>{{ link.title }}</span>
+            </a>
         </div>
 
     </div>
