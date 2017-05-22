@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
 import { MainComponent } from '../kcbb/main.component';
 import { AppRoutingModule, routedComponents } from './app.routing';
+
+// blocks
 import { SliderComponent } from '../kcbb/blocks/slider/slider.component';
 import { NavigationComponent } from '../kcbb/blocks/navigation/navigation.component';
 import { ContactComponent } from '../kcbb/blocks/contact/contact.component';
