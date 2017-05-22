@@ -2,11 +2,7 @@
     <div *ngIf="!loading">
 
         <div class="flex" *ngFor="let item of list">
-
-            <a *ngFor="let txt of item" href="txt.url">
-                <h3>{{ txt.txt }}</h3>
-            </a>
-
+            <h3 *ngFor="let txt of item">{{ txt.txt }}</h3>
         </div>
 
     </div>
