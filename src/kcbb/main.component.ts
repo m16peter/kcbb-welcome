@@ -23,7 +23,7 @@ export class MainComponent implements OnInit {
         this.browser = {
             'slider-height': 0,
             'width': 0,
-            'path': 'assets/', // kcbb-welcome/
+            'path': 'assets/', // [*] gh-pages: kcbb-welcome/
             'show-menu': true
         };
 
@@ -37,9 +37,6 @@ export class MainComponent implements OnInit {
         this.resize();
     }
 
-    /**
-     * Handles resize event
-     */
     private resize(): void {
 
         this.browser['width'] = this.main.nativeElement.clientWidth;
@@ -47,31 +44,25 @@ export class MainComponent implements OnInit {
 
     }
 
-    /**
-     * Navigation
-     */
-
+    // Navigation
     public navigateMenu(id: string): void {
 
         this.closeMenuOnSmallDevice();
         this.router.navigate([id]);
 
     }
-
     public toggleMenu(): void {
         this.browser['show-menu'] ? this.closeMenu() : this.openMenu();
     }
-
     private openMenu(): void {
         this.browser['show-menu'] = true;
     }
-
     private closeMenu(): void {
         this.browser['show-menu'] = false;
     }
-
     private closeMenuOnSmallDevice(): void {
         this.browser['show-menu'] = (this.browser['width'] > 1024);
     }
+
 
 }
