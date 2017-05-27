@@ -1,103 +1,61 @@
 <div class="dashboard">
-
     <div *ngIf="loading" class='uil-ring-css loader' style='transform:scale(1);'><div></div></div>
-
     <div class="dashboard__content" *ngIf="!loading">
 
-        <div class="item layout-row">
-            <div class="layout-center layout-row">
-                <div class="item_txt">
-                    <h1>{{ dashboard[0].title }}</h1>
-                    <h3>{{ dashboard[0].description }}</h3>
-                    <div class="show-more" (click)="showMore()" *ngIf="!isShowMore">čítať viac...</div>
-                    <div class="show-more_txt" *ngIf="isShowMore">
-                        <p>Ak sa pýtame, prečo sa má cirkev schádzať, odpoveď nachádzame v knihe Skutkoch apoštolských 2,42, kde čítame, že novovzniknutá cirkev v 1. storočí sa neustále venovala „učeniu apoštolov, bratskému spoločenstvu, lámaniu chleba a modlitbám.“ Naším cieľom je pokračovať v tejto biblickej tradícií ako Božej vôle, ktorá pre dnešnú cirkev zostáva nezmenená, a to (aj) formou pravidelných nedeľných stretnutí. Obsahom nedeľných bohoslužieb sú už spomenuté prvky ako: vyučovanie Božieho Slova, spoločenstvo bratov a sestier, lámanie chleba (Večera Pánova) a modlitba (aj formou piesní).</p>
-                        <p>Budeme sa tešiť, ak medzi nás zavítate aj Vy.</p>
+        <!-- Events -->
+        <div class="item {{ i%2 === 0 ? 'background-gray' : 'background-white' }}" *ngFor="let item of dashboard.events; let i = index;">
+            <div class="layout-center-row">
+
+                <div class="item_event" *ngIf="i%2 !== 0">
+                    <div class="item_event_interval">
+                        <span>{{ item.event.interval }}</span>
+                    </div>
+                    <div class="item_event_day {{ i%2 !== 0 ? 'background-gray' : 'background-white' }}">
+                        <span>{{ item.event.day }}</span>
+                    </div>
+                    <div class="item_event_month {{ i%2 !== 0 ? 'background-gray' : 'background-white' }}">
+                        <span>{{ item.event.month }}</span>
                     </div>
                 </div>
 
-                <div class="flex"></div>
+                <div class="flex" *ngIf="i%2 !== 0"></div>
 
-                <div class="item_event">
+                <div class="item_txt {{ i%2 !== 0 ? 'right-side' : ''}}">
+                    <h1>{{ item['title'] }}</h1>
+                    <h3>{{ item['desc'] }}</h3>
+                    <div class="show-more" *ngIf="notEmpty(item['desc-more'])" (click)="toggleReadMore(i)">
+                        <div *ngIf="!item.isVisible">čítať viac...</div>
+                        <div *ngIf="item.isVisible" class="show-more_txt">{{ item['desc-more'] }}</div>
+                    </div>
+                </div>
+
+                <div class="flex" *ngIf="i%2 === 0"></div>
+
+                <div class="item_event" *ngIf="i%2 === 0">
                     <div class="item_event_interval">
-                        <span>{{ dashboard[0].event.interval }}</span>
+                        <span>{{ item.event.interval }}</span>
                     </div>
-                    <div class="item_event_day background-white">
-                        <span>{{ dashboard[0].event.day }}</span>
+                    <div class="item_event_day {{ i%2 !== 0 ? 'background-gray' : 'background-white' }}">
+                        <span>{{ item.event.day }}</span>
                     </div>
-                    <div class="item_event_month background-white">
-                        <span>{{ dashboard[0].event.month }}</span>
+                    <div class="item_event_month {{ i%2 !== 0 ? 'background-gray' : 'background-white' }}">
+                        <span>{{ item.event.month }}</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="item layout-row background-white">
-            <div class="layout-center layout-row">
-                <div class="item_event">
-                    <div class="item_event_interval">
-                        <span>{{ dashboard[1].event.interval }}</span>
-                    </div>
-                    <div class="item_event_day background-gray">
-                        <span>{{ dashboard[1].event.day }}</span>
-                    </div>
-                    <div class="item_event_month background-gray">
-                        <span>{{ dashboard[1].event.month }}</span>
-                    </div>
-                </div>
-
-                <div class="flex"></div>
-
-                <div class="item_txt right-side">
-                    <h1>{{ dashboard[1].title }}</h1>
-                    <h3>{{ dashboard[1].description }}</h3>
-                </div>
-            </div>
-        </div>
-
-        <div class="item layout-row">
-            <div class="layout-center layout-row">
-                <div class="item_txt">
-                    <h1>{{ dashboard[2].title }}</h1>
-                    <h3>{{ dashboard[2].description }}</h3>
-                </div>
-
-                <div class="flex"></div>
-
-                <div class="item_event">
-                    <div class="item_event_interval">
-                        <span>{{ dashboard[2].event.interval }}</span>
-                    </div>
-                    <div class="item_event_day background-white">
-                        <span>{{ dashboard[2].event.day }}</span>
-                    </div>
-                    <div class="item_event_month background-white">
-                        <span>{{ dashboard[2].event.month }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="item layout-row background-white">
+        <!-- Info -->
+        <div class="item {{ dashboard.events.length % 2 === 0 ? 'background-gray' : 'background-white'}}" *ngFor="let items of dashboard.info">
             <div class="flex"></div>
 
-            <div class="item_block">
-                <h1>Besiedka</h1>
-                <h3>(do 12 rokov)</h3>
-            </div>
-
-            <div class="item_block">
-                <h1>Dorast</h1>
-                <h3>(od 12 – 16 rokov)</h3>
-            </div>
-
-            <div class="item_block">
-                <a href="https://www.facebook.com/pages/Mladez-Ac-BB/217735368239945?ref=br_tf" target="_blank"><h1>Mládež</h1></a>
-                <h3>Každý Štvrtok o 19:00</h3>
+            <div class="item_block" *ngFor="let info of items">
+                <h2>{{ info['title'] }}</h2>
+                <h5>{{ info['desc'] }}</h5>
             </div>
 
             <div class="flex"></div>
         </div>
+
     </div>
-
 </div>

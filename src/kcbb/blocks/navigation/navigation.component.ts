@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from '../../services/http/http.service';
 
 @Component({
@@ -7,71 +8,130 @@ import { HttpService } from '../../services/http/http.service';
     styleUrls: ['./navigation.less']
 })
 
+/**
+ * Page Navigation
+ * in: 'width' - get browser width (changing on resize)
+ * out: 'scroll' - enable scroll functionality
+ */
 export class NavigationComponent {
 
     public navigation: any;
+    public loading: boolean;
+    private static PATH: string;
 
-    @Input() path;
-    @Input() showMenu;
+    @Input() width;
+    @Output() scroll = new EventEmitter();
 
-    @Output() navigate = new EventEmitter();
-    @Output() toggle = new EventEmitter();
+    constructor(private httpService: HttpService, private router: Router) {
+        this.init();
+    }
 
-    constructor(private httpService: HttpService) {
+    private init(): void {
+
+        NavigationComponent.PATH = 'assets/app/img/';
+
+        this.loading = true;
 
         this.navigation = {
-            'dashboard': {},
-            'articles': [],
-            'redirects': [],
-            'loading': true
+            'links': [],
+            'menu': {
+                'isVisible': false
+            }
         };
 
-        this.httpService
-            .get('/navigation')
-            .subscribe(data => {
-                data.forEach((link) => {
+        this.get();
 
-                    if (link.type === "dashboard") {
+    }
 
-                        this.navigation.dashboard = {
+    private get(): void {
+
+        const LINK: string = 'navigation.json';
+        this.httpService.get(LINK).subscribe(data => {
+
+            data.forEach((link) => {
+
+                try {
+                    if (link.show) {
+
+                        this.navigation.links.push({
+                            'id': link.id,
+                            'type': link.type,
                             'title': link.title,
-                            'id': "dashboard"
-                        };
-
-                    }
-
-                    if (link.type === "article") {
-
-                        this.navigation.articles.push({
-                            'title':  link.title,
-                            'id': 'article/' + link.id
+                            'src': link.src
                         });
 
                     }
-
-                    if (link.type === "redirect") {
-
-                        this.navigation.redirects.push({
-                            'title':  link.title,
-                            'url': link.url
-                        });
-
-                    }
-
-                });
-
-                this.navigation.loading = false;
+                } catch (e) {
+                    console.log(e.message);
+                }
 
             });
 
+            this.loading = false;
+            this.closeMenuOnSmallDevice();
+
+        });
+
     }
 
-    public nagivateMenu(id: string): void {
-        this.navigate.emit(id);
+    public navigate(type: string, id: string): void {
+
+        switch (type) {
+            case 'dashboard': {
+                this.navigateTo(id);
+                break;
+            }
+            case 'article': {
+                this.navigateTo(id);
+                break;
+            }
+            case 'redirect': {
+                window.open(id, '_blank');
+                break;
+            }
+            case 'scroll': {
+                this.scroll.emit();
+                break;
+            }
+            default: break;
+        }
+
+    }
+
+    public navigateTo(id: string): void {
+
+        this.closeMenuOnSmallDevice();
+        this.router.navigate([id]);
+
     }
 
     public toggleMenu(): void {
-        this.toggle.emit();
+        this.navigation['menu'].isVisible ? this.hideMenu() : this.showMenu();
+    }
+
+    private showMenu(): void {
+        this.navigation['menu'].isVisible = true;
+    }
+
+    private hideMenu(): void {
+        this.navigation['menu'].isVisible = false;
+    }
+
+    private closeMenuOnSmallDevice(): void {
+        this.navigation['menu'].isVisible = (this.width > 768);
+    }
+
+    public w(): number {
+        this.closeMenuOnSmallDevice();
+        return this.width;
+    }
+
+    public img(filename: string): string {
+        return NavigationComponent.PATH + filename;
+    }
+
+    public notEmpty(str: string): boolean {
+        return (str !== '');
     }
 
 }

@@ -1,0 +1,34 @@
+<div class="footer">
+    <div *ngIf="!loading">
+
+        <!-- TODO: -->
+        <div class="site-map flex"></div>
+
+        <!-- Kontakt -->
+        <div class="contact">
+            <h1>Kontakt</h1>
+            <div *ngFor="let item of contact">
+                <div class="contact__title">{{ item['title'] }}</div>
+                <div class="contact__info">
+                    <div class="layout-row" *ngIf="isSet(item['info'].name)">
+                        <img src="{{ img('name.svg') }}" />
+                        <div>{{ item['info'].name }}</div>
+                    </div>
+                    <div class="layout-row" *ngIf="isSet(item['info'].mail)">
+                        <img src="{{ img('mail.svg') }}" />
+                        <div>{{ item['info'].mail }}</div>
+                    </div>
+                    <div class="layout-row" *ngIf="isSet(item['info'].phone)">
+                        <img src="{{ img('phone.svg') }}" />
+                        <div>{{ item['info'].phone }}</div>
+                    </div>
+                    <div class="layout-row" *ngIf="isSet(item['info'].location)">
+                        <img src="{{ img('location.svg') }}" />
+                        <div>{{ item['info'].location }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

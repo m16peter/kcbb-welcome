@@ -9,25 +9,38 @@ import { Article } from './article.model';
     styleUrls: ['./article.less']
 })
 
+/**
+ * desc: TODO
+ * in: -
+ * out: -
+ */
 export class ArticleComponent implements OnInit {
 
     public article: any;
     public loading: boolean;
 
-    constructor(private route: ActivatedRoute, private httpService: HttpService) {}
+    constructor(private route: ActivatedRoute, private httpService: HttpService) {
+        this.init();
+    }
 
     ngOnInit(): void {
+        this.get();
+    }
+
+    private init(): void {
+        this.loading = true;
+    }
+
+    private get(): void {
 
         this.route.params.subscribe(() => {
 
-            this.loading = true;
+            const LINK: string = 'article/' + this.route.params['value']['article-id'] + '.json';
 
-            this.httpService
-                .get( '/article/' + this.route.params['value']['article-id'] )
-                .subscribe(data => {
-                    this.article = new Article(data);
-                    this.loading = false;
-                });
+            this.httpService.get(LINK).subscribe(data => {
+                this.article = new Article(data);
+                this.loading = false;
+            });
 
         });
 

@@ -1,5 +1,4 @@
 import { Component, OnInit, HostListener, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-main',
@@ -18,13 +17,10 @@ export class MainComponent implements OnInit {
         this.resize();
     }
 
-    constructor(private router: Router) {
+    constructor() {
 
         this.browser = {
-            'slider-height': 0,
-            'width': 0,
-            'path': 'assets/', // [*] gh-pages: kcbb-welcome/
-            'show-menu': true
+            'width': 0
         };
 
         this.popup = {
@@ -38,31 +34,33 @@ export class MainComponent implements OnInit {
     }
 
     private resize(): void {
-
         this.browser['width'] = this.main.nativeElement.clientWidth;
-        this.closeMenuOnSmallDevice();
-
     }
 
-    // Navigation
-    public navigateMenu(id: string): void {
+    /**
+     * TODO: Scroll To
+     * (for now it scrolls to bottom of the page)
+     */
+    public scrollTo() {
 
-        this.closeMenuOnSmallDevice();
-        this.router.navigate([id]);
+        let start = this.main.nativeElement.scrollTop + 1;
+        let end = this.main.nativeElement.scrollHeight - this.main.nativeElement.offsetHeight;
+        let step = end;
+
+        const interval = setInterval(() => {
+
+            step = Math.floor(step / 1.001);
+            start += (end - step);
+
+            if (start < end) {
+                this.main.nativeElement.scrollTop = start;
+            } else {
+                this.main.nativeElement.scrollTop = end;
+                clearInterval(interval);
+            }
+
+        }, 10);
 
     }
-    public toggleMenu(): void {
-        this.browser['show-menu'] ? this.closeMenu() : this.openMenu();
-    }
-    private openMenu(): void {
-        this.browser['show-menu'] = true;
-    }
-    private closeMenu(): void {
-        this.browser['show-menu'] = false;
-    }
-    private closeMenuOnSmallDevice(): void {
-        this.browser['show-menu'] = (this.browser['width'] > 1024);
-    }
-
 
 }

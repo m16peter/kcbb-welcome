@@ -81,27 +81,3 @@ app-main {
 .uil-ring-css {
     margin: auto;
 }
-h1 {
-    font-size: 48px;
-    font-weight: 800;
-    padding: 30px 0;
-}
-h2 {
-    font-size: 32px;
-    padding: 20px 0;
-}
-h3 {
-    font-size: 24px;
-    padding: 10px 0;
-}
-h5 {
-    line-height: 125%;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 5px 0;
-}
-p {
-    font-size: 16px;
-    line-height: 150%;
-    padding: 5px 0;
-}

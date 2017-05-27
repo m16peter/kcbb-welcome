@@ -4,7 +4,7 @@ export class Article {
 
     constructor(data: any) {
 
-        // DB config
+        // .json config
         const db_content = 'article_content';
 
         try {

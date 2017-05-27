@@ -1,22 +1,45 @@
 .article  {
+    display: flex;
     width: 100%;
     min-height: ~"calc(100% - 52px)";
-    color: #333;
+    color: #333333;
     background: #fff;
+    overflow: hidden;
+
+    &-content {
+        display: flex;
+        margin: 0 auto;
+        width: 1024px;
+    }
 }
 
-.article-content {
-	width: 1024px;
-}
-
-p {
-	font-size: 16px;
+@media all and (max-width: 1920px) {
+    .article  {
+        &-content {
+            padding: 0 100px;
+        }
+    }
 }
 
 @media all and (max-width: 1024px) {
     .article  {
-        .article-content {
-            margin: 0 30px;
+        &-content {
+            padding: 0 50px;
+            width: 100%;
+        }
+    }
+}
+
+@media all and (max-width: 500px) {
+    .article  {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        &-content {
+            display: block;
+            width: ~"calc(100% - 30px)";
+            padding: 0;
+            margin: 0 15px;
         }
     }
 }

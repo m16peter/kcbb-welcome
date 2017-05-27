@@ -1,27 +1,19 @@
 <div class="navigation layout-row">
-    <div class="layout-center layout-row" *ngIf="!navigation.loading">
+    <div class="layout-center" *ngIf="!loading">
 
-        <div class="navigation__link menu" (click)="toggleMenu()">
-            <img src="{{ path + 'img/menu.svg' }}" />
+        <div class="navigation__link_menu" (click)="toggleMenu()">
+            <img src="{{ img('menu.svg') }}" />
         </div>
 
-        <!-- Dashboard -->
-        <div class="navigation__link" (click)="nagivateMenu(navigation.dashboard.id)" *ngIf="showMenu">
-            <span>{{ navigation.dashboard.title }}</span>
-        </div>
+        <div *ngIf="navigation['menu'].isVisible" class="layout-row">
 
-        <!-- Articles -->
-        <div *ngIf="showMenu" class="layout-row">
-            <div class="navigation__link" *ngFor="let link of navigation.articles" (click)="nagivateMenu(link.id)">
-                <span>{{ link.title }}</span>
+            <div class="navigation__link" *ngFor="let link of navigation.links">
+                <div class="layout-row" (click)="navigate(link.type, link.id)">
+                    <img *ngIf="notEmpty(link.src)" src="{{ link.src }}" />
+                    <span>{{ link.title }}</span>
+                </div>
             </div>
-        </div>
 
-        <!-- Redirects -->
-        <div *ngIf="showMenu" class="layout-row">
-            <a class="navigation__link" href="{{ link.url }}" target="_blank"  *ngFor="let link of navigation.redirects">
-                <span>{{ link.title }}</span>
-            </a>
         </div>
 
     </div>

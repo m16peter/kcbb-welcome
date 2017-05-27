@@ -1,0 +1,53 @@
+{
+    "data": [
+        {
+            "type": "dashboard",
+            "title": "",
+            "id": "dashboard",
+            "src": "assets/admin/img/logo.png",
+            "show": true
+        },
+        {
+            "type": "article",
+            "title": "O Nás",
+            "id": "article/o-nas",
+            "src": "",
+            "show": true
+        },
+        {
+            "type": "article",
+            "title": "Čomu Veríme",
+            "id": "article/comu-verime",
+            "src": "",
+            "show": true
+        },
+        {
+            "type": "article",
+            "title": "Ústava",
+            "id": "article/ustava-acs",
+            "src": "",
+            "show": false
+        },
+        {
+            "type": "redirect",
+            "title": "Mládežnícky tábor",
+            "id": "http://impact.kcbb.sk/tabor/kecy-2017",
+            "src": "",
+            "show": true
+        },
+        {
+            "type": "redirect",
+            "title": "Detský Tábor",
+            "id": "http://impact.kcbb.sk/tabor/conquer-the-day-2017",
+            "src": "",
+            "show": true
+        },
+        {
+            "type": "scroll",
+            "title": "Kontakt",
+            "id": "contact",
+            "src": "",
+            "show": true
+        }
+    ]
+}

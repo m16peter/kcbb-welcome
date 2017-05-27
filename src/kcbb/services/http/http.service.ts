@@ -5,16 +5,17 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class HttpService {
 
+    private static baseURL: string = 'assets/admin/json/';
+
     constructor (private http: Http) {}
 
     /**
-     * GET
-     * @param url - path to json file
-     * @param filename - requested json file
-     * @returns - requested data or empty object
+     * desc: HTTP-GET - '<path>.json' file and return it's data
+     * in: 'link' - relative path to file
+     * out: - json content
      */
-    get(url: string, filename: string) {
-        const URL: string = url + 'admin/config' + filename + '.json';
+    public get(link: string): any {
+        const URL: string = HttpService.baseURL + link;
         return this.http.get(URL).map(res => res.json().data || {} );
     }
 

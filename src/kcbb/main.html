@@ -1,25 +1,19 @@
 <div class="main" #main>
 
     <!-- Slider -->
-    <app-slider [path]="browser['path']"
-                [width]="browser['width']"
-                [height]="browser['slider-height']">
-    </app-slider>
+    <app-slider [width]="browser['width']"></app-slider>
 
     <!-- Navigation -->
-    <app-navigation [path]="browser['path']"
-                    [showMenu]="browser['show-menu']"
-                    (navigate)="navigateMenu($event)"
-                    (toggle)="toggleMenu()">
+    <app-navigation [width]="browser['width']"
+                    (scroll)="scrollTo()">
     </app-navigation>
 
     <!-- Content -->
     <router-outlet></router-outlet>
 
     <!-- Footer -->
-    <app-contact></app-contact>
+    <app-footer></app-footer>
 
-    <!-- Popup -->
-    <app-popup *ngIf="popup.active"></app-popup>
+    <!-- popup -->
 
 </div>

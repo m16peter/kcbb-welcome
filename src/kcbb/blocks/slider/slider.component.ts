@@ -1,5 +1,4 @@
-import { Component, ViewChild, Input } from '@angular/core';
-
+import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { sliderAnimations } from './animations';
 import { Slider } from './slides.model';
 import { HttpService } from '../../services/http/http.service';
@@ -11,18 +10,32 @@ import { HttpService } from '../../services/http/http.service';
     animations: [ sliderAnimations ]
 })
 
-export class SliderComponent {
+/**
+ * TODO: keep track of 'slider-height', to set browser's min-height: calc(100% - 'slider-height' - 'navigation-height')
+ */
+export class SliderComponent implements OnInit {
 
-    @Input() path;
-    @Input() width;
-    @Input() height;
-
-    @ViewChild('wrapper') wrapper;
-
+    private static PATH: string;
     public slider: any;
     public hack: any;
 
+    @Input() width;
+
+    @ViewChild('wrapper') wrapper;
+
     constructor(private httpService: HttpService) {
+        this.init();
+    }
+
+    ngOnInit() {
+        if (this.width > 500) {
+            this.get();
+        }
+    }
+
+    private init(): void {
+
+        SliderComponent.PATH = 'assets/app/img/';
 
         this.hack = {
             'active': 0,
@@ -34,11 +47,14 @@ export class SliderComponent {
             'active': -1
         };
 
-        this.httpService
-            .get('/slides')
-            .subscribe(data => {
-                this.slider = new Slider(data)
-            });
+    }
+
+    private get(): void {
+
+        const LINK: string = 'slider.json';
+        this.httpService.get(LINK).subscribe(data => {
+            this.slider = new Slider(data);
+        });
 
     }
 
@@ -110,29 +126,32 @@ export class SliderComponent {
 
     }
 
-    public h(sizeX: number, sizeY: number, active: boolean): number {
+    public h(sizeX: number, sizeY: number, activeSlide: boolean): number {
 
         // Example:
-        // img: 1920x500
-        // browser w: 1366
+        // img size: 1920x500
+        // browser width: 1366
 
         // 1920px ... ... ... 100%
         // 500px  ... ... ... X %
-        // => X = (500 * 100) / 1920 =~ 26
+        // => X = (500 * 100) / 1920 =~ 26%
         const percentage = Math.floor((sizeY * 100) / sizeX);
 
         // 1366px ... ... ... 100%
         // Y px   ... ... ... 26%
-        // => Y = (1366 * 26) / 100 =~ 355
+        // => Y = (1366 * 26) / 100 =~ 355px
         const size = Math.floor(((this.width - 60) * percentage) / 100);
 
-        if (active) {
+        if (activeSlide) {
             // console.log( size );
-            this.height = size;
-            this.wrapper.nativeElement.children[0].style.height = size + "px";
+            this.wrapper.nativeElement.children[0].style.height = size + 'px';
         }
 
         return size;
+    }
+
+    public img(filename: string): string {
+        return SliderComponent.PATH + filename;
     }
 
 }

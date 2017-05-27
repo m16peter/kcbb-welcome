@@ -7,25 +7,9 @@
     border-bottom: 1px solid #eee;
     padding: 0 70px;
 
-    .menu {
-        width: 200px;
-        display: none;
-        margin: 0;
-        padding: 10px;
-        cursor: pointer;
-
-        img {
-            margin: auto;
-        }
-    }
-    a {
-        span {
-            color: #369;
-        }
-    }
     &__link {
         margin: 0 5px;
-        padding: 10px;
+        padding: 5px 10px;
         position: relative;
         display: flex;
         cursor: pointer;
@@ -45,6 +29,21 @@
             width: 100%;
             background: #333;
         }
+        &_menu {
+            width: 200px;
+            display: none;
+            margin: 0;
+            padding: 10px;
+            cursor: pointer;
+
+            img {
+                margin: auto;
+            }
+        }
+        img {
+            width: auto;
+            height: 40px;
+        }
         span {
             color: #000;
             margin: auto 5px;
@@ -60,9 +59,6 @@
 
         &__link {
             span {
-                margin: auto;
-            }
-            a {
                 margin: auto;
             }
         }
