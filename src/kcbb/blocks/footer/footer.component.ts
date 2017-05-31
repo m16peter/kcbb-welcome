@@ -14,7 +14,9 @@ export class FooterComponent {
 
     public static PATH: string;
     public contact: any;
-    public loading: boolean;
+    public sitemap: any;
+    public loadingContact: boolean;
+    public loadingSiteMap: boolean;
 
     constructor(private httpService: HttpService) {
         this.init();
@@ -24,14 +26,17 @@ export class FooterComponent {
 
         FooterComponent.PATH = 'assets/app/img/';
 
-        this.loading = true;
+        this.loadingContact = true;
+        this.loadingSiteMap = true;
         this.contact = [];
+        this.sitemap = [];
 
-        this.get();
+        this.getContact();
+        this.getSiteMap();
 
     }
 
-    private get(): void {
+    private getContact(): void {
 
         const LINK: string = 'contact.json';
         this.httpService.get(LINK).subscribe(data => {
@@ -55,7 +60,34 @@ export class FooterComponent {
 
             });
 
-            this.loading = false;
+            this.loadingContact = false;
+        });
+
+    }
+
+
+    private getSiteMap(): void {
+
+        const LINK: string = 'navigation.json';
+        this.httpService.get(LINK).subscribe(data => {
+
+            // TODO: model
+            data.forEach((link) => {
+
+                try {
+                    this.sitemap.push({
+                        'id': link.id,
+                        'type': link.type,
+                        'title': link.title,
+                        'src': link.src
+                    });
+                } catch (e) {
+                    // console.log(e.message);
+                }
+
+            });
+
+            this.loadingSiteMap = false;
         });
 
     }
@@ -66,6 +98,36 @@ export class FooterComponent {
 
     public img(filename: string): string {
         return FooterComponent.PATH + filename;
+    }
+
+    public navigate(type: string, id: string): void {
+
+        switch (type) {
+            case 'dashboard': {
+                // this.router.navigate([id]);
+                break;
+            }
+            case 'article': {
+                // this.router.navigate([id]);
+                break;
+            }
+            case 'redirect': {
+                // new tab
+                // window.open(id, '_blank');
+                break;
+            }
+            case 'scroll': {
+                // TODO: emit(id)
+                // this.scroll.emit();
+                break;
+            }
+            default: break;
+        }
+
+    }
+
+    public notEmpty(str: string): boolean {
+        return (str !== '');
     }
 
 }

@@ -1,72 +1,76 @@
 .navigation {
     background: #fff;
     font-size: 18px;
-    height: 50px;
     display: flex;
     font-weight: 600;
-    border-bottom: 1px solid #eee;
-    padding: 0 70px;
 
-    &__link {
-        margin: 0 5px;
-        padding: 5px 10px;
-        position: relative;
-        display: flex;
-        cursor: pointer;
+    > div {
+        margin: 0 auto;
+    }
+    .hide {
+        display: none;
+    }
+}
 
-        &:hover {
-            &::after {
-                visibility: visible;
-            }
-        }
+.links {
+    height: 50px;
+    display: flex;
+}
+
+.link {
+    margin: 0 5px;
+    padding: 5px 10px;
+    position: relative;
+    display: flex;
+    cursor: pointer;
+
+    &:hover {
         &::after {
-            visibility: hidden;
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 2px;
-            width: 100%;
-            background: #333;
+            visibility: visible;
         }
-        &_menu {
-            width: 200px;
-            display: none;
-            margin: 0;
-            padding: 10px;
-            cursor: pointer;
+    }
+    &::after {
+        visibility: hidden;
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 2px;
+        width: 100%;
+        background: #333;
+    }
+    img {
+        width: auto;
+        height: 40px;
+    }
+    span {
+        color: #000;
+        margin: auto 5px;
+        text-decoration: none;
+    }
+}
 
-            img {
-                margin: auto;
-            }
-        }
-        img {
-            width: auto;
-            height: 40px;
-        }
-        span {
-            color: #000;
-            margin: auto 5px;
-            text-decoration: none;
-        }
+.menu {
+    display: none;
+    width: 200px;
+    margin: auto;
+    padding: 10px;
+    cursor: pointer;
+
+    img {
+        margin: auto;
     }
 }
 
 @media all and (max-width: 1024px) {
-
-    .navigation {
+    .links {
         height: auto;
-
-        &__link {
-            span {
-                margin: auto;
-            }
-        }
-        .layout-row {
-            display: block;
-        }
-        .menu {
-            display: flex;
-        }
+        display: block;
+    }
+    .link span {
+        margin: auto;
+    }
+    .menu {
+        display: flex;
     }
 }

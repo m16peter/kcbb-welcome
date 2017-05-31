@@ -1,17 +1,16 @@
-<div class="navigation layout-row">
-    <div class="layout-center" *ngIf="!loading">
+<div class="navigation">
+    <div *ngIf="!loading">
 
-        <div class="navigation__link_menu" (click)="toggleMenu()">
+        <div class="menu" (click)="toggleMenu()">
             <img src="{{ img('menu.svg') }}" />
         </div>
 
-        <div *ngIf="navigation['menu'].isVisible" class="layout-row">
+        <div class="links" [ngClass]="{'hide': !navigation.isVisible}">
 
-            <div class="navigation__link" *ngFor="let link of navigation.links">
-                <div class="layout-row" (click)="navigate(link.type, link.id)">
-                    <img *ngIf="notEmpty(link.src)" src="{{ link.src }}" />
-                    <span>{{ link.title }}</span>
-                </div>
+            <!-- Links -->
+            <div class="link" *ngFor="let link of navigation.links" (click)="navigate(link.type, link.id)">
+                <img *ngIf="notEmpty(link.src)" src="{{ link.src }}" />
+                <span>{{ link.title }}</span>
             </div>
 
         </div>

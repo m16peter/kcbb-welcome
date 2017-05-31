@@ -19,7 +19,7 @@
             "title": "Čomu Veríme",
             "id": "article/comu-verime",
             "src": "",
-            "show": true
+            "show": false
         },
         {
             "type": "article",
@@ -30,7 +30,7 @@
         },
         {
             "type": "redirect",
-            "title": "Mládežnícky tábor",
+            "title": "Mládežnícky Tábor",
             "id": "http://impact.kcbb.sk/tabor/kecy-2017",
             "src": "",
             "show": true
@@ -40,7 +40,7 @@
             "title": "Detský Tábor",
             "id": "http://impact.kcbb.sk/tabor/conquer-the-day-2017",
             "src": "",
-            "show": true
+            "show": false
         },
         {
             "type": "scroll",

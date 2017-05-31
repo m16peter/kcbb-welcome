@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpService } from '../../services/http/http.service';
 
@@ -22,6 +22,10 @@ export class NavigationComponent {
     @Input() width;
     @Output() scroll = new EventEmitter();
 
+    @HostListener('window:resize', ['$event']) onResize() {
+        this.closeMenuOnSmallDevice();
+    }
+
     constructor(private httpService: HttpService, private router: Router) {
         this.init();
     }
@@ -34,9 +38,7 @@ export class NavigationComponent {
 
         this.navigation = {
             'links': [],
-            'menu': {
-                'isVisible': false
-            }
+            'isVisible': true
         };
 
         this.get();
@@ -62,7 +64,7 @@ export class NavigationComponent {
 
                     }
                 } catch (e) {
-                    console.log(e.message);
+                    // console.log(e.message);
                 }
 
             });
@@ -76,6 +78,9 @@ export class NavigationComponent {
 
     public navigate(type: string, id: string): void {
 
+        // TODO: onclick scroll at the beginning of the article/text
+        this.closeMenuOnSmallDevice();
+
         switch (type) {
             case 'dashboard': {
                 this.navigateTo(id);
@@ -86,10 +91,12 @@ export class NavigationComponent {
                 break;
             }
             case 'redirect': {
+                // new tab
                 window.open(id, '_blank');
                 break;
             }
             case 'scroll': {
+                // TODO: emit(id)
                 this.scroll.emit();
                 break;
             }
@@ -99,31 +106,23 @@ export class NavigationComponent {
     }
 
     public navigateTo(id: string): void {
-
-        this.closeMenuOnSmallDevice();
         this.router.navigate([id]);
-
     }
 
     public toggleMenu(): void {
-        this.navigation['menu'].isVisible ? this.hideMenu() : this.showMenu();
+        this.navigation.isVisible ? this.hideMenu() : this.showMenu();
     }
 
     private showMenu(): void {
-        this.navigation['menu'].isVisible = true;
+        this.navigation.isVisible = true;
     }
 
     private hideMenu(): void {
-        this.navigation['menu'].isVisible = false;
+        this.navigation.isVisible = false;
     }
 
     private closeMenuOnSmallDevice(): void {
-        this.navigation['menu'].isVisible = (this.width > 768);
-    }
-
-    public w(): number {
-        this.closeMenuOnSmallDevice();
-        return this.width;
+        this.navigation.isVisible = (this.width > 1024);
     }
 
     public img(filename: string): string {

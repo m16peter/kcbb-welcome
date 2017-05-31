@@ -3,29 +3,29 @@
     <div class="dashboard__content" *ngIf="!loading">
 
         <!-- Events -->
-        <div class="item {{ i%2 === 0 ? 'background-gray' : 'background-white' }}" *ngFor="let item of dashboard.events; let i = index;">
+        <div class="item {{ i%2 === 0 ? 'gray' : 'white' }}" *ngFor="let item of dashboard.events; let i = index;">
             <div class="layout-center-row">
 
                 <div class="item_event" *ngIf="i%2 !== 0">
                     <div class="item_event_interval">
                         <span>{{ item.event.interval }}</span>
                     </div>
-                    <div class="item_event_day {{ i%2 !== 0 ? 'background-gray' : 'background-white' }}">
+                    <div class="item_event_day {{ i%2 !== 0 ? 'gray' : 'white' }}">
                         <span>{{ item.event.day }}</span>
                     </div>
-                    <div class="item_event_month {{ i%2 !== 0 ? 'background-gray' : 'background-white' }}">
+                    <div class="item_event_month {{ i%2 !== 0 ? 'gray' : 'white' }}">
                         <span>{{ item.event.month }}</span>
                     </div>
                 </div>
 
                 <div class="flex" *ngIf="i%2 !== 0"></div>
 
-                <div class="item_txt {{ i%2 !== 0 ? 'right-side' : ''}}">
+                <div class="item_txt {{ i%2 !== 0 ? 'right-side' : 'left-side'}}">
                     <h1>{{ item['title'] }}</h1>
                     <h3>{{ item['desc'] }}</h3>
                     <div class="show-more" *ngIf="notEmpty(item['desc-more'])" (click)="toggleReadMore(i)">
-                        <div *ngIf="!item.isVisible">čítať viac...</div>
-                        <div *ngIf="item.isVisible" class="show-more_txt">{{ item['desc-more'] }}</div>
+                        <div [ngClass]="{'hide': item.isVisible}">čítať viac...</div>
+                        <div [ngClass]="{'hide': !item.isVisible}">{{ item['desc-more'] }}</div>
                     </div>
                 </div>
 
@@ -35,10 +35,10 @@
                     <div class="item_event_interval">
                         <span>{{ item.event.interval }}</span>
                     </div>
-                    <div class="item_event_day {{ i%2 !== 0 ? 'background-gray' : 'background-white' }}">
+                    <div class="item_event_day {{ i%2 !== 0 ? 'gray' : 'white' }}">
                         <span>{{ item.event.day }}</span>
                     </div>
-                    <div class="item_event_month {{ i%2 !== 0 ? 'background-gray' : 'background-white' }}">
+                    <div class="item_event_month {{ i%2 !== 0 ? 'gray' : 'white' }}">
                         <span>{{ item.event.month }}</span>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
         </div>
 
         <!-- Info -->
-        <div class="item {{ dashboard.events.length % 2 === 0 ? 'background-gray' : 'background-white'}}" *ngFor="let items of dashboard.info">
+        <div class="item {{ dashboard.events.length % 2 === 0 ? 'gray' : 'white'}}" *ngFor="let items of dashboard.info">
             <div class="flex"></div>
 
             <div class="item_block" *ngFor="let info of items">
