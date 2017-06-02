@@ -21,6 +21,7 @@
     margin: 0 5px;
     padding: 5px 10px;
     position: relative;
+    width: 200px;
     display: flex;
     cursor: pointer;
 
@@ -41,11 +42,12 @@
     }
     img {
         width: auto;
+        max-width: 200px;
         height: 40px;
     }
     span {
+        margin: auto;
         color: #000;
-        margin: auto 5px;
         text-decoration: none;
     }
 }
@@ -62,7 +64,7 @@
     }
 }
 
-@media all and (max-width: 1024px) {
+.small {
     .links {
         height: auto;
         display: block;

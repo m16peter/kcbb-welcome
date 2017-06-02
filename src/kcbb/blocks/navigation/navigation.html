@@ -1,5 +1,5 @@
 <div class="navigation">
-    <div *ngIf="!loading">
+    <div *ngIf="!loading" [ngClass]="{'small': width < (navigation.links.length * 200)}">
 
         <div class="menu" (click)="toggleMenu()">
             <img src="{{ img('menu.svg') }}" />

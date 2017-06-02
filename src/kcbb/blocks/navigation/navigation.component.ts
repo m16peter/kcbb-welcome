@@ -83,7 +83,7 @@ export class NavigationComponent {
     }
 
     private closeMenuOnSmallDevice(): void {
-        this.navigation.isVisible = (this.width > 1024);
+        this.navigation.isVisible = this.width > (this.navigation.links.length * 200);
     }
 
 }
