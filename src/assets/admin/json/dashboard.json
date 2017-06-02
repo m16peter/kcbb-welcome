@@ -10,12 +10,7 @@
                 "week-day": 0,
                 "except-dates": [
                     {
-                        "dd": 27,
-                        "mm": 4,
-                        "yyyy": 2017
-                    },
-                    {
-                        "dd": 3,
+                        "dd": 4,
                         "mm": 5,
                         "yyyy": 2017
                     }

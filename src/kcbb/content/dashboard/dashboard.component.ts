@@ -48,21 +48,43 @@ export class DashboardComponent {
                         }
 
                         let today = {
-                            'weekday': now.getDay(),
                             'dd': now.getDate(),
                             'mm': now.getMonth(),
                             'yyyy': now.getFullYear()
                         };
 
-                        // console.log(today);
-                        // TODO: deal with exceptions (item.event['except-dates'])
+                        item.event['except-dates'].forEach((exception) => {
 
-                        today['day'] = today['dd'];
+                            while (true) {
+
+                                if (today.yyyy === exception.yyyy) {
+                                    if (today.mm === exception.mm) {
+                                        if (today.dd === exception.dd) {
+                                            now = this.addDays(now, 7);
+                                        } else {
+                                            break;
+                                        }
+                                    } else {
+                                        break;
+                                    }
+                                } else {
+                                    break;
+                                }
+
+                                today = {
+                                    'dd': now.getDate(),
+                                    'mm': now.getMonth(),
+                                    'yyyy': now.getFullYear()
+                                };
+
+                            }
+                        });
+
                         today['month'] = this.getMonth(today['mm']);
 
                         let ev = {
                             'interval': item.event['interval'],
-                            'day': today['day'],
+                            'day': today['dd'],
                             'month': today['month']
                         };
 
