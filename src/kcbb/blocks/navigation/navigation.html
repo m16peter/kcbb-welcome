@@ -10,7 +10,7 @@
             <!-- Links -->
             <div class="link" *ngFor="let link of navigation.links" (click)="navigateTo(link.type, link.id)">
                 <img *ngIf="notEmpty(link.src)" src="{{ link.src }}" />
-                <span>{{ link.title }}</span>
+                <span *ngIf="notEmpty(link.title)">{{ link.title }}</span>
             </div>
 
         </div>

@@ -7,19 +7,17 @@
     > div {
         margin: 0 auto;
     }
-    .hide {
+    .small .hide {
         display: none;
+    }
+    .links {
+        height: 50px;
+        display: flex;
     }
 }
 
-.links {
-    height: 50px;
-    display: flex;
-}
-
 .link {
-    margin: 0 5px;
-    padding: 5px 10px;
+    padding: 5px 0;
     position: relative;
     width: 200px;
     display: flex;
@@ -46,6 +44,7 @@
         height: 40px;
     }
     span {
+        padding: 5px;
         margin: auto;
         color: #000;
         text-decoration: none;
@@ -69,10 +68,18 @@
         height: auto;
         display: block;
     }
-    .link span {
-        margin: auto;
+    .link {
+        width: 300px;
+
+        img {
+            margin: auto;
+        }
     }
     .menu {
         display: flex;
     }
+}
+
+.hide {
+    display: none;
 }
