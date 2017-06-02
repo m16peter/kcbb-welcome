@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpService } from '../../services/http/http.service';
+import { HttpService } from '../../services/http.service';
 import { Article } from './article.model';
 
 @Component({
@@ -9,11 +9,6 @@ import { Article } from './article.model';
     styleUrls: ['./article.less']
 })
 
-/**
- * desc: TODO
- * in: -
- * out: -
- */
 export class ArticleComponent implements OnInit {
 
     public article: any;

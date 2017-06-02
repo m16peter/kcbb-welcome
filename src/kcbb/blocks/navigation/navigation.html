@@ -8,7 +8,7 @@
         <div class="links" [ngClass]="{'hide': !navigation.isVisible}">
 
             <!-- Links -->
-            <div class="link" *ngFor="let link of navigation.links" (click)="navigate(link.type, link.id)">
+            <div class="link" *ngFor="let link of navigation.links" (click)="navigateTo(link.type, link.id)">
                 <img *ngIf="notEmpty(link.src)" src="{{ link.src }}" />
                 <span>{{ link.title }}</span>
             </div>

@@ -1,7 +1,7 @@
 import { Component, ViewChild, Input, OnInit } from '@angular/core';
 import { sliderAnimations } from './animations';
 import { Slider } from './slides.model';
-import { HttpService } from '../../services/http/http.service';
+import { HttpService } from '../../services/http.service';
 
 @Component({
     selector: 'app-slider',
@@ -10,16 +10,13 @@ import { HttpService } from '../../services/http/http.service';
     animations: [ sliderAnimations ]
 })
 
-/**
- * TODO: keep track of 'slider-height', to set browser's min-height: calc(100% - 'slider-height' - 'navigation-height')
- */
 export class SliderComponent implements OnInit {
 
     private static PATH: string;
     public slider: any;
     public hack: any;
 
-    @Input() width;
+    @Input() page;
 
     @ViewChild('wrapper') wrapper;
 
@@ -28,7 +25,7 @@ export class SliderComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (this.width > 500) {
+        if (this.page['browser-width'] > 500) {
             this.get();
         }
     }
@@ -87,27 +84,20 @@ export class SliderComponent implements OnInit {
     }
 
     public previousSlide(): void {
-
         this.changeSlide('previous', this.slider.active > 0 ? this.slider.active - 1 : this.slider.slides.length - 1);
-
     }
 
     public nextSlide(): void {
-
         this.changeSlide('next', this.slider.active < this.slider.slides.length - 1 ? this.slider.active + 1 : 0);
-
     }
 
     public selectSlide(index: number): void {
-
         if (this.slider.active !== index) {
             this.changeSlide('down', index);
         }
-
     }
 
     private changeSlide(animation: string, activeIndex: number): void {
-
         if (this.hack.BTNsEnabled) {
 
             // disable button
@@ -123,7 +113,6 @@ export class SliderComponent implements OnInit {
             this.slider.animation = animation;
             this.hack.animation = animation;
         }
-
     }
 
     public h(sizeX: number, sizeY: number, activeSlide: boolean): number {
@@ -140,11 +129,12 @@ export class SliderComponent implements OnInit {
         // 1366px ... ... ... 100%
         // Y px   ... ... ... 26%
         // => Y = (1366 * 26) / 100 =~ 355px
-        const size = Math.floor(((this.width - 60) * percentage) / 100);
+        const size = Math.floor(((this.page['browser-width'] - 60) * percentage) / 100);
 
         if (activeSlide) {
             // console.log( size );
             this.wrapper.nativeElement.children[0].style.height = size + 'px';
+            this.page['slider-height'] = size;
         }
 
         return size;

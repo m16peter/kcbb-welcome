@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpService } from '../../services/http/http.service';
+import { HttpService } from '../../services/http.service';
+import { Contact } from './contact.model';
 
 @Component({
     selector: 'app-footer',
@@ -7,16 +8,11 @@ import { HttpService } from '../../services/http/http.service';
     styleUrls: ['./footer.less']
 })
 
-/**
- * desc: TODO
- */
 export class FooterComponent {
 
     public static PATH: string;
     public contact: any;
-    public sitemap: any;
-    public loadingContact: boolean;
-    public loadingSiteMap: boolean;
+    public loading: boolean;
 
     constructor(private httpService: HttpService) {
         this.init();
@@ -26,68 +22,18 @@ export class FooterComponent {
 
         FooterComponent.PATH = 'assets/app/img/';
 
-        this.loadingContact = true;
-        this.loadingSiteMap = true;
+        this.loading = true;
         this.contact = [];
-        this.sitemap = [];
 
-        this.getContact();
-        this.getSiteMap();
-
+        this.get();
     }
 
-    private getContact(): void {
+    private get(): void {
 
         const LINK: string = 'contact.json';
         this.httpService.get(LINK).subscribe(data => {
-
-            // TODO: model
-            data.forEach((item) => {
-
-                try {
-                    this.contact.push({
-                        'title': item['title'],
-                        'info': {
-                            'name': item['info'].name,
-                            'mail': item['info'].mail,
-                            'phone': item['info'].phone,
-                            'location': item['info'].location
-                        }
-                    });
-                } catch (e) {
-                    this.contact = [];
-                }
-
-            });
-
-            this.loadingContact = false;
-        });
-
-    }
-
-
-    private getSiteMap(): void {
-
-        const LINK: string = 'navigation.json';
-        this.httpService.get(LINK).subscribe(data => {
-
-            // TODO: model
-            data.forEach((link) => {
-
-                try {
-                    this.sitemap.push({
-                        'id': link.id,
-                        'type': link.type,
-                        'title': link.title,
-                        'src': link.src
-                    });
-                } catch (e) {
-                    // console.log(e.message);
-                }
-
-            });
-
-            this.loadingSiteMap = false;
+            this.contact = (new Contact(data)).items;
+            this.loading = false;
         });
 
     }
@@ -98,32 +44,6 @@ export class FooterComponent {
 
     public img(filename: string): string {
         return FooterComponent.PATH + filename;
-    }
-
-    public navigate(type: string, id: string): void {
-
-        switch (type) {
-            case 'dashboard': {
-                // this.router.navigate([id]);
-                break;
-            }
-            case 'article': {
-                // this.router.navigate([id]);
-                break;
-            }
-            case 'redirect': {
-                // new tab
-                // window.open(id, '_blank');
-                break;
-            }
-            case 'scroll': {
-                // TODO: emit(id)
-                // this.scroll.emit();
-                break;
-            }
-            default: break;
-        }
-
     }
 
     public notEmpty(str: string): boolean {

@@ -1,19 +1,10 @@
 <div class="footer">
-    <div *ngIf="!loadingSiteMap && !loadingContact">
+    <div *ngIf="!loading">
 
-        <!-- Site Map -->
-        <div class="site-map" *ngIf="!loadingSiteMap">
-
-            <h1>Site Map</h1>
-            <div class="link" *ngFor="let link of sitemap" (click)="navigate(link.type, link.id)">
-                <img *ngIf="notEmpty(link.src)" src="{{ link.src }}" />
-                <span>{{ link.title }}</span>
-            </div>
-
-        </div>
+        <div class="flex"></div>
 
         <!-- Kontakt -->
-        <div class="contact" *ngIf="!loadingContact">
+        <div class="contact">
 
             <h1>Kontakt</h1>
             <div *ngFor="let item of contact">

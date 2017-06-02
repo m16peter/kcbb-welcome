@@ -8,7 +8,7 @@
                  (@animateSlide.start)="animationStarted($event)"
                  (@animateSlide.done)="animationDone($event)"
                  src="{{ slide.src }}" class="slider__slide"
-                 width="{{ width }}" height="{{ h(slide.width, slide.height, i === slider.active) }}"
+                 width="{{ page['browser-width'] }}" height="{{ h(slide.width, slide.height, i === slider.active) }}"
             />
         </div>
 

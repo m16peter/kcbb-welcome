@@ -6,7 +6,6 @@ export class Slider {
 
     constructor(data: any) {
 
-        // .json config
         const PATH = 'src';
         const WIDTH = 'width';
         const HEIGHT = 'height';
@@ -23,14 +22,11 @@ export class Slider {
                     });
                 });
 
-                // randomized initial slide
-                this.active = Math.floor((Math.random() * (data.length))); // 0
+                this.active = 0; // to randomize initial slide: Math.floor((Math.random() * (data.length)))
                 this.animation = 'active';
 
             } else {
-
                 this.active = -1; // inactive
-
             }
 
         } catch (e) {

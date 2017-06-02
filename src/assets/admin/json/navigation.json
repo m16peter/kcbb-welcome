@@ -45,9 +45,16 @@
         {
             "type": "scroll",
             "title": "Kontakt",
-            "id": "contact",
+            "id": "footer",
             "src": "",
             "show": true
+        },
+        {
+            "type": "redirect",
+            "title": "Rozpis",
+            "id": "http://www.rozpis.kcbb.sk/",
+            "src": "",
+            "show": false
         }
     ]
 }

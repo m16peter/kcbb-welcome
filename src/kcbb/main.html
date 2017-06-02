@@ -1,19 +1,17 @@
 <div class="main" #main>
 
-    <!-- Slider -->
-    <app-slider [width]="browser['width']"></app-slider>
+    <app-slider [page]="page"></app-slider>
 
-    <!-- Navigation -->
-    <app-navigation [width]="browser['width']"
-                    (scroll)="scrollTo()">
+    <app-navigation [width]="page['browser-width']"
+                    (navigate)="navigateTo($event)">
     </app-navigation>
 
-    <!-- Content -->
     <router-outlet></router-outlet>
 
-    <!-- Footer -->
     <app-footer></app-footer>
 
-    <!-- popup -->
+    <app-popup *ngIf="popup.isVisible"
+               [data]="popup.data">
+    </app-popup>
 
 </div>
