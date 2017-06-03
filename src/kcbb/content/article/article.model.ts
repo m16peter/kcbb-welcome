@@ -1,15 +1,16 @@
 export class Article {
 
-    public content: string = '';
+    public content: string;
 
     constructor(data: any) {
 
-        // .json config
-        const db_content = 'article_content';
+        const CONTENT: string = 'article_content';
 
         try {
-            this.content = data[db_content];
-        } catch (e) {}
+            this.content = data[CONTENT];
+        } catch (e) {
+            this.content = '';
+        }
 
     }
 

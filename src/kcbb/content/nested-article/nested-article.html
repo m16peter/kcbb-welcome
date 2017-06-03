@@ -1,0 +1,23 @@
+<div class="nested-article">
+    <div>
+        <div *ngIf="loading" class='uil-ring-css loader' style='transform:scale(1);'><div></div></div>
+        <div *ngIf="!loading">
+
+            <div [innerHTML]="article.title"></div>
+
+            <div class="navigation">
+                <div class="link" *ngFor="let item of article.items" (click)="selectArticle(item.id)">
+                    <h2>{{ item.title }}</h2>
+                </div>
+            </div>
+
+            <div class="article">
+                <div class="article-content">
+                    <div *ngIf="loadingArticle" class='uil-ring-css loader' style='transform:scale(1);'><div></div></div>
+                    <div *ngIf="!loadingArticle" [innerHTML]="article.content"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

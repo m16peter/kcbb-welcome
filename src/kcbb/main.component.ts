@@ -55,6 +55,11 @@ export class MainComponent implements OnInit {
                 this.router.navigate([navigation.id]);
                 return;
             }
+            case 'nested-article': {
+                this.scrollTo('navigation');
+                this.router.navigate([navigation.id]);
+                return;
+            }
             case 'redirect': {
                 window.open(navigation.id, '_blank');
                 return;

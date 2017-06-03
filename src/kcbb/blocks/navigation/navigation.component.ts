@@ -11,10 +11,13 @@ import { Links } from './navigation.model';
 export class NavigationComponent {
 
     public navigation: any;
+
     public loading: boolean;
+
     private static PATH: string;
 
     @Input() width;
+
     @Output() navigate = new EventEmitter();
 
     @HostListener('window:resize', ['$event']) onResize() {

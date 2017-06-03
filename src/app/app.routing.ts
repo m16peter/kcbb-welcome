@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from '../kcbb/content/dashboard/dashboard.component';
 import { ArticleComponent } from '../kcbb/content/article/article.component';
+import { NestedArticleComponent } from '../kcbb/content/nested-article/nested-article.component';
 import { PageNotFoundComponent } from '../kcbb/blocks/page-not-found/page-not-found.component';
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
         component: ArticleComponent
     },
     {
+        path: 'articles/:article-id',
+        component: NestedArticleComponent
+    },
+    {
         path: '**',
         component: PageNotFoundComponent
     }
@@ -35,5 +40,6 @@ export class AppRoutingModule { }
 export const routedComponents = [
     DashboardComponent,
     ArticleComponent,
+    NestedArticleComponent,
     PageNotFoundComponent
 ];

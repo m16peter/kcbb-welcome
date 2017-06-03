@@ -8,25 +8,11 @@
             "show": true
         },
         {
-            "type": "article",
+            "type": "nested-article",
             "title": "O Nás",
-            "id": "article/o-nas",
+            "id": "articles/o-nas",
             "src": "",
             "show": true
-        },
-        {
-            "type": "article",
-            "title": "Čomu Veríme",
-            "id": "article/comu-verime",
-            "src": "",
-            "show": false
-        },
-        {
-            "type": "article",
-            "title": "Ústava",
-            "id": "article/ustava-acs",
-            "src": "",
-            "show": false
         },
         {
             "type": "redirect",

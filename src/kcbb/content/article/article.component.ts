@@ -9,6 +9,15 @@ import { Article } from './article.model';
     styleUrls: ['./article.less']
 })
 
+/*
+{
+    "type": "article",
+    "title": "Article Title",
+    "id": "article/article-id",
+    "src": "",
+    "show": false
+},
+*/
 export class ArticleComponent implements OnInit {
 
     public article: any;
