@@ -33,10 +33,14 @@
         content: '';
         position: absolute;
         left: 0;
-        bottom: 0;
+        bottom: -2px;
         height: 2px;
         width: 100%;
         background: #333;
+        z-index: 999;
+    }
+    > div {
+        margin: auto;
     }
     img {
         width: auto;
@@ -49,6 +53,11 @@
         margin: auto;
         color: #000;
         text-decoration: none;
+    }
+    &_active {
+        &::after {
+            visibility: visible;
+        }
     }
 }
 
@@ -83,4 +92,34 @@
 
 .hide {
     display: none;
+}
+
+.dropdown {
+    position: absolute;
+    display: block;
+    width: 198px;
+    left: 0;
+    top: 50px;
+    height: auto;
+    background: #fff;
+    z-index: 999;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    padding: 5px 0;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+
+    .link {
+        width: 198px;
+        margin: 2px 0;
+        border-bottom: 1px solid #eee;
+
+        &::after {
+            left: -1px;
+            width: ~"calc(100% + 2px)";
+        }
+    }
+    > div {
+        margin: auto;
+    }
 }

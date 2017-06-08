@@ -8,9 +8,18 @@
         <div class="links" [ngClass]="{'hide': !navigation.isVisible}">
 
             <!-- Links -->
-            <div class="link" *ngFor="let link of navigation.links" (click)="navigateTo(link.type, link.id)">
+            <div class="link" [ngClass]="{'link_active': isLinkActive(i)}" *ngFor="let link of navigation.links; let i = index" (click)="navigateTo(link, i)">
+
                 <img *ngIf="notEmpty(link.src)" src="{{ link.src }}" />
                 <span *ngIf="notEmpty(link.title)">{{ link.title }}</span>
+
+                <div class="dropdown" *ngIf="isDropdownVisible(link.type, i)">
+                    <div class="link" *ngFor="let item of link.id" (click)="navigateAndClose(item, i)">
+                        <img *ngIf="notEmpty(item.src)" src="{{ item.src }}" />
+                        <span *ngIf="notEmpty(item.title)">{{ item.title }}</span>
+                    </div>
+                </div>
+
             </div>
 
         </div>

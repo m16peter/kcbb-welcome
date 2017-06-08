@@ -15,18 +15,26 @@
             "show": true
         },
         {
-            "type": "redirect",
-            "title": "Mládežnícky Tábor",
-            "id": "http://impact.kcbb.sk/tabor/kecy-2017",
+            "type": "menu",
+            "title": "Tábor",
+            "id": [
+                {
+                    "type": "redirect",
+                    "title": "Detský",
+                    "id": "http://impact.kcbb.sk/tabor/conquer-the-day-2017",
+                    "src": "",
+                    "show": true
+                },
+                {
+                    "type": "redirect",
+                    "title": "Mládežnícky",
+                    "id": "http://impact.kcbb.sk/tabor/kecy-2017",
+                    "src": "",
+                    "show": true
+                }
+            ],
             "src": "",
             "show": true
-        },
-        {
-            "type": "redirect",
-            "title": "Detský Tábor",
-            "id": "http://impact.kcbb.sk/tabor/conquer-the-day-2017",
-            "src": "",
-            "show": false
         },
         {
             "type": "scroll",

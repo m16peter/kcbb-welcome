@@ -20,6 +20,10 @@ export class NavigationComponent {
 
     @Output() navigate = new EventEmitter();
 
+    @HostListener('window:scroll', ['$event']) onScroll() {
+        // TODO: hide menu & close dropdown
+    }
+
     @HostListener('window:resize', ['$event']) onResize() {
         this.closeMenuOnSmallDevice();
     }
@@ -28,14 +32,26 @@ export class NavigationComponent {
         this.init();
     }
 
-    public navigateTo(type: string, id: string): void {
+    public navigateTo(link: any, index: number): void {
 
         this.closeMenuOnSmallDevice();
+        this.activateLink(index);
 
-        this.navigate.emit({
-            'type': type,
-            'id': id
-        });
+        if (link.type !== 'menu') {
+
+            this.navigate.emit({
+                'type': link.type,
+                'id': link.id
+            });
+
+        } else {
+
+            this.navigate.emit({
+                'type': 'scroll',
+                'id': 'navigation'
+            });
+
+        }
 
     }
 
@@ -51,6 +67,21 @@ export class NavigationComponent {
         return (str !== '');
     }
 
+    public isDropdownVisible(type: string, index: number): boolean {
+        return (this.isDropdown(type) && this.isDropdownActive(index));
+    }
+
+    public isLinkActive(index: number): boolean {
+        return (this.navigation.active === index);
+    }
+
+    public navigateAndClose(link: any, index: number): void {
+
+        // TODO: close dropdown
+        this.navigateTo(link, index);
+
+    }
+
     private init(): void {
 
         NavigationComponent.PATH = 'assets/app/img/';
@@ -59,7 +90,8 @@ export class NavigationComponent {
 
         this.navigation = {
             'links': [],
-            'isVisible': true
+            'isVisible': true,
+            'active': 0
         };
 
         this.get();
@@ -87,6 +119,18 @@ export class NavigationComponent {
 
     private closeMenuOnSmallDevice(): void {
         this.navigation.isVisible = this.width > (this.navigation.links.length * 200);
+    }
+
+    private activateLink(index: number): void {
+        this.navigation.active = index;
+    }
+
+    private isDropdown(type: string): boolean {
+        return (type === 'menu');
+    }
+
+    private isDropdownActive(index: number): boolean {
+        return (this.navigation.active === index);
     }
 
 }

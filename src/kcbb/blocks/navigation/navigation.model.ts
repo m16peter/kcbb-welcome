@@ -22,12 +22,38 @@ class Link {
 
         try {
 
-            this.link = {
-                'id': link.id,
-                'type': link.type,
-                'title': link.title,
-                'src': link.src,
-            };
+            if (link.type !== 'menu') {
+
+                this.link = {
+                    'id': link.id,
+                    'type': link.type,
+                    'title': link.title,
+                    'src': link.src,
+                };
+
+            } else {
+
+                this.link = {
+                    'id': [],
+                    'type': link.type,
+                    'title': link.title,
+                    'src': link.src,
+                };
+
+                link.id.forEach((item) => {
+                    if (item.show) {
+
+                        this.link.id.push({
+                            'id': item.id,
+                            'type': item.type,
+                            'title': item.title,
+                            'src': item.src,
+                        });
+
+                    }
+                });
+
+            }
 
         } catch (e) {
             // console.log(e);

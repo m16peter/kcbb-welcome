@@ -50,6 +50,10 @@ export class NestedArticleComponent implements OnInit {
                 this.article['title'] = article.title;
                 this.article['items'] = article.items;
 
+                if (article.items.length > 0) {
+                    this.selectArticle(article.items[0].id);
+                }
+
                 this.loading = false;
 
             });
