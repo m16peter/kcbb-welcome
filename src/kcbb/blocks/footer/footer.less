@@ -9,48 +9,86 @@
     > div {
         display: flex;
         width: 100%;
+        margin: auto;
     }
-    .contact {
-        max-width: 500px;
-        margin: 50px 0;
-        padding: 0 20px;
+}
 
-        &__title {
-            font-size: 32px;
-            padding: 20px 0;
+.contact {
+    max-width: 500px;
+    margin: 50px 0;
+    padding: 0 20px;
+
+    &__title {
+        font-size: 32px;
+        padding: 20px 0;
+    }
+    &__info {
+        padding: 20px 0;
+
+        img {
+            height: 32px;
+            width: 32px;
         }
-        &__info {
-            padding: 20px 0;
+        div {
+            line-height: 125%;
+            font-size: 20px;
+            padding: 5px 10px;
+        }
+    }
+}
 
-            img {
-                height: 32px;
-                width: 32px;
-            }
-            div {
-                line-height: 125%;
-                font-size: 20px;
-                padding: 5px 10px;
-            }
+.map {
+    display: flex;
+    flex: 1;
+    max-width: ~"calc(100% - 500px)";
+
+    a {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        overflow: hidden;
+        margin: 0 50px;
+
+        img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-height: ~"calc(100% - 50px)";
+            width: auto;
+            height: auto;
         }
     }
 }
 
 @media all and (max-width: 500px) {
-    .footer {
-        .contact {
-            margin: 20px 0;
+    .contact {
+        margin: 20px 0;
 
-            &__title {
-                font-size: 20px;
-                padding: 10px 0;
-                line-height: 150%;
-            }
-            &__info {
-                padding: 10px 0;
-            }
+        &__title {
+            font-size: 20px;
+            padding: 10px 0;
+            line-height: 150%;
         }
-        .site-map {
+        &__info {
+            padding: 10px 0;
+        }
+    }
+    .map {
+        display: none;
+    }
+
+}
+
+@media all and (max-width: 1024px) {
+    .map {
+        flex: 0;
+        a {
             display: none;
         }
+    }
+    .contact {
+        margin: 50px auto;
     }
 }

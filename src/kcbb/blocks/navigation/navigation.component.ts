@@ -77,7 +77,7 @@ export class NavigationComponent {
 
     public navigateAndClose(link: any, index: number): void {
 
-        // TODO: close dropdown
+        // TODO: close drop-down
         this.navigateTo(link, index);
 
     }
