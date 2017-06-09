@@ -30,7 +30,8 @@ export class NestedArticleComponent implements OnInit {
         this.article = {
             'title': '',
             'content': '',
-            'items': []
+            'items': [],
+            'active': -1
         };
 
         this.loadingArticle = false;
@@ -51,7 +52,7 @@ export class NestedArticleComponent implements OnInit {
                 this.article['items'] = article.items;
 
                 if (article.items.length > 0) {
-                    this.selectArticle(article.items[0].id);
+                    this.selectArticle(article.items[0].id, 0);
                 }
 
                 this.loading = false;
@@ -62,16 +63,25 @@ export class NestedArticleComponent implements OnInit {
 
     }
 
-    public selectArticle(id: string): void {
+    public selectArticle(id: string, index: number): void {
 
         this.loadingArticle = true;
         const LINK: string = id + '.json';
 
         this.httpService.get(LINK).subscribe(data => {
             this.article['content'] = (new Article(data)).content;
+            this.activateLink(index);
             this.loadingArticle = false;
         });
 
+    }
+
+    private activateLink(index: number): void {
+        this.article.active = index;
+    }
+
+    public isLinkActive(index: number): boolean {
+        return (this.article.active === index);
     }
 
 }
