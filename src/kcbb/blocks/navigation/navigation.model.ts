@@ -1,3 +1,4 @@
+import {Dropdown} from "../../modules/dropdown/dropdown.model";
 export class Links {
 
     public links: any = [];
@@ -22,13 +23,13 @@ class Link {
 
         try {
 
-            if (link.type !== 'menu') {
+            if (link.type !== 'dropdown') {
 
                 this.link = {
                     'id': link.id,
                     'type': link.type,
                     'title': link.title,
-                    'src': link.src,
+                    'src': link.src
                 };
 
             } else {
@@ -36,22 +37,26 @@ class Link {
                 this.link = {
                     'id': [],
                     'type': link.type,
-                    'title': link.title,
-                    'src': link.src,
+                    'src': link.src
                 };
 
+                const list: any = [];
                 link.id.forEach((item) => {
                     if (item.show) {
 
                         this.link.id.push({
                             'id': item.id,
-                            'type': item.type,
-                            'title': item.title,
-                            'src': item.src,
+                            'type': item.type
                         });
+                        list.push(item.title);
 
                     }
                 });
+
+                this.link.dropdown = new Dropdown(list);
+
+                this.link.dropdown.setTitle(link.title);
+                this.link.dropdown.setCenterTitle();
 
             }
 

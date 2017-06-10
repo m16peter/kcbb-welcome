@@ -67,13 +67,32 @@ h3 {
     }
     &_block {
         font-family: 'Raleway', sans-serif;
-        min-height: 80px;
         font-size: 30px;
         font-weight: 800;
         color: #333;
-        max-width: 640px;
-        margin: auto 100px;
-        display: block;
+        margin: auto 0;
+        display: flex;
+
+        &-shape {
+            display: flex;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #ddd;
+            border-radius: 50%;
+            margin: auto;
+
+            h2 {
+                margin: auto;
+            }
+            h5 {
+                display: none;
+            }
+            &:hover {
+                border: 2px solid #eeeeee;
+                background: #eeeeee;
+                cursor: pointer;
+            }
+        }
     }
     &_event {
         width: 200px;
@@ -154,7 +173,7 @@ h3 {
             text-align: left;
         }
         &_block {
-            margin-top: 20px;
+            margin: 20px auto;
 
             h1 {
                 margin-right: 20px;

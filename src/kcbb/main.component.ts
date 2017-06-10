@@ -24,12 +24,12 @@ export class MainComponent implements OnInit {
             'browser-height': 0,
             'browser-width': 0,
             'slider-height': 0,
-            'total-height': 0
+            'total-height': 0,
+            'navigationFixed': false
         };
 
         this.popup = {
-            'isVisible': false,
-            'data': {}
+            'isVisible': false
         };
 
     }
@@ -61,6 +61,7 @@ export class MainComponent implements OnInit {
                 return;
             }
             case 'redirect': {
+                this.scrollTo('navigation');
                 window.open(navigation.id, '_blank');
                 return;
             }
@@ -140,6 +141,14 @@ export class MainComponent implements OnInit {
 
     private getScrollHeight(): number {
         return this.main.nativeElement.scrollHeight;
+    }
+
+    public onScroll(): void {
+        this.page['navigationFixed'] = (this.getScrollTop() >= this.page['slider-height']);
+    }
+
+    public closePopup(): void {
+        this.popup['isVisible'] = false;
     }
 
 }

@@ -1,28 +1,27 @@
-<div class="navigation">
-    <div *ngIf="!loading" [ngClass]="{'small': width < (navigation.links.length * 200)}">
+<div class="navigation" [ngClass]="{'navigation_fixed': fixed}">
+    <div *ngIf="!loading" [ngClass]="{'small': !notSmall()}">
 
         <div class="menu" (click)="toggleMenu()">
             <img src="{{ img('menu.svg') }}" />
         </div>
 
         <div class="links" [ngClass]="{'hide': !navigation.isVisible}">
+            <div *ngFor="let link of navigation.links">
 
-            <!-- Links -->
-            <div class="link" [ngClass]="{'link_active': isLinkActive(i)}" *ngFor="let link of navigation.links; let i = index" (click)="navigateTo(link, i)">
+                <app-link *ngIf="isLink(link.type)"
+                          [link]="link"
+                          (click)="navigateTo(link)">
+                </app-link>
 
-                <img *ngIf="notEmpty(link.src)" src="{{ link.src }}" />
-                <span *ngIf="notEmpty(link.title)">{{ link.title }}</span>
-
-                <div class="dropdown" *ngIf="isDropdownVisible(link.type, i)">
-                    <div class="link" *ngFor="let item of link.id" (click)="navigateAndClose(item, i)">
-                        <img *ngIf="notEmpty(item.src)" src="{{ item.src }}" />
-                        <span *ngIf="notEmpty(item.title)">{{ item.title }}</span>
-                    </div>
-                </div>
+                <app-dropdown *ngIf="isDropdown(link.type)"
+                              [dropdown]="link.dropdown"
+                              (selected)="navigateToSelected(link)">
+                </app-dropdown>
 
             </div>
-
         </div>
 
     </div>
 </div>
+
+<div class="space"></div>

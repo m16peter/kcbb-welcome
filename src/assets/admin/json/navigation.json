@@ -2,7 +2,7 @@
     "data": [
         {
             "type": "dashboard",
-            "title": "",
+            "title": "Kresťanské centrum",
             "id": "dashboard",
             "src": "assets/admin/img/logo.png",
             "show": true
@@ -15,21 +15,19 @@
             "show": true
         },
         {
-            "type": "menu",
+            "type": "dropdown",
             "title": "Tábor",
             "id": [
                 {
                     "type": "redirect",
                     "title": "Detský",
                     "id": "http://impact.kcbb.sk/tabor/conquer-the-day-2017",
-                    "src": "",
                     "show": true
                 },
                 {
                     "type": "redirect",
                     "title": "Mládežnícky",
                     "id": "http://impact.kcbb.sk/tabor/kecy-2017",
-                    "src": "",
                     "show": true
                 }
             ],

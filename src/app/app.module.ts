@@ -14,6 +14,10 @@ import { FooterComponent } from '../kcbb/blocks/footer/footer.component';
 import { PopupComponent } from '../kcbb/blocks/popup/popup.component';
 import { HttpService } from '../kcbb/services/http.service';
 
+// modules
+import { DropdownComponent } from '../kcbb/modules/dropdown/dropdown.component';
+import { LinkComponent } from '../kcbb/modules/link/link.component';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -22,6 +26,8 @@ import { HttpService } from '../kcbb/services/http.service';
         NavigationComponent,
         FooterComponent,
         PopupComponent,
+        DropdownComponent,
+        LinkComponent,
         routedComponents
     ],
     imports: [

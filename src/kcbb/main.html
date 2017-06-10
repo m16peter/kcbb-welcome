@@ -1,8 +1,9 @@
-<div class="main" #main>
+<div class="main" #main (scroll)="onScroll()">
 
     <app-slider [page]="page"></app-slider>
 
     <app-navigation [width]="page['browser-width']"
+                    [fixed]="page['navigationFixed']"
                     (navigate)="navigateTo($event)">
     </app-navigation>
 
@@ -10,8 +11,6 @@
 
     <app-footer></app-footer>
 
-    <app-popup *ngIf="popup.isVisible"
-               [data]="popup.data">
-    </app-popup>
+    <app-popup *ngIf="popup.isVisible" (close)="closePopup()"></app-popup>
 
 </div>

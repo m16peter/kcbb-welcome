@@ -47,14 +47,12 @@
 
         <!-- Info -->
         <div class="item {{ dashboard.events.length % 2 === 0 ? 'gray' : 'white'}}" *ngFor="let items of dashboard.info">
-            <div class="flex"></div>
-
-            <div class="item_block" *ngFor="let info of items">
-                <h2>{{ info['title'] }}</h2>
-                <h5>{{ info['desc'] }}</h5>
+            <div class="item_block flex" *ngFor="let info of items">
+                <div class="item_block-shape">
+                    <h2>{{ info['title'] }}</h2>
+                    <h5>{{ info['desc'] }}</h5>
+                </div>
             </div>
-
-            <div class="flex"></div>
         </div>
 
     </div>

@@ -12,6 +12,7 @@ export class FooterComponent {
 
     public static PATH: string;
     public contact: any;
+    public image: string;
     public loading: boolean;
 
     constructor(private httpService: HttpService) {
@@ -32,7 +33,9 @@ export class FooterComponent {
 
         const LINK: string = 'contact.json';
         this.httpService.get(LINK).subscribe(data => {
-            this.contact = (new Contact(data)).items;
+            const CONTACT = new Contact(data);
+            this.contact = CONTACT.items;
+            this.image = CONTACT.img;
             this.loading = false;
         });
 

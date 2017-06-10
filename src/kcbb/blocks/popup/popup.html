@@ -1,15 +1,17 @@
 <div class="popup layout-row">
+    <div class="backdrop" (click)="closePopup()"></div>
+    <div class="popup_container">
 
-    <div class="popup_wrapper layout-center">
-
+        <!-- header -->
         <div class="btn_wrapper">
             <div class="btn">
-                <img src="assets/svg/close.svg" (click)="emitClose()"/>
+                <img src="/assets/app/img/close.svg" (click)="closePopup()"/>
             </div>
         </div>
 
+        <div class="content">
+            <!-- test modules here -->
+        </div>
+
     </div>
-
-    <div class="backdrop" (click)="emitClose()"></div>
-
 </div>

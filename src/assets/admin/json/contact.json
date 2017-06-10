@@ -1,22 +1,25 @@
 {
-    "data": [
-        {
-            "title": "Apoštolská cirkev na Slovensku, zbor Banská Bystrica",
-            "info": {
-                "name": "",
-                "mail": "",
-                "phone": "+421 907 801 691",
-                "location": "Okružná 2"
+    "data": {
+        "img": "assets/admin/img/map.jpg",
+        "contact": [
+            {
+                "title": "Apoštolská cirkev na Slovensku, zbor Banská Bystrica",
+                "info": {
+                    "name": "",
+                    "mail": "",
+                    "phone": "+421 907 801 691",
+                    "location": "Okružná 2"
+                }
+            },
+            {
+                "title": "Pastor",
+                "info": {
+                    "name": "René Holon Mondzo",
+                    "mail": "renemondzo@gmail.com",
+                    "phone": "",
+                    "location": ""
+                }
             }
-        },
-        {
-            "title": "Pastor",
-            "info": {
-                "name": "René Holon Mondzo",
-                "mail": "renemondzo@gmail.com",
-                "phone": "",
-                "location": ""
-            }
-        }
-    ]
+        ]
+    }
 }

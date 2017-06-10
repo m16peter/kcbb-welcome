@@ -1,11 +1,17 @@
 export class Contact {
 
     public items: any = [];
+    public img: string;
 
     constructor(data: any) {
 
-        data.forEach((item) => {
+        try {
+            this.img = data['img'];
+        } catch (e) {
+            this.img = '';
+        }
 
+        data['contact'].forEach((item) => {
             try {
                 this.items.push({
                     'title': item['title'],
@@ -19,7 +25,6 @@ export class Contact {
             } catch (e) {
                 this.items = [];
             }
-
         });
 
     }
