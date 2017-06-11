@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../../services/http.service';
+// import { Popup } from '../../modules/popup/popup.model';
 
 @Component({
     selector: 'app-dashboard',
@@ -11,6 +12,7 @@ export class DashboardComponent {
 
     public loading: boolean;
     public dashboard: any;
+    // public popup: Popup;
 
     constructor(private httpService: HttpService) {
         this.init();
@@ -26,6 +28,8 @@ export class DashboardComponent {
         };
 
         this.get();
+
+        // this.popup = new Popup();
 
     }
 
@@ -154,5 +158,14 @@ export class DashboardComponent {
     public toggleReadMore(index: number): void {
         this.dashboard.events[index].isVisible = !this.dashboard.events[index].isVisible;
     }
+
+    /* popup
+    public openPopup(): void {
+        this.popup['isVisible'] = true;
+    }
+    public popupClosed(): void {
+        // console.log('popup was closed...');
+    }
+    */
 
 }

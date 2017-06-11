@@ -1,5 +1,7 @@
 <div class="nested-article">
-    <div *ngIf="loading" class='uil-ring-css loader' style='transform:scale(1);'><div></div></div>
+    <div class="layout-row" *ngIf="loading">
+        <div class='uil-ring-css loader' style='transform:scale(1);'><div></div></div>
+    </div>
     <div *ngIf="!loading">
 
         <!-- article -->

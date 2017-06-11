@@ -3,12 +3,17 @@
 <div class="dropdown">
 
     <div class="item{{ dropdown['isVisible'] ? ' selected' : '' }}" (click)="toggle()">
-        <div class="text{{ dropdown['centerTitle'] ? ' center': ''}}">{{ dropdown['title'] }}</div>
+        <div *ngIf="dropdown['centerTitle']" class="flex"></div>
+        <img *ngIf="notEmpty(dropdown['src'])" src="{{ dropdown['src'] }}" />
+        <div class="text">{{ dropdown['title'] }}</div>
+        <div *ngIf="dropdown['centerTitle']" class="flex"></div>
     </div>
 
     <div class="list" *ngIf="dropdown['isVisible']">
         <div class="item{{ i === dropdown['selected'] ? ' selected' : '' }}" *ngFor="let item of dropdown['list']; let i = index" (click)="select(i)">
-            <div class="text{{ dropdown['centerListItems'] ? ' center': ''}}">{{ item }}</div>
+            <div *ngIf="dropdown['centerListItems']" class="flex"></div>
+            <div class="text">{{ item }}</div>
+            <div *ngIf="dropdown['centerListItems']" class="flex"></div>
         </div>
     </div>
 

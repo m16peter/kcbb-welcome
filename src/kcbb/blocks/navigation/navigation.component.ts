@@ -19,6 +19,8 @@ export class NavigationComponent {
 
     @Output() navigate = new EventEmitter();
 
+    // TODO: on scroll => close menu
+
     @HostListener('window:resize', ['$event']) onResize() {
         this.closeMenuOnSmallDevice();
     }
@@ -35,8 +37,7 @@ export class NavigationComponent {
 
         this.navigation = {
             'links': [],
-            'isVisible': true,
-            'active': 0
+            'isVisible': true
         };
 
         this.get();
@@ -57,7 +58,6 @@ export class NavigationComponent {
     public navigateTo(link: any): void {
 
         this.closeMenuOnSmallDevice();
-        // this.activateLink(index);
         this.navigate.emit(link);
 
     }
@@ -65,7 +65,6 @@ export class NavigationComponent {
     public navigateToSelected(link: any): void {
 
         this.closeMenuOnSmallDevice();
-        // this.activateLink(index);
         this.navigate.emit(link.id[link.dropdown.selected]);
         link.dropdown.select(-1);
 
@@ -94,17 +93,6 @@ export class NavigationComponent {
     private closeMenuOnSmallDevice(): void {
         this.navigation.isVisible = this.notSmall();
     }
-
-    /*
-
-    private activateLink(index: number): void {
-        this.navigation.active = index;
-    }
-    public isLinkActive(index: number): boolean {
-        return (this.navigation.active === index);
-    }
-
-    */
 
     public isDropdown(type: string): boolean {
         return (type === 'dropdown');

@@ -11,10 +11,10 @@ import { AppRoutingModule, routedComponents } from './app.routing';
 import { SliderComponent } from '../kcbb/blocks/slider/slider.component';
 import { NavigationComponent } from '../kcbb/blocks/navigation/navigation.component';
 import { FooterComponent } from '../kcbb/blocks/footer/footer.component';
-import { PopupComponent } from '../kcbb/blocks/popup/popup.component';
 import { HttpService } from '../kcbb/services/http.service';
 
 // modules
+import { PopupComponent } from '../kcbb/modules/popup/popup.component';
 import { DropdownComponent } from '../kcbb/modules/dropdown/dropdown.component';
 import { LinkComponent } from '../kcbb/modules/link/link.component';
 

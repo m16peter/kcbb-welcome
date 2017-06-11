@@ -1,4 +1,6 @@
 <div class="link">
+    <div class="flex"></div>
     <img *ngIf="notEmpty(link.src)" src="{{ link.src }}" />
     <span *ngIf="notEmpty(link.title)">{{ link.title }}</span>
+    <div class="flex"></div>
 </div>

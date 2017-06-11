@@ -10,7 +10,6 @@ import { Router } from '@angular/router';
 export class MainComponent implements OnInit {
 
     public page: any;
-    public popup: any;
 
     @ViewChild('main') main;
 
@@ -26,10 +25,6 @@ export class MainComponent implements OnInit {
             'slider-height': 0,
             'total-height': 0,
             'navigationFixed': false
-        };
-
-        this.popup = {
-            'isVisible': false
         };
 
     }
@@ -147,8 +142,16 @@ export class MainComponent implements OnInit {
         this.page['navigationFixed'] = (this.getScrollTop() >= this.page['slider-height']);
     }
 
-    public closePopup(): void {
-        this.popup['isVisible'] = false;
+    public notSmall(): boolean {
+
+        if (this.page['browser-width'] <= 500) {
+
+            this.page['slider-height'] = 0;
+            return false;
+
+        }
+        return true;
+
     }
 
 }

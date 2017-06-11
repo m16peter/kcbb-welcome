@@ -26,4 +26,8 @@ export class DropdownComponent {
         this.dropdown.hide();
     }
 
+    public notEmpty(str: string): boolean {
+        return (str !== '');
+    }
+
 }

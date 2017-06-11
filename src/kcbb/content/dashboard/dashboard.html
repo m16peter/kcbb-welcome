@@ -48,7 +48,7 @@
         <!-- Info -->
         <div class="item {{ dashboard.events.length % 2 === 0 ? 'gray' : 'white'}}" *ngFor="let items of dashboard.info">
             <div class="item_block flex" *ngFor="let info of items">
-                <div class="item_block-shape">
+                <div class="item_block-shape" (click)="openPopup()">
                     <h2>{{ info['title'] }}</h2>
                     <h5>{{ info['desc'] }}</h5>
                 </div>
@@ -57,3 +57,10 @@
 
     </div>
 </div>
+
+<!-- popup
+<app-popup *ngIf="popup['isVisible']"
+           [popup]="popup"
+           (closed)="popupClosed()">
+</app-popup>
+ -->

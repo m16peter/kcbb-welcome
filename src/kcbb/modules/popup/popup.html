@@ -1,16 +1,17 @@
 <div class="popup layout-row">
-    <div class="backdrop" (click)="closePopup()"></div>
+    <div class="backdrop" (click)="close()"></div>
     <div class="popup_container">
 
         <!-- header -->
         <div class="btn_wrapper">
             <div class="btn">
-                <img src="/assets/app/img/close.svg" (click)="closePopup()"/>
+                <img src="{{ img('close.svg') }}" (click)="close()"/>
             </div>
         </div>
 
+        <!-- content -->
         <div class="content">
-            <!-- test modules here -->
+
         </div>
 
     </div>

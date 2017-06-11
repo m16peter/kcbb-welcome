@@ -2,7 +2,7 @@
     "data": [
         {
             "type": "dashboard",
-            "title": "Kresťanské centrum",
+            "title": "Kresťanské Centrum",
             "id": "dashboard",
             "src": "assets/admin/img/logo.png",
             "show": true

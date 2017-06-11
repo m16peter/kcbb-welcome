@@ -1,6 +1,6 @@
 <div class="main" #main (scroll)="onScroll()">
 
-    <app-slider [page]="page"></app-slider>
+    <app-slider *ngIf="notSmall()" [page]="page"></app-slider>
 
     <app-navigation [width]="page['browser-width']"
                     [fixed]="page['navigationFixed']"
@@ -10,7 +10,5 @@
     <router-outlet></router-outlet>
 
     <app-footer></app-footer>
-
-    <app-popup *ngIf="popup.isVisible" (close)="closePopup()"></app-popup>
 
 </div>

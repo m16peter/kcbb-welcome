@@ -7,6 +7,7 @@ export class Dropdown {
     public centerTitle: boolean;
     public centerListItems: boolean;
     public titleAsSelectedItem: boolean;
+    public src: string;
 
     constructor(list: any) {
         this.setList(list);
@@ -16,6 +17,7 @@ export class Dropdown {
         this.centerTitle = false;
         this.centerListItems = false;
         this.titleAsSelectedItem = false;
+        this.src = '';
     }
 
     public setCenterTitle(): void {
@@ -24,6 +26,10 @@ export class Dropdown {
 
     public setCenterListItems(): void {
         this.centerListItems = true;
+    }
+
+    public setTitleImage(src: string): void {
+        this.src = src;
     }
 
     public setTitleToSelectedItem(): void {

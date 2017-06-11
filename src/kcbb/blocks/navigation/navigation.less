@@ -10,10 +10,6 @@
     font-weight: 600;
     box-shadow: 0 2px 5px #888;
 
-    > div {
-        flex: 1;
-        margin: 0 100px;
-    }
     .small .hide {
         display: none;
     }
@@ -59,11 +55,20 @@
     }
 }
 
+.navigation_container {
+    flex: 1;
+    margin: 0 100px;
+}
+
 .small {
-    // TODO: disable scroll on selecting link
+    margin: 0;
+
     .links {
+        background: #fff;
+        box-shadow: 0 2px 5px #888;
         height: auto;
         display: block;
+        padding: 10px 0;
 
         app-dropdown, app-link {
             width: 100%;
@@ -85,12 +90,4 @@ app-dropdown, app-link {
     position: relative;
     width: 250px;
     height: 50px;
-}
-
-@media all and (max-width: 500px) {
-    .navigation {
-        > div {
-            margin: 0;
-        }
-    }
 }

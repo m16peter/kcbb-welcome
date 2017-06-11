@@ -57,6 +57,7 @@ class Link {
 
                 this.link.dropdown.setTitle(link.title);
                 this.link.dropdown.setCenterTitle();
+                this.link.dropdown.src = link.src;
 
             }
 
