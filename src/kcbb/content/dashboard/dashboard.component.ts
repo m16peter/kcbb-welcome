@@ -8,6 +8,8 @@ import { HttpService } from '../../services/http.service';
     styleUrls: ['./dashboard.less']
 })
 
+// TODO: show events on small device
+// TODO: event location
 export class DashboardComponent {
 
     public loading: boolean;
@@ -35,7 +37,7 @@ export class DashboardComponent {
 
     private get(): void {
 
-        const LINK: string = 'dashboard.json';
+        const LINK: string = 'apostolska-cirkev.json';
         this.httpService.get(LINK).subscribe(data => {
             data.forEach((item) => {
 
@@ -88,6 +90,7 @@ export class DashboardComponent {
 
                         let ev = {
                             'interval': item.event['interval'],
+                            'location': item.event['location'],
                             'day': today['dd'],
                             'month': today['month']
                         };
@@ -97,7 +100,9 @@ export class DashboardComponent {
                             'title': item['title'],
                             'desc': item['description'],
                             'desc-more': item['description-more'],
-                            'event': ev
+                            'event': ev,
+                            'isInterval': true,
+                            'isLocation': false
                         });
 
                         break;
@@ -123,6 +128,19 @@ export class DashboardComponent {
             });
 
             this.loading = false;
+
+            // after init:
+            setInterval(() => {
+                this.dashboard.events.forEach((item) => {
+
+                    if (item.event.location !== '') {
+                        item.isLocation = !item.isLocation;
+                        item.isInterval = !item.isInterval;
+                    }
+
+                });
+            }, 3000);
+
         });
 
     }

@@ -34,6 +34,7 @@
         &__pagination {
             position: relative;
             margin: auto;
+            visibility: hidden; // TODO: disable/enable...
 
             > div {
                 padding: 5px;
@@ -74,11 +75,5 @@
     img {
         width: 100%;
         margin: auto;
-    }
-}
-
-@media all and (max-width: 1024px) {
-    .slider__navigation__pagination {
-        visibility: hidden;
     }
 }

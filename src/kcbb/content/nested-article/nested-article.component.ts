@@ -42,7 +42,7 @@ export class NestedArticleComponent implements OnInit {
 
         this.route.params.subscribe(() => {
 
-            const LINK: string = 'articles/' + this.route.params['value']['article-id'] + '.json';
+            const LINK: string = 'apostolska-cirkev-banska-bystrica/' + this.route.params['value']['article-id'] + '.json';
 
             this.httpService.get(LINK).subscribe(data => {
 
@@ -66,9 +66,8 @@ export class NestedArticleComponent implements OnInit {
     public selectArticle(id: string, index: number): void {
 
         this.loadingArticle = true;
-        const LINK: string = id + '.json';
 
-        this.httpService.get(LINK).subscribe(data => {
+        this.httpService.get(id).subscribe(data => {
             this.article['content'] = (new Article(data)).content;
             this.activateLink(index);
             this.loadingArticle = false;

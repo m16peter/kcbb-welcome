@@ -4,12 +4,14 @@
 
         <!-- Slides -->
         <div *ngFor="let slide of slider.slides; let i = index;">
-            <img [@animateSlide]="i === slider.active ? slider.animation : 'inactive'"
-                 (@animateSlide.start)="animationStarted($event)"
-                 (@animateSlide.done)="animationDone($event)"
-                 src="{{ slide.src }}" class="slider__slide"
-                 width="{{ page['browser-width'] }}" height="{{ h(slide.width, slide.height, i === slider.active) }}"
-            />
+            <a href="{{ slide.url }}" target="_blank">
+                <img [@animateSlide]="i === slider.active ? slider.animation : 'inactive'"
+                     (@animateSlide.start)="animationStarted($event)"
+                     (@animateSlide.done)="animationDone($event)"
+                     src="{{ slide.src }}" class="slider__slide"
+                     width="{{ page['browser-width'] }}" height="{{ h(slide.width, slide.height, i === slider.active) }}"
+                />
+            </a>
         </div>
 
         <!-- Slider Navigation -->

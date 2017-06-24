@@ -9,19 +9,19 @@ import { PageNotFoundComponent } from '../kcbb/blocks/page-not-found/page-not-fo
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/apostolska-cirkev',
         pathMatch: 'full'
     },
     {
-        path: 'dashboard',
+        path: 'apostolska-cirkev',
         component: DashboardComponent
     },
     {
-        path: 'article/:article-id',
+        path: 'apostolska-cirkev-bb/:article-id',
         component: ArticleComponent
     },
     {
-        path: 'articles/:article-id',
+        path: 'apostolska-cirkev-banska-bystrica/:article-id',
         component: NestedArticleComponent
     },
     {

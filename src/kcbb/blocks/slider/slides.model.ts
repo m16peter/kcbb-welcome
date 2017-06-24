@@ -9,6 +9,7 @@ export class Slider {
         const PATH = 'src';
         const WIDTH = 'width';
         const HEIGHT = 'height';
+        const URL = 'url';
 
         try {
 
@@ -18,11 +19,12 @@ export class Slider {
                     this.slides.push({
                         'src': slide[PATH],
                         'width': slide[WIDTH],
-                        'height': slide[HEIGHT]
+                        'height': slide[HEIGHT],
+                        'url': slide[URL]
                     });
                 });
 
-                this.active = 0; // to randomize initial slide: Math.floor((Math.random() * (data.length)))
+                this.active = Math.floor((Math.random() * (data.length)));
                 this.animation = 'active';
 
             } else {

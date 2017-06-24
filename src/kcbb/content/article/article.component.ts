@@ -39,7 +39,7 @@ export class ArticleComponent implements OnInit {
 
         this.route.params.subscribe(() => {
 
-            const LINK: string = 'article/' + this.route.params['value']['article-id'] + '.json';
+            const LINK: string = 'apostolska-cirkev-bb/' + this.route.params['value']['article-id'] + '.json';
 
             this.httpService.get(LINK).subscribe(data => {
                 this.article = new Article(data);

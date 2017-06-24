@@ -3,14 +3,14 @@
         {
             "type": "dashboard",
             "title": "Kresťanské Centrum",
-            "id": "dashboard",
+            "id": "apostolska-cirkev",
             "src": "assets/admin/img/logo.png",
             "show": true
         },
         {
             "type": "nested-article",
             "title": "O Nás",
-            "id": "articles/o-nas",
+            "id": "apostolska-cirkev-banska-bystrica/o-nas",
             "src": "",
             "show": true
         },
@@ -45,6 +45,20 @@
             "type": "redirect",
             "title": "Rozpis",
             "id": "http://www.rozpis.kcbb.sk/",
+            "src": "",
+            "show": false
+        },
+        {
+            "type": "redirect",
+            "title": "Biblia online",
+            "id": "https://www.biblia.sk/",
+            "src": "",
+            "show": false
+        },
+        {
+            "type": "redirect",
+            "title": "Rádio 7",
+            "id": "http://www.radio7.sk/",
             "src": "",
             "show": false
         }

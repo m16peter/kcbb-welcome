@@ -12,9 +12,9 @@ import { HttpService } from '../../services/http.service';
 
 export class SliderComponent implements OnInit {
 
-    private static PATH: string;
+    private PATH: string;
     public slider: any;
-    public hack: any;
+    private hack: any;
 
     @Input() page;
 
@@ -32,12 +32,14 @@ export class SliderComponent implements OnInit {
 
     private init(): void {
 
-        SliderComponent.PATH = 'assets/app/img/';
+        this.PATH = 'assets/app/img/';
 
         this.hack = {
             'active': 0,
             'animation': 'active',
             'BTNsEnabled': true,
+            'autoslide': {},
+            'isAutoSlideOn': false
         };
 
         this.slider = {
@@ -51,7 +53,33 @@ export class SliderComponent implements OnInit {
         const LINK: string = 'slider.json';
         this.httpService.get(LINK).subscribe(data => {
             this.slider = new Slider(data);
+            this.setAutoSlideOn();
         });
+
+    }
+
+    private setAutoSlideOn(): void {
+
+        this.hack.isAutoSlideOn = true;
+
+        this.hack['autoslide'] = setInterval(() => {
+            this.randomSlide();
+        }, 5000);
+
+    }
+
+    private setAutoSlideOff(): void {
+        this.hack.isAutoSlideOn = false;
+        clearInterval(this.hack['autoslide']);
+    }
+
+    private randomSlide(): void {
+
+        let random = Math.floor((Math.random() * (this.slider.slides.length)));
+
+        if (this.slider.active !== random) {
+            this.selectSlide(random);
+        }
 
     }
 
@@ -84,10 +112,16 @@ export class SliderComponent implements OnInit {
     }
 
     public previousSlide(): void {
+        if (this.hack.isAutoSlideOn) {
+            this.setAutoSlideOff();
+        }
         this.changeSlide('previous', this.slider.active > 0 ? this.slider.active - 1 : this.slider.slides.length - 1);
     }
 
     public nextSlide(): void {
+        if (this.hack.isAutoSlideOn) {
+            this.setAutoSlideOff();
+        }
         this.changeSlide('next', this.slider.active < this.slider.slides.length - 1 ? this.slider.active + 1 : 0);
     }
 
@@ -141,7 +175,7 @@ export class SliderComponent implements OnInit {
     }
 
     public img(filename: string): string {
-        return SliderComponent.PATH + filename;
+        return this.PATH + filename;
     }
 
 }

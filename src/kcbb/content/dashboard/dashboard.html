@@ -6,9 +6,14 @@
         <div class="item {{ i%2 === 0 ? 'gray' : 'white' }}" *ngFor="let item of dashboard.events; let i = index;">
             <div class="layout-center-row">
 
+                <div class="small">
+                    <h1>{{ item['title'] }}</h1>
+                </div>
+
                 <div class="item_event" *ngIf="i%2 !== 0">
                     <div class="item_event_interval">
-                        <span>{{ item.event.interval }}</span>
+                        <span *ngIf="item.isInterval">{{ item.event.interval }}</span>
+                        <span *ngIf="item.isLocation">{{ item.event.location }}</span>
                     </div>
                     <div class="item_event_day {{ i%2 !== 0 ? 'gray' : 'white' }}">
                         <span>{{ item.event.day }}</span>
@@ -33,7 +38,8 @@
 
                 <div class="item_event" *ngIf="i%2 === 0">
                     <div class="item_event_interval">
-                        <span>{{ item.event.interval }}</span>
+                        <span *ngIf="item.isInterval">{{ item.event.interval }}</span>
+                        <span *ngIf="item.isLocation">{{ item.event.location }}</span>
                     </div>
                     <div class="item_event_day {{ i%2 !== 0 ? 'gray' : 'white' }}">
                         <span>{{ item.event.day }}</span>

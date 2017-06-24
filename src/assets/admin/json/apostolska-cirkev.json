@@ -6,6 +6,7 @@
             "description": "Medzi naše najpravidelnejšie stretnutia patria nedeľné zhromaždenia zboru.",
             "description-more": "Ak sa pýtame, prečo sa má cirkev schádzať, odpoveď nachádzame v knihe Skutkoch apoštolských 2,42, kde čítame, že novovzniknutá cirkev v 1. storočí sa neustále venovala „učeniu apoštolov, bratskému spoločenstvu, lámaniu chleba a modlitbám.“ Naším cieľom je pokračovať v tejto biblickej tradícií ako Božej vôle, ktorá pre dnešnú cirkev zostáva nezmenená, a to (aj) formou pravidelných nedeľných stretnutí. Obsahom nedeľných bohoslužieb sú už spomenuté prvky ako: vyučovanie Božieho Slova, spoločenstvo bratov a sestier, lámanie chleba (Večera Pánova) a modlitba (aj formou piesní). Budeme sa tešiť, ak medzi nás zavítate aj Vy.",
             "event": {
+                "location": "Okružná 2",
                 "interval": "09:30 - 11:30",
                 "week-day": 0,
                 "except-dates": [
@@ -20,9 +21,10 @@
         {
             "type": "event",
             "title": "DOMÁCE SKUPINKY",
-            "description": "Pravidelne sa schádzame na skupinke každý Utorok od 18:00 do 20:00. Domáca skupinka je otvorená pre všetky vekové kategórie. Pre viac informácií nás prosím kontaktuje cez kontaktné informácie.",
+            "description": "Pravidelne sa schádzame na skupinke každý Utorok od 18:00 do 20:00. Domáca skupinka je otvorená pre všetky vekové kategórie. Pre viac informácií nás prosím kontaktuje.",
             "description-more": "",
             "event": {
+                "location": "",
                 "interval": "18:00 - 19:00",
                 "week-day": 2,
                 "except-dates": []
@@ -34,6 +36,7 @@
             "description": "„Bedlite a modlite sa, aby ste neupadli do pokušenia. Duch je síce ochotný, ale telo slabé.“ Evanjelium podľa Matúša 26,41",
             "description-more": "",
             "event": {
+                "location": "Okružná 2",
                 "interval": "17:00 - 18:00",
                 "week-day": 5,
                 "except-dates": []
