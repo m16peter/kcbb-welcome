@@ -1,3 +1,5 @@
+<div class="click-catcher" *ngIf="menuIsActive()" (click)="toggleMenu()"></div>
+
 <div class="navigation" [ngClass]="{'navigation_fixed': fixed}">
     <div class="navigation_container" *ngIf="!loading" [ngClass]="{'small': !notSmall()}">
 
@@ -15,6 +17,7 @@
 
                 <app-dropdown *ngIf="isDropdown(link.type)"
                               [dropdown]="link.dropdown"
+                              (click)="scrollToNavigation()"
                               (selected)="navigateToSelected(link)">
                 </app-dropdown>
 

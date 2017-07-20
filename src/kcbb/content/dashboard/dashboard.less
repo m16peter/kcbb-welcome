@@ -22,22 +22,6 @@ h3 {
     line-height: 1.7;
 }
 
-.show-more {
-    font-size: 16px;
-    font-weight: 500;
-    color: #777;
-    cursor: pointer;
-
-    .hide {
-        display: none;
-    }
-    div {
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 1.7;
-    }
-}
-
 .right-side {
     text-align: right;
 }
@@ -80,7 +64,7 @@ h3 {
             border: 2px solid #ddd;
             border-radius: 50%;
             margin: auto;
-            // cursor: pointer;
+            cursor: pointer;
 
             h2 {
                 margin: auto;
@@ -98,12 +82,15 @@ h3 {
         width: 200px;
         height: 200px;
         margin: 30px 100px;
-        border: none;
         border-radius: 0 0 20px 20px;
-        -webkit-box-shadow: 0 0 20px -10px rgba(0,0,0, 0.7);
-        -moz-box-shadow:    0 0 20px -10px rgba(0,0,0, 0.7);
-        box-shadow:         0 0 20px -10px rgba(0,0,0, 0.7);
+        transition: box-shadow 300ms ease;
 
+        &:hover  {
+            -webkit-box-shadow: 0 0 20px 5px rgba(0,0,0, 0.2);
+            -moz-box-shadow:    0 0 20px 5px rgba(0,0,0, 0.2);
+            box-shadow:         0 0 20px 5px rgba(0,0,0, 0.2);
+            cursor: pointer;
+        }
         &_interval {
             height: 50px;
             background: #F05565;
@@ -143,11 +130,6 @@ h3 {
                 color:#333;
             }
         }
-        &:hover {
-            -webkit-box-shadow: 0 0 20px -10px rgba(0,0,0, 0.7);
-            -moz-box-shadow:    0 0 20px -10px rgba(0,0,0, 0.7);
-            box-shadow:         0 0 20px -10px rgba(0,0,0, 0.7);
-        }
     }
 }
 
@@ -160,26 +142,33 @@ h3 {
 
 .small {
     display: none;
+
     h1 {
         margin: 20px auto;
     }
 }
 
-@media all and (max-width: 500px) {
-    .item {
-        &_txt {
-            display: none;
-        }
-        &_event {
-            margin: 50px auto;
-        }
-    }
-    .small {
-        display: flex;
-    }
+.large {
+    display: block;
 }
 
 @media all and (max-width: 1024px) {
+    .dashboard {
+        h1 {
+            font-size: 42px;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media all and (max-width: 960px) {
+    .small {
+        display: flex;
+    }
+    .large {
+        display: none;
+    }
     .item {
         display: block;
 
@@ -189,8 +178,11 @@ h3 {
         .flex {
             flex: 0;
         }
+        &_event {
+            margin: 50px auto;
+        }
         &_txt {
-            text-align: left;
+            display: none;
         }
         &_block {
             margin: 20px auto;
@@ -205,6 +197,15 @@ h3 {
                 display: inline;
                 padding: 0;
             }
+        }
+    }
+}
+
+@media all and (max-width: 768px) {
+    .dashboard {
+
+        h1 {
+            font-size: 28px;
         }
     }
 }

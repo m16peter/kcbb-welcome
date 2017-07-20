@@ -2,11 +2,21 @@
     width: 100%;
     background: #eee;
     position: relative;
+    z-index: 150;
 
+    &:hover, &:active {
+        .slider__navigation {
+            opacity: 1;
+            transition: opacity 600ms ease;
+            &__pagination {
+                display: flex;
+            }
+        }
+    }
     &_wrapper {
         position: relative;
         max-width: 1920px;
-        transition: height 300ms ease-in-out;
+        transition: height 200ms ease-in-out;
         height: 0; // js
     }
     &__slide {
@@ -15,13 +25,14 @@
         left: 0;
     }
     &__navigation {
+        opacity: 0;
         display: flex;
         position: absolute;
         bottom: 0;
         left: 0;
         width: 100%;
         height: 50px;
-        z-index: 100;
+        z-index: 150;
 
         &__btn {
             bottom: -25px;
@@ -34,7 +45,7 @@
         &__pagination {
             position: relative;
             margin: auto;
-            visibility: hidden; // TODO: disable/enable...
+            display: none;
 
             > div {
                 padding: 5px;

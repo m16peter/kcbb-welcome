@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpService } from '../../services/http.service';
-// import { Popup } from '../../modules/popup/popup.model';
+import { Popup } from '../../modules/popup/popup.model';
 
 @Component({
     selector: 'app-dashboard',
@@ -8,13 +8,11 @@ import { HttpService } from '../../services/http.service';
     styleUrls: ['./dashboard.less']
 })
 
-// TODO: show events on small device
-// TODO: event location
 export class DashboardComponent {
 
     public loading: boolean;
     public dashboard: any;
-    // public popup: Popup;
+    public popup: Popup;
 
     constructor(private httpService: HttpService) {
         this.init();
@@ -31,7 +29,7 @@ export class DashboardComponent {
 
         this.get();
 
-        // this.popup = new Popup();
+        this.popup = new Popup();
 
     }
 
@@ -96,10 +94,9 @@ export class DashboardComponent {
                         };
 
                         this.dashboard.events.push({
-                            'isVisible': false,
                             'title': item['title'],
-                            'desc': item['description'],
-                            'desc-more': item['description-more'],
+                            'desc': item['desc'],
+                            'desc-more': item['desc-more'],
                             'event': ev,
                             'isInterval': true,
                             'isLocation': false
@@ -129,7 +126,6 @@ export class DashboardComponent {
 
             this.loading = false;
 
-            // after init:
             setInterval(() => {
                 this.dashboard.events.forEach((item) => {
 
@@ -173,17 +169,28 @@ export class DashboardComponent {
         return (str !== '');
     }
 
-    public toggleReadMore(index: number): void {
-        this.dashboard.events[index].isVisible = !this.dashboard.events[index].isVisible;
-    }
+    public openItemPopup(item: any): void {
 
-    /* popup
-    public openPopup(): void {
+        this.popup['title'] = item.title;
+        this.popup['content'] = '<h3>' + item['desc'] + '</h3>';
+        if (this.notEmpty(item['desc-more'])) {
+            this.popup['content'] += '<p>' + item['desc-more'] + '</p>';
+        }
+
         this.popup['isVisible'] = true;
     }
+
+    public openPopup(text: any): void {
+
+        this.popup['title'] = text.title;
+
+        this.popup['content'] = text.desc;
+        this.popup['isVisible'] = true;
+
+    }
+
     public popupClosed(): void {
         // console.log('popup was closed...');
     }
-    */
 
 }

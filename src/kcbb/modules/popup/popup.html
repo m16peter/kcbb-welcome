@@ -2,16 +2,21 @@
     <div class="backdrop" (click)="close()"></div>
     <div class="popup_container">
 
-        <!-- header -->
+        <!-- Header -->
         <div class="btn_wrapper">
             <div class="btn">
                 <img src="{{ img('close.svg') }}" (click)="close()"/>
             </div>
         </div>
 
-        <!-- content -->
-        <div class="content">
-
+        <!-- Content -->
+        <div class="content_wrapper">
+            <div class="content">
+                <div>
+                    <h1 class="center">{{ popup.title }}</h1>
+                    <div [innerHTML]="popup.content"></div>
+                </div>
+            </div>
         </div>
 
     </div>

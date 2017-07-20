@@ -8,6 +8,7 @@ import { Links } from './navigation.model';
     styleUrls: ['./navigation.less']
 })
 
+// TODO: on scroll => close menu
 export class NavigationComponent {
 
     public navigation: any;
@@ -18,8 +19,6 @@ export class NavigationComponent {
     @Input() fixed;
 
     @Output() navigate = new EventEmitter();
-
-    // TODO: on scroll => close menu
 
     @HostListener('window:resize', ['$event']) onResize() {
         this.closeMenuOnSmallDevice();
@@ -71,7 +70,10 @@ export class NavigationComponent {
     }
 
     public toggleMenu(): void {
+
+        this.scrollToNavigation();
         this.navigation.isVisible ? this.hideMenu() : this.showMenu();
+
     }
 
     public img(filename: string): string {
@@ -100,6 +102,23 @@ export class NavigationComponent {
 
     public isLink(type: string): boolean {
         return (type !== 'dropdown');
+    }
+
+    public isSmall(): boolean {
+        return (this.width <= (this.navigation.links.length * 250) + 200);
+    }
+
+    public menuIsActive(): boolean {
+        return (this.navigation.isVisible && this.isSmall());
+    }
+
+    public scrollToNavigation(): void {
+
+        this.navigate.emit({
+            'type': 'scroll',
+            'id': 'navigation'
+        });
+
     }
 
 }

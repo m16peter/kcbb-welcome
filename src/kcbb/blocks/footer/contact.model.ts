@@ -13,8 +13,14 @@ export class Contact {
 
         data['contact'].forEach((item) => {
             try {
+
+                let txt = [];
+                item['title'].forEach((row) => {
+                    txt.push(row);
+                });
+
                 this.items.push({
-                    'title': item['title'],
+                    'title': txt,
                     'info': {
                         'name': item['info'].name,
                         'mail': item['info'].mail,

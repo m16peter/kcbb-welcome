@@ -10,8 +10,53 @@ import { Router } from '@angular/router';
 export class MainComponent implements OnInit {
 
     public page: any;
+    public scrollSections: any;
 
     @ViewChild('main') main;
+
+    @HostListener('window:keydown', ['$event']) hotkeys($event) {
+
+        // console.log($event.keyCode);
+
+        // don't listen for key events if scrolling
+        if (!this.page['scrolling']) {
+
+            switch ($event.keyCode) {
+                // page-up
+                case 33: {
+                    if (this.page['active-section'] > 0) {
+                        this.page['active-section'] = 0;
+                        this.scrollTo(this.scrollSections[0]);
+                    }
+                    break;
+                }
+                // page-down
+                case 34: {
+                    if (this.page['active-section'] < 2) {
+                        this.scrollTo(this.scrollSections[this.page['active-section'] + 1]);
+                    }
+                    break;
+                }
+                // up
+                case 38: {
+                    if (this.page['active-section'] > 0) {
+                        this.page['active-section'] = 0;
+                        this.scrollTo(this.scrollSections[0]);
+                    }
+                    break;
+                }
+                // down
+                case 40: {
+                    if (this.page['active-section'] < 2) {
+                        this.scrollTo(this.scrollSections[this.page['active-section'] + 1]);
+                    }
+                    break;
+                }
+                default: break;
+            }
+        }
+
+    }
 
     @HostListener('window:resize', ['$event']) onResize() {
         this.resize();
@@ -24,8 +69,12 @@ export class MainComponent implements OnInit {
             'browser-width': 0,
             'slider-height': 0,
             'total-height': 0,
-            'navigationFixed': false
+            'navigationFixed': false,
+            'active-section': 0,
+            'scrolling': false
         };
+
+        this.scrollSections = ['top', 'navigation', 'footer'];
 
     }
 
@@ -71,52 +120,66 @@ export class MainComponent implements OnInit {
 
     private scrollTo(section: string): void {
 
-        let start = this.getScrollTop() + 1;
-        let end = 0;
+        if (!this.page['scrolling']) {
 
-        switch (section) {
-            case 'navigation':
-                end = this.page['slider-height'];
-                break;
-            case 'footer':
-                end = this.getScrollHeight() - this.getOffsetHeight();
-                break;
-            default:
-                break;
-        }
+            this.page['scrolling'] = true;
 
-        if (start > end) {
+            let start = this.getScrollTop() + 1;
+            let end = 0;
 
-            const interval = setInterval(() => {
+            switch (section) {
+                case this.scrollSections[0]:
+                    this.page['active-section'] = 0;
+                    end = 0;
+                    break;
+                case this.scrollSections[1]:
+                    this.page['active-section'] = 1;
+                    end = this.page['slider-height'] + 1;
+                    break;
+                case this.scrollSections[2]:
+                    this.page['active-section'] = 2;
+                    end = this.getScrollHeight() - this.getOffsetHeight();
+                    break;
+                default:
+                    break;
+            }
 
-                start = Math.floor(start / 1.1);
+            if (start > end) {
 
-                if (start > end) {
-                    this.setScrollTop(start);
-                } else {
-                    this.setScrollTop(end);
-                    clearInterval(interval);
-                }
+                const interval = setInterval(() => {
 
-            }, 10);
+                    start = Math.floor(start / 1.1);
 
-        } else {
+                    if (start > end) {
+                        this.setScrollTop(start);
+                    } else {
+                        this.setScrollTop(end);
+                        clearInterval(interval);
+                        this.page['scrolling'] = false;
+                    }
 
-            let step = end;
+                }, 10);
 
-            const interval = setInterval(() => {
+            } else {
 
-                step = Math.floor(step / 1.001);
-                start += (end - step);
+                let step = end;
 
-                if (start < end) {
-                    this.setScrollTop(start);
-                } else {
-                    this.setScrollTop(end);
-                    clearInterval(interval);
-                }
+                const interval = setInterval(() => {
 
-            }, 10);
+                    step = Math.floor(step / 1.001);
+                    start += (end - step);
+
+                    if (start < end) {
+                        this.setScrollTop(start);
+                    } else {
+                        this.setScrollTop(end);
+                        clearInterval(interval);
+                        this.page['scrolling'] = false;
+                    }
+
+                }, 10);
+
+            }
 
         }
 
@@ -140,6 +203,15 @@ export class MainComponent implements OnInit {
 
     public onScroll(): void {
         this.page['navigationFixed'] = (this.getScrollTop() >= this.page['slider-height']);
+
+        if (this.getScrollTop() < this.page['slider-height']) {
+            this.page['active-section'] = 0;
+        } else if ((this.getScrollHeight() - this.getOffsetHeight()) >= this.getScrollTop()) {
+            this.page['active-section'] = 1;
+        } else {
+            this.page['active-section'] = 2;
+        }
+
     }
 
     public notSmall(): boolean {

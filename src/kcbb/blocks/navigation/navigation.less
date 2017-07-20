@@ -3,12 +3,12 @@
     left: 0;
     width: 100%;
     height: 50px;
-    z-index: 99;
     background: #fff;
     font-size: 18px;
     display: flex;
     font-weight: 600;
-    box-shadow: 0 2px 5px #888;
+    box-shadow: 0 1px 5px #808080;
+    z-index: 102;
 
     .small .hide {
         display: none;
@@ -16,6 +16,7 @@
     .links {
         height: 50px;
         display: flex;
+        z-index: 200;
     }
     &_fixed {
         position: fixed;
@@ -33,6 +34,7 @@
     margin: auto;
     height: 50px;
     cursor: pointer;
+
     &:hover {
         &::after {
             visibility: visible;
@@ -90,4 +92,14 @@ app-dropdown, app-link {
     position: relative;
     width: 250px;
     height: 50px;
+}
+
+.click-catcher {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    z-index: 101;
 }

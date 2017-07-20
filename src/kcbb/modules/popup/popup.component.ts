@@ -24,11 +24,8 @@ export class PopupComponent {
     }
 
     public close(): void {
-
-        // TODO: animate...
         this.popup['isVisible'] = false;
         this.closed.emit();
-
     }
 
 }

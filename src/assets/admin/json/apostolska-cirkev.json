@@ -3,8 +3,8 @@
         {
             "type": "event",
             "title": "BOHOSLUŽBY",
-            "description": "Medzi naše najpravidelnejšie stretnutia patria nedeľné zhromaždenia zboru.",
-            "description-more": "Ak sa pýtame, prečo sa má cirkev schádzať, odpoveď nachádzame v knihe Skutkoch apoštolských 2,42, kde čítame, že novovzniknutá cirkev v 1. storočí sa neustále venovala „učeniu apoštolov, bratskému spoločenstvu, lámaniu chleba a modlitbám.“ Naším cieľom je pokračovať v tejto biblickej tradícií ako Božej vôle, ktorá pre dnešnú cirkev zostáva nezmenená, a to (aj) formou pravidelných nedeľných stretnutí. Obsahom nedeľných bohoslužieb sú už spomenuté prvky ako: vyučovanie Božieho Slova, spoločenstvo bratov a sestier, lámanie chleba (Večera Pánova) a modlitba (aj formou piesní). Budeme sa tešiť, ak medzi nás zavítate aj Vy.",
+            "desc": "Medzi naše najpravidelnejšie stretnutia patria nedeľné zhromaždenia zboru.",
+            "desc-more": "Ak sa pýtame, prečo sa má cirkev schádzať, odpoveď nachádzame v knihe Skutkoch apoštolských 2,42, kde čítame, že novovzniknutá cirkev v 1. storočí sa neustále venovala „učeniu apoštolov, bratskému spoločenstvu, lámaniu chleba a modlitbám.“ Naším cieľom je pokračovať v tejto biblickej tradícií ako Božej vôle, ktorá pre dnešnú cirkev zostáva nezmenená, a to (aj) formou pravidelných nedeľných stretnutí. Obsahom nedeľných bohoslužieb sú už spomenuté prvky ako: vyučovanie Božieho Slova, spoločenstvo bratov a sestier, lámanie chleba (Večera Pánova) a modlitba (aj formou piesní). Budeme sa tešiť, ak medzi nás zavítate aj Vy.",
             "event": {
                 "location": "Okružná 2",
                 "interval": "09:30 - 11:30",
@@ -21,8 +21,8 @@
         {
             "type": "event",
             "title": "DOMÁCE SKUPINKY",
-            "description": "Pravidelne sa schádzame na skupinke každý Utorok od 18:00 do 20:00. Domáca skupinka je otvorená pre všetky vekové kategórie. Pre viac informácií nás prosím kontaktuje.",
-            "description-more": "",
+            "desc": "Pravidelne sa schádzame na skupinke každý Utorok od 18:00 do 20:00. Domáca skupinka je otvorená pre všetky vekové kategórie. Pre viac informácií nás prosím kontaktuje.",
+            "desc-more": "",
             "event": {
                 "location": "",
                 "interval": "18:00 - 19:00",
@@ -33,8 +33,8 @@
         {
             "type": "event",
             "title": "MODLITBY",
-            "description": "„Bedlite a modlite sa, aby ste neupadli do pokušenia. Duch je síce ochotný, ale telo slabé.“ Evanjelium podľa Matúša 26,41",
-            "description-more": "",
+            "desc": "„Bedlite a modlite sa, aby ste neupadli do pokušenia. Duch je síce ochotný, ale telo slabé.“ Evanjelium podľa Matúša 26,41",
+            "desc-more": "",
             "event": {
                 "location": "Okružná 2",
                 "interval": "17:00 - 18:00",
@@ -47,15 +47,15 @@
             "content": [
                 {
                     "title": "Besiedka",
-                    "desc": ""
+                    "desc": "<h3 class='center'>Pre viac info, kontaktujte <a class='strong' target='_blank' href='https://www.facebook.com/ester.lakatos'>Ester</a>.</h3>"
                 },
                 {
                     "title": "Dorast",
-                    "desc": ""
+                    "desc": "<h3 class='center'>Pre viac info, kontaktujte <a class='strong' target='_blank' href='https://www.facebook.com/sara.papova'>Saru</a>.</h3>"
                 },
                 {
                     "title": "Mládež",
-                    "desc": ""
+                    "desc": "<h3 class='center'>Pre viac info, kontaktujte <a class='strong' target='_blank' href='https://www.facebook.com/michal.m.vesely'>Michala</a>.</h3>"
                 }
             ]
         }

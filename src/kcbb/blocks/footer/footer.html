@@ -11,7 +11,9 @@
         <div class="contact">
 
             <div *ngFor="let item of contact">
-                <div class="contact__title">{{ item['title'] }}</div>
+                <div class="contact__title">
+                    <div *ngFor="let row of item['title']">{{ row }}</div>
+                </div>
                 <div class="contact__info">
                     <div class="layout-row" *ngIf="isSet(item['info'].name)">
                         <img src="{{ img('name.svg') }}" />

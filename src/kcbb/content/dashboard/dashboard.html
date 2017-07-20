@@ -10,7 +10,7 @@
                     <h1>{{ item['title'] }}</h1>
                 </div>
 
-                <div class="item_event" *ngIf="i%2 !== 0">
+                <div class="item_event" *ngIf="i%2 !== 0" (click)="openItemPopup(item)">
                     <div class="item_event_interval">
                         <span *ngIf="item.isInterval">{{ item.event.interval }}</span>
                         <span *ngIf="item.isLocation">{{ item.event.location }}</span>
@@ -25,18 +25,14 @@
 
                 <div class="flex" *ngIf="i%2 !== 0"></div>
 
-                <div class="item_txt {{ i%2 !== 0 ? 'right-side' : 'left-side'}}">
+                <div class="item_txt large {{ i%2 !== 0 ? 'right-side' : 'left-side'}}">
                     <h1>{{ item['title'] }}</h1>
                     <h3>{{ item['desc'] }}</h3>
-                    <div class="show-more" *ngIf="notEmpty(item['desc-more'])" (click)="toggleReadMore(i)">
-                        <div [ngClass]="{'hide': item.isVisible}">čítať viac...</div>
-                        <div [ngClass]="{'hide': !item.isVisible}">{{ item['desc-more'] }}</div>
-                    </div>
                 </div>
 
                 <div class="flex" *ngIf="i%2 === 0"></div>
 
-                <div class="item_event" *ngIf="i%2 === 0">
+                <div class="item_event" *ngIf="i%2 === 0" (click)="openItemPopup(item)">
                     <div class="item_event_interval">
                         <span *ngIf="item.isInterval">{{ item.event.interval }}</span>
                         <span *ngIf="item.isLocation">{{ item.event.location }}</span>
@@ -54,9 +50,8 @@
         <!-- Info -->
         <div class="item {{ dashboard.events.length % 2 === 0 ? 'gray' : 'white'}}" *ngFor="let items of dashboard.info">
             <div class="item_block flex" *ngFor="let info of items">
-                <div class="item_block-shape" (click)="openPopup()">
+                <div class="item_block-shape" (click)="openPopup(info)">
                     <h2>{{ info['title'] }}</h2>
-                    <h5>{{ info['desc'] }}</h5>
                 </div>
             </div>
         </div>
@@ -64,9 +59,4 @@
     </div>
 </div>
 
-<!-- popup
-<app-popup *ngIf="popup['isVisible']"
-           [popup]="popup"
-           (closed)="popupClosed()">
-</app-popup>
- -->
+<app-popup *ngIf="popup['isVisible']" [popup]="popup" (closed)="popupClosed()"></app-popup>

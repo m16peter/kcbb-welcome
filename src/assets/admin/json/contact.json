@@ -3,7 +3,7 @@
         "img": "assets/admin/img/map.jpg",
         "contact": [
             {
-                "title": "Apoštolská cirkev na Slovensku, zbor Banská Bystrica",
+                "title": ["Apoštolská cirkev na Slovensku,", " zbor Banská Bystrica"],
                 "info": {
                     "name": "",
                     "mail": "",
@@ -12,7 +12,7 @@
                 }
             },
             {
-                "title": "Pastor",
+                "title": ["Pastor"],
                 "info": {
                     "name": "René Holon Mondzo",
                     "mail": "renemondzo@gmail.com",
