@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Dropdown } from './dropdown.model';
 
 @Component({
-    selector: 'app-dropdown',
+    selector: 'kcbb-dropdown',
     templateUrl: './dropdown.html',
     styleUrls: ['./dropdown.less']
 })
 
+// todo: close on scroll
 export class DropdownComponent {
 
     @Input() dropdown: Dropdown;

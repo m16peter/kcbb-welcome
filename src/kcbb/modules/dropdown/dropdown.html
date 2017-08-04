@@ -4,7 +4,7 @@
 
     <div class="item{{ dropdown['isVisible'] ? ' selected' : '' }}" (click)="toggle()">
         <div *ngIf="dropdown['centerTitle']" class="flex"></div>
-        <img *ngIf="notEmpty(dropdown['src'])" src="{{ dropdown['src'] }}" />
+        <img *ngIf="notEmpty(dropdown['icon'])" src="{{ dropdown['icon'] }}" />
         <div class="text">{{ dropdown['title'] }}</div>
         <div *ngIf="dropdown['centerTitle']" class="flex"></div>
     </div>

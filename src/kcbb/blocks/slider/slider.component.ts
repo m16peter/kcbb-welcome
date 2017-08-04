@@ -4,7 +4,7 @@ import { Slider } from './slides.model';
 import { HttpService } from '../../services/http.service';
 
 @Component({
-    selector: 'app-slider',
+    selector: 'kcbb-slider',
     templateUrl: './slider.html',
     styleUrls: ['./slider.less'],
     animations: [ sliderAnimations ]
@@ -12,7 +12,6 @@ import { HttpService } from '../../services/http.service';
 
 export class SliderComponent implements OnInit {
 
-    private PATH: string;
     public slider: any;
     private hack: any;
 
@@ -21,18 +20,6 @@ export class SliderComponent implements OnInit {
     @ViewChild('wrapper') wrapper;
 
     constructor(private httpService: HttpService) {
-        this.init();
-    }
-
-    ngOnInit() {
-        if (this.page['browser-width'] > 500) {
-            this.get();
-        }
-    }
-
-    private init(): void {
-
-        this.PATH = 'assets/app/img/';
 
         this.hack = {
             'active': 0,
@@ -48,9 +35,16 @@ export class SliderComponent implements OnInit {
 
     }
 
+    ngOnInit() {
+        if (this.page['browser-width'] >= 600) {
+            this.get();
+        }
+    }
+
     private get(): void {
 
         const LINK: string = 'slider.json';
+
         this.httpService.get(LINK).subscribe(data => {
             this.slider = new Slider(data);
             this.setAutoSlideOn();
@@ -60,11 +54,13 @@ export class SliderComponent implements OnInit {
 
     private setAutoSlideOn(): void {
 
+        const DISABLE_AUTOSLIDE: boolean = false;
         this.hack.isAutoSlideOn = true;
+        this.randomSlide();
 
         this.hack['autoslide'] = setInterval(() => {
-            this.randomSlide();
-        }, 5000);
+            this.nextSlide(DISABLE_AUTOSLIDE);
+        }, 6000);
 
     }
 
@@ -118,14 +114,17 @@ export class SliderComponent implements OnInit {
         this.changeSlide('previous', this.slider.active > 0 ? this.slider.active - 1 : this.slider.slides.length - 1);
     }
 
-    public nextSlide(): void {
-        if (this.hack.isAutoSlideOn) {
+    public nextSlide(disable_autoslide: boolean = true): void {
+        if (this.hack.isAutoSlideOn && disable_autoslide) {
             this.setAutoSlideOff();
         }
         this.changeSlide('next', this.slider.active < this.slider.slides.length - 1 ? this.slider.active + 1 : 0);
     }
 
     public selectSlide(index: number): void {
+        if (this.hack.isAutoSlideOn) {
+            this.setAutoSlideOff();
+        }
         if (this.slider.active !== index) {
             this.changeSlide('down', index);
         }
@@ -135,15 +134,12 @@ export class SliderComponent implements OnInit {
         if (this.hack.BTNsEnabled) {
 
             // disable button
-            // console.log('slider BTNs -> disabled');
             this.hack.BTNsEnabled = false;
 
             // change active slide
-            // console.log('active ->', activeIndex);
             this.hack.active = activeIndex;
 
             // animate
-            // console.log('animation ->', animation, ' -> active');
             this.slider.animation = animation;
             this.hack.animation = animation;
         }
@@ -175,7 +171,7 @@ export class SliderComponent implements OnInit {
     }
 
     public img(filename: string): string {
-        return this.PATH + filename;
+        return this.page['path'] + filename;
     }
 
 }

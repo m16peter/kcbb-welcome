@@ -1,211 +1,61 @@
 .dashboard {
+    position: relative;
     width: 100%;
     display: flex;
     min-height: ~"calc(100% - 52px)";
-
-    &__content {
-        width: 100%;
-        background: #eee;
-    }
-}
-
-h1 {
-    color: #000;
-    margin: 20px 0;
-    padding: 20px 0;
-}
-
-h3 {
-    margin: 10px 0;
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.7;
-}
-
-.right-side {
-    text-align: right;
-}
-.left-side {
-    text-align: left;
-}
-
-.item {
-    display: flex;
-    position: relative;
-    padding: 15px 0;
-    min-height: 300px;
     background: #eee;
 
-    .layout-center-row {
+    .loading {
         display: flex;
-        margin: 0 auto;
     }
-    &_txt {
-        font-family: 'Raleway', sans-serif;
-        min-height: 80px;
-        font-size: 30px;
-        font-weight: 800;
-        color: #333;
-        max-width: 640px;
-        margin: 0 100px;
-    }
-    &_block {
-        font-family: 'Raleway', sans-serif;
-        font-size: 30px;
-        font-weight: 800;
-        color: #333;
-        margin: auto 0;
-        display: flex;
+    > div {
+        width: 100%;
+        margin: 25px;
 
-        &-shape {
+        .announcements {
             display: flex;
-            width: 200px;
-            height: 200px;
-            border: 2px solid #ddd;
-            border-radius: 50%;
-            margin: auto;
-            cursor: pointer;
 
-            h2 {
+            kcbb-announcement {
+                display: flex;
+                height: 450px;
                 margin: auto;
             }
-            h5 {
-                display: none;
-            }
-            &:hover {
-                border: 2px solid #eeeeee;
-                background: #eeeeee;
-            }
-        }
-    }
-    &_event {
-        width: 200px;
-        height: 200px;
-        margin: 30px 100px;
-        border-radius: 0 0 20px 20px;
-        transition: box-shadow 300ms ease;
-
-        &:hover  {
-            -webkit-box-shadow: 0 0 20px 5px rgba(0,0,0, 0.2);
-            -moz-box-shadow:    0 0 20px 5px rgba(0,0,0, 0.2);
-            box-shadow:         0 0 20px 5px rgba(0,0,0, 0.2);
-            cursor: pointer;
-        }
-        &_interval {
-            height: 50px;
-            background: #F05565;
-            color:#fff;
-            display: flex;
-
-            span {
-                font-size: 18px;
-                font-weight: 600;
-                margin: auto auto 0 auto;
-                padding: 10px;
-            }
-        }
-        &_day {
-            height: 100px;
-            width: 200px;
-            display: flex;
-
-            span {
-                margin: auto;
-                font-size: 70px;
-                color:#333;
-                border-bottom: 3px solid #D5D0BB;
-            }
-        }
-        &_month {
-            display: flex;
-            height: 50px;
-            width: 200px;
-            border-radius: 0 0 20px 20px;
-
-            span {
-                margin: 0 auto;
-                font-size: 24px;
-                text-transform: uppercase;
-                font-weight: 600;
-                color:#333;
-            }
         }
     }
 }
 
-.white {
-    background-color: #fff;
-}
-.gray {
-    background-color: #eee;
-}
-
-.small {
-    display: none;
-
-    h1 {
-        margin: 20px auto;
-    }
-}
-
-.large {
-    display: block;
-}
-
-@media all and (max-width: 1024px) {
+@media all and (max-width: 1023px) {
     .dashboard {
-        h1 {
-            font-size: 42px;
-            padding-bottom: 0;
-            margin-bottom: 0;
-        }
-    }
-}
-
-@media all and (max-width: 960px) {
-    .small {
-        display: flex;
-    }
-    .large {
-        display: none;
-    }
-    .item {
-        display: block;
-
-        .layout-center-row {
-            display: block;
-        }
-        .flex {
-            flex: 0;
-        }
-        &_event {
-            margin: 50px auto;
-        }
-        &_txt {
-            display: none;
-        }
-        &_block {
-            margin: 20px auto;
-
-            h1 {
-                margin-right: 20px;
-                display: inline;
-                padding: 0;
+        > div {
+            margin: 10px;
+            .announcements {
+                display: block;
+                margin: 20px 0;
+                kcbb-announcement {
+                    display: flex;
+                    height: 300px;
+                    margin: auto;
+                }
             }
-            h3 {
-                color: #888;
-                display: inline;
-                padding: 0;
+            kcbb-event {
+                display: flex;
             }
         }
     }
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 599px) {
     .dashboard {
-
-        h1 {
-            font-size: 28px;
+        > div {
+            .announcements {
+                display: block;
+                margin: 0;
+                kcbb-announcement {
+                    display: flex;
+                    height: 250px;
+                    margin: auto;
+                }
+            }
         }
     }
 }

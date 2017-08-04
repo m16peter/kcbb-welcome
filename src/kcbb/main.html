@@ -1,14 +1,11 @@
 <div class="main" #main (scroll)="onScroll()">
 
-    <app-slider *ngIf="notSmall()" [page]="page"></app-slider>
+    <kcbb-slider *ngIf="!isSmall()" [page]="page"></kcbb-slider>
 
-    <app-navigation [width]="page['browser-width']"
-                    [fixed]="page['navigationFixed']"
-                    (navigate)="navigateTo($event)">
-    </app-navigation>
+    <kcbb-header [page]="page" (navigate)="navigateTo($event)"></kcbb-header>
 
     <router-outlet></router-outlet>
 
-    <app-footer></app-footer>
+    <kcbb-footer [page]="page"></kcbb-footer>
 
 </div>

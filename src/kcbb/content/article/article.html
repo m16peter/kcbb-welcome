@@ -2,7 +2,7 @@
     <div class="article-content">
 
         <div *ngIf="loading" class='uil-ring-css loader' style='transform:scale(1);'><div></div></div>
-        <div *ngIf="!loading" [innerHTML]="article.content"></div>
+        <div *ngIf="!loading" [innerHTML]="article.html"></div>
 
     </div>
 </div>

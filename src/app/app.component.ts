@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-welcome',
-    template: '<app-main></app-main>'
+    selector: 'kcbb-welcome',
+    template: '<kcbb-main></kcbb-main>'
 })
 
 export class AppComponent { }

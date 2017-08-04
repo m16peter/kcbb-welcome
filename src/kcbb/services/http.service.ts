@@ -9,14 +9,8 @@ export class HttpService {
 
     constructor (private http: Http) {}
 
-    /**
-     * desc: HTTP-GET - '<path>.json' file and return it's data
-     * in: 'link' - relative path to file
-     * out: - json content
-     */
     public get(link: string): any {
-        const URL: string = HttpService.baseURL + link;
-        return this.http.get(URL).map(res => res.json().data || {} );
+        return this.http.get(HttpService.baseURL + link).map(res => res.json().data || {} );
     }
 
 }

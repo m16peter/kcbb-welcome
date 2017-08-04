@@ -1,4 +1,5 @@
-import {Dropdown} from "../../modules/dropdown/dropdown.model";
+import { Dropdown } from '../../modules/dropdown/dropdown.model';
+
 export class Links {
 
     public links: any = [];
@@ -7,7 +8,7 @@ export class Links {
 
         data.forEach((item) => {
             if (item.show) {
-                this.links.push( (new Link(item)).link );
+                this.links.push((new Link(item)).link);
             }
         });
 
@@ -29,7 +30,7 @@ class Link {
                     'id': link.id,
                     'type': link.type,
                     'title': link.title,
-                    'src': link.src
+                    'icon': link.icon
                 };
 
             } else {
@@ -37,7 +38,7 @@ class Link {
                 this.link = {
                     'id': [],
                     'type': link.type,
-                    'src': link.src
+                    'icon': link.icon
                 };
 
                 const list: any = [];
@@ -57,12 +58,12 @@ class Link {
 
                 this.link.dropdown.setTitle(link.title);
                 this.link.dropdown.setCenterTitle();
+                this.link.dropdown.setCenterListItems();
                 this.link.dropdown.src = link.src;
 
             }
 
         } catch (e) {
-            // console.log(e);
             this.link = {};
         }
 

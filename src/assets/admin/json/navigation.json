@@ -2,65 +2,31 @@
     "data": [
         {
             "type": "dashboard",
-            "title": "Kresťanské Centrum",
-            "id": "apostolska-cirkev",
-            "src": "assets/admin/img/logo.png",
-            "show": true
-        },
-        {
-            "type": "nested-article",
-            "title": "O Nás",
-            "id": "apostolska-cirkev-banska-bystrica/o-nas",
-            "src": "",
+            "title": "Activități",
+            "id": "dashboard",
+            "icon": "assets/admin/img/logo.png",
             "show": true
         },
         {
             "type": "dropdown",
-            "title": "Tábor",
+            "title": "Despre Noi",
             "id": [
                 {
-                    "type": "redirect",
-                    "title": "Detský",
-                    "id": "http://impact.kcbb.sk/tabor/conquer-the-day-2017",
-                    "show": true
-                },
-                {
-                    "type": "redirect",
-                    "title": "Mládežnícky",
-                    "id": "http://impact.kcbb.sk/tabor/kecy-2017",
+                    "type": "article",
+                    "title": "Crezul",
+                    "id": "article/crezul",
                     "show": true
                 }
             ],
-            "src": "",
+            "icon": "",
             "show": true
         },
         {
             "type": "scroll",
-            "title": "Kontakt",
+            "title": "Contact",
             "id": "footer",
-            "src": "",
+            "icon": "",
             "show": true
-        },
-        {
-            "type": "redirect",
-            "title": "Rozpis",
-            "id": "http://www.rozpis.kcbb.sk/",
-            "src": "",
-            "show": false
-        },
-        {
-            "type": "redirect",
-            "title": "Biblia online",
-            "id": "https://www.biblia.sk/",
-            "src": "",
-            "show": false
-        },
-        {
-            "type": "redirect",
-            "title": "Rádio 7",
-            "id": "http://www.radio7.sk/",
-            "src": "",
-            "show": false
         }
     ]
 }

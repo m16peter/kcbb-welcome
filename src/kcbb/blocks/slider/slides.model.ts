@@ -1,3 +1,18 @@
+/*
+
+slider.json
+{
+    "data": [
+        {
+            "src": "assets/admin/img/slider/image.extension",
+            "width": 1920/(width in px),
+            "height": 500/(height in px),
+            "url": ""
+        }
+    ]
+}
+
+*/
 export class Slider {
 
     public slides: any = [];

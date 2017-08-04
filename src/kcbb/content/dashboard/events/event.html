@@ -1,0 +1,31 @@
+<div class="event {{ event.css }}" (click)="openPopupEvent()">
+
+    <div class="layout-column">
+
+        <div class="event_txt">
+            <h1>{{ event.title }}</h1>
+            <h3>{{ event.desc }}</h3>
+        </div>
+
+        <div class="flex"></div>
+
+        <div class="event_info">
+            <div class="event_info_interval">
+                <span>{{ event.calendar.interval }}</span>
+            </div>
+            <div class="event_info_day">
+                <span>{{ event.calendar.day }}</span>
+            </div>
+            <div class="event_info_month">
+                <span>{{ event.calendar.month }}</span>
+            </div>
+        </div>
+
+        <div class="flex"></div>
+
+    </div>
+
+</div>
+
+<div class="break"></div>
+<div class="clear" *ngIf="event.css.indexOf('br') !== -1"></div>

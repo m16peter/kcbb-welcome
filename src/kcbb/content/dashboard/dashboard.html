@@ -1,62 +1,27 @@
 <div class="dashboard">
-    <div *ngIf="loading" class='uil-ring-css loader' style='transform:scale(1);'><div></div></div>
-    <div class="dashboard__content" *ngIf="!loading">
 
-        <!-- Events -->
-        <div class="item {{ i%2 === 0 ? 'gray' : 'white' }}" *ngFor="let item of dashboard.events; let i = index;">
-            <div class="layout-center-row">
-
-                <div class="small">
-                    <h1>{{ item['title'] }}</h1>
-                </div>
-
-                <div class="item_event" *ngIf="i%2 !== 0" (click)="openItemPopup(item)">
-                    <div class="item_event_interval">
-                        <span *ngIf="item.isInterval">{{ item.event.interval }}</span>
-                        <span *ngIf="item.isLocation">{{ item.event.location }}</span>
-                    </div>
-                    <div class="item_event_day {{ i%2 !== 0 ? 'gray' : 'white' }}">
-                        <span>{{ item.event.day }}</span>
-                    </div>
-                    <div class="item_event_month {{ i%2 !== 0 ? 'gray' : 'white' }}">
-                        <span>{{ item.event.month }}</span>
-                    </div>
-                </div>
-
-                <div class="flex" *ngIf="i%2 !== 0"></div>
-
-                <div class="item_txt large {{ i%2 !== 0 ? 'right-side' : 'left-side'}}">
-                    <h1>{{ item['title'] }}</h1>
-                    <h3>{{ item['desc'] }}</h3>
-                </div>
-
-                <div class="flex" *ngIf="i%2 === 0"></div>
-
-                <div class="item_event" *ngIf="i%2 === 0" (click)="openItemPopup(item)">
-                    <div class="item_event_interval">
-                        <span *ngIf="item.isInterval">{{ item.event.interval }}</span>
-                        <span *ngIf="item.isLocation">{{ item.event.location }}</span>
-                    </div>
-                    <div class="item_event_day {{ i%2 !== 0 ? 'gray' : 'white' }}">
-                        <span>{{ item.event.day }}</span>
-                    </div>
-                    <div class="item_event_month {{ i%2 !== 0 ? 'gray' : 'white' }}">
-                        <span>{{ item.event.month }}</span>
-                    </div>
-                </div>
-            </div>
+    <div class="loading" *ngIf="dashboard.loading">
+        <div class='uil-ring-css loader' style='transform:scale(1);'>
+            <div></div>
         </div>
+    </div>
 
-        <!-- Info -->
-        <div class="item {{ dashboard.events.length % 2 === 0 ? 'gray' : 'white'}}" *ngFor="let items of dashboard.info">
-            <div class="item_block flex" *ngFor="let info of items">
-                <div class="item_block-shape" (click)="openPopup(info)">
-                    <h2>{{ info['title'] }}</h2>
-                </div>
-            </div>
+    <div *ngIf="!dashboard.loading">
+
+        <kcbb-event *ngFor="let event of dashboard.events"
+                    (openPopup)="openEventPopup(event)"
+                    [event]="event">
+        </kcbb-event>
+
+        <div class="announcements">
+                <kcbb-announcement *ngFor="let announcement of dashboard.announcements"
+                                   (openPopup)="openAnnouncementPopup(announcement)"
+                                   [title]="announcement.title">
+                </kcbb-announcement>
         </div>
 
     </div>
+
 </div>
 
-<app-popup *ngIf="popup['isVisible']" [popup]="popup" (closed)="popupClosed()"></app-popup>
+<kcbb-popup *ngIf="popup.isVisible" [popup]="popup"></kcbb-popup>

@@ -387,8 +387,9 @@ table {
 }
 html {
     display: flex;
-    color: #eee;
+    color: #333;
     background-color: #fff;
+    font-family: 'Raleway', sans-serif;
     font-weight: 100;
     font-size: 14px;
     width: 100%;
@@ -401,13 +402,13 @@ body {
     margin: 0;
     overflow: hidden;
 }
-app-welcome {
+kcbb-welcome {
     width: 100%;
     height: 100%;
     display: flex;
     overflow: hidden;
 }
-app-main {
+kcbb-main {
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -424,6 +425,7 @@ h2 {
     padding: 20px 0;
 }
 h3 {
+    line-height: 150%;
     font-size: 24px;
     padding: 10px 0;
 }
@@ -451,7 +453,9 @@ a {
 .center {
     text-align: center;
 }
-
+.link {
+    color: #369;
+}
 @media all and (max-width: 500px) {
     h1 {
         text-align: left;

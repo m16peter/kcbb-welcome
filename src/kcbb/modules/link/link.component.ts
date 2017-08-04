@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'app-link',
+    selector: 'kcbb-link',
     templateUrl: './link.html',
     styleUrls: ['./link.less']
 })

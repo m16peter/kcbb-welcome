@@ -3,30 +3,25 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from '../kcbb/content/dashboard/dashboard.component';
 import { ArticleComponent } from '../kcbb/content/article/article.component';
-import { NestedArticleComponent } from '../kcbb/content/nested-article/nested-article.component';
-import { PageNotFoundComponent } from '../kcbb/blocks/page-not-found/page-not-found.component';
+import { Page404Component } from '../kcbb/content/page-404/page-404.component';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/apostolska-cirkev',
+        redirectTo: '/dashboard',
         pathMatch: 'full'
     },
     {
-        path: 'apostolska-cirkev',
+        path: 'dashboard',
         component: DashboardComponent
     },
     {
-        path: 'apostolska-cirkev-bb/:article-id',
+        path: 'article/:article-id',
         component: ArticleComponent
     },
     {
-        path: 'apostolska-cirkev-banska-bystrica/:article-id',
-        component: NestedArticleComponent
-    },
-    {
         path: '**',
-        component: PageNotFoundComponent
+        component: Page404Component
     }
 ];
 
@@ -40,6 +35,5 @@ export class AppRoutingModule { }
 export const routedComponents = [
     DashboardComponent,
     ArticleComponent,
-    NestedArticleComponent,
-    PageNotFoundComponent
+    Page404Component
 ];

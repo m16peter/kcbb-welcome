@@ -1,16 +1,10 @@
 {
     "data": [
         {
-            "src": "assets/admin/img/slider/kecy.png",
+            "src": "assets/admin/img/slider/tabor.jpg",
             "width": 1920,
-            "height": 700,
-            "url": "https://docs.google.com/forms/d/e/1FAIpQLSejbmYaJJrC8d96fz8pv_0MlcIalYzuqsha9UiycdMszA6Zfw/viewform"
-        },
-        {
-            "src": "assets/admin/img/slider/kast.jpg",
-            "width": 1920,
-            "height": 700,
-            "url": "https://docs.google.com/forms/d/1PYVECKrYTcYW-qJzDUrb81_7c-E9wibhyx8yEEY4fpk/viewform?edit_requested=true"
+            "height": 500,
+            "url": "https://www.facebook.com/"
         }
     ]
 }

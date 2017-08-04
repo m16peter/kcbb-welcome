@@ -1,0 +1,84 @@
+{
+    "data": [
+        {
+            "type": "event",
+            "title": "Întâlnirea de dimineață",
+            "desc": "",
+            "desc-more": "",
+            "event": {
+                "interval": "10:00 - 12:00",
+                "week-day": 0,
+                "except-dates": [
+                    {
+                        "dd": 1,
+                        "mm": 0,
+                        "yyyy": 2017
+                    }
+                ]
+            },
+            "hide": false
+        },
+        {
+            "type": "event",
+            "title": "Întâlnirea de rugaciune",
+            "desc": "",
+            "desc-more": "",
+            "event": {
+                "interval": "19:00 - 20:00",
+                "week-day": 5,
+                "except-dates": []
+            },
+            "hide": false
+        },
+        {
+            "type": "event",
+            "title": "Întâlnirea de rugăciune",
+            "desc": "",
+            "desc-more": "",
+            "event": {
+                "interval": "18:00 - 19:00",
+                "week-day": 0,
+                "except-dates": []
+            },
+            "hide": false
+        },
+        {
+            "type": "event-once",
+            "title": "Botez în apă",
+            "desc": "23.07.2017.",
+            "desc-more": "Botezul se va desfășura în Sacalasău Nou (Bajaš)",
+            "event": {
+                "interval": "12:00 - 12:30",
+                "week-day": 0,
+                "dates": [
+                    {
+                        "dd": 23,
+                        "mm": 6,
+                        "yyyy": 2017
+                    }
+                ]
+            },
+            "hide": false
+        },
+        {
+            "type": "announcements",
+            "content": [
+                {
+                    "title": "Copiii",
+                    "desc": "<h3></h3>",
+                    "hide": false
+                },
+                {
+                    "title": "Tineret",
+                    "desc": "<h3></h3>",
+                    "hide": false
+                },
+                {
+                    "title": "Tabăra",
+                    "desc": "<h3>Tabăra se va desfășura în perioada <span class='strong'>27-30 Iulie 2017</span>, în Sacalasău Nou (Bajaš). Pentru mai multe informații contactați-ne pe <a class='link' href='https://www.facebook.com/' target='_blank'>pagina de facebook</a>.</h3>",
+                    "hide": true
+                }
+            ]
+        }
+    ]
+}

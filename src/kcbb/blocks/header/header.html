@@ -1,0 +1,32 @@
+<div class="click-catcher" *ngIf="menuIsActive()" (click)="closeMenu()"></div>
+
+<div class="navigation" [ngClass]="{'fixed': page['fixed-header']}">
+    <div class="navigation_container" *ngIf="!navigation.loading" [ngClass]="{'small': isSmall()}">
+
+        <div class="menu" (click)="toggleMenu()">
+            <img src="{{ img('menu.svg') }}" />
+        </div>
+
+        <div class="links" [ngClass]="{'hide': !navigation.isVisible}">
+            <div *ngFor="let link of navigation.links; let i = index">
+
+                <kcbb-link *ngIf="link.type !== 'dropdown'"
+                           [link]="link"
+                           [ngClass]="{'active': page['active-index'] === i}"
+                           (click)="navigateTo(link, i)">
+                </kcbb-link>
+
+                <kcbb-dropdown *ngIf="link.type === 'dropdown'"
+                               [dropdown]="link.dropdown"
+                               [ngClass]="{'active': page['active-index'] === i}"
+                               (click)="scrollToNavigation(i)"
+                               (selected)="navigateToSelected(link)">
+                </kcbb-dropdown>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="space"></div>

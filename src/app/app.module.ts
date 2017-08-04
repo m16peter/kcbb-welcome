@@ -5,12 +5,18 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MainComponent } from '../kcbb/main.component';
+
+// components
 import { AppRoutingModule, routedComponents } from './app.routing';
+import { EventComponent } from '../kcbb/content/dashboard/events/event.component';
+import { AnnouncementComponent } from '../kcbb/content/dashboard/announcement/announcement.component';
 
 // blocks
 import { SliderComponent } from '../kcbb/blocks/slider/slider.component';
-import { NavigationComponent } from '../kcbb/blocks/navigation/navigation.component';
+import { HeaderComponent } from '../kcbb/blocks/header/header.component';
 import { FooterComponent } from '../kcbb/blocks/footer/footer.component';
+
+// services
 import { HttpService } from '../kcbb/services/http.service';
 
 // modules
@@ -23,12 +29,14 @@ import { LinkComponent } from '../kcbb/modules/link/link.component';
         AppComponent,
         MainComponent,
         SliderComponent,
-        NavigationComponent,
+        HeaderComponent,
         FooterComponent,
         PopupComponent,
         DropdownComponent,
         LinkComponent,
-        routedComponents
+        routedComponents,
+        EventComponent,
+        AnnouncementComponent
     ],
     imports: [
         BrowserModule,

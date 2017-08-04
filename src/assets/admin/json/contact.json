@@ -1,22 +1,25 @@
 {
     "data": {
-        "img": "assets/admin/img/map.jpg",
-        "contact": [
+        "google-maps": {
+            "image": "assets/admin/img/map.jpg",
+            "redirect": "https://www.google.ro/maps"
+        },
+        "list": [
             {
-                "title": ["Apoštolská cirkev na Slovensku,", " zbor Banská Bystrica"],
+                "title": ["Biserica Penticostală Budoi"],
                 "info": {
                     "name": "",
                     "mail": "",
-                    "phone": "+421 907 801 691",
-                    "location": "Okružná 2"
+                    "phone": "",
+                    "location": "Budoi 270, Bihor"
                 }
             },
             {
                 "title": ["Pastor"],
                 "info": {
-                    "name": "René Holon Mondzo",
-                    "mail": "renemondzo@gmail.com",
-                    "phone": "",
+                    "name": "Ioan Lakatos",
+                    "mail": "lakatos_janko@yahoo.ro",
+                    "phone": "+40 740 837 386",
                     "location": ""
                 }
             }

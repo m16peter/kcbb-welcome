@@ -1,0 +1,49 @@
+.announcement {
+    display: flex;
+    margin: auto;
+
+    > div {
+        display: flex;
+        width: 275px;
+        height: 275px;
+        background: #fff;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+        margin: auto;
+        cursor: pointer;
+        transition: box-shadow 500ms ease;
+
+        &:hover {
+            -webkit-box-shadow: 0 0 20px 5px rgba(0,0,0, 0.2);
+            -moz-box-shadow: 0 0 20px 5px rgba(0,0,0, 0.2);
+            box-shadow: 0 0 20px 5px rgba(0,0,0, 0.2);
+        }
+        h1 {
+            margin: auto;
+        }
+    }
+}
+
+@media all and (max-width: 1023px) {
+    .announcement {
+        > div {
+            width: 250px;
+            height: 250px;
+            h1 {
+                font-size: 24px;
+            }
+        }
+    }
+}
+
+@media all and (max-width: 599px) {
+    .announcement {
+        > div {
+            width: 200px;
+            height: 200px;
+            h1 {
+                font-size: 18px;
+            }
+        }
+    }
+}

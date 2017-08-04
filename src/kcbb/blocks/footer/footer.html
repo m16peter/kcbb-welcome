@@ -1,35 +1,36 @@
 <div class="footer">
-    <div *ngIf="!loading">
+    <div *ngIf="!footer.loading">
 
-        <div class="map">
-            <a href="https://goo.gl/maps/KFS3vVa9t3R2" target="_blank">
-                <img src="{{ image }}" />
+        <div class="image" *ngIf="notEmpty(footer.contact['map']['image'])">
+            <a href="{{ footer.contact['map']['redirect'] }}" target="_blank">
+                <img src="{{ footer.contact['map']['image'] }}" />
             </a>
         </div>
 
-        <!-- Kontakt -->
         <div class="contact">
 
-            <div *ngFor="let item of contact">
+            <div *ngFor="let item of footer.contact['list']">
+
                 <div class="contact__title">
                     <div *ngFor="let row of item['title']">{{ row }}</div>
                 </div>
+
                 <div class="contact__info">
-                    <div class="layout-row" *ngIf="isSet(item['info'].name)">
+                    <div class="layout-row" *ngIf="notEmpty(item['info'].name)">
                         <img src="{{ img('name.svg') }}" />
-                        <div>{{ item['info'].name }}</div>
+                        <span>{{ item['info']['name'] }}</span>
                     </div>
-                    <div class="layout-row" *ngIf="isSet(item['info'].mail)">
+                    <div class="layout-row" *ngIf="notEmpty(item['info'].mail)">
                         <img src="{{ img('mail.svg') }}" />
-                        <div>{{ item['info'].mail }}</div>
+                        <span>{{ item['info']['mail'] }}</span>
                     </div>
-                    <div class="layout-row" *ngIf="isSet(item['info'].phone)">
+                    <div class="layout-row" *ngIf="notEmpty(item['info'].phone)">
                         <img src="{{ img('phone.svg') }}" />
-                        <div>{{ item['info'].phone }}</div>
+                        <span>{{ item['info']['phone'] }}</span>
                     </div>
-                    <div class="layout-row" *ngIf="isSet(item['info'].location)">
+                    <div class="layout-row" *ngIf="notEmpty(item['info'].location)">
                         <img src="{{ img('location.svg') }}" />
-                        <div>{{ item['info'].location }}</div>
+                        <span>{{ item['info']['location'] }}</span>
                     </div>
                 </div>
             </div>
